@@ -1,0 +1,10 @@
+--- infinipath-psm-3.3-19_g67c0807_open/ipath/ipath_proto.c.orig	2016-03-16 17:16:47.000000000 +0000
++++ infinipath-psm-3.3-19_g67c0807_open/ipath/ipath_proto.c	2019-01-15 12:26:15.842619452 +0000
+@@ -38,6 +38,7 @@
+ 
+ #include <sys/poll.h>
+ #include <sys/types.h>
++#include <sys/sysmacros.h>
+ #include <sys/stat.h>
+ #include <stdint.h>
+ #include <stdlib.h>
