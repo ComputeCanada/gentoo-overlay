@@ -2840,6 +2840,10 @@ EOF
 		exit 1
 	fi
 
+	cd ${EPREFIX}/etc/portage
+	rm make.conf
+	wget https://raw.githubusercontent.com/ComputeCanada/gentoo-overlay/master/make.conf
+
 	local cmd="emerge -e system"
 	if [[ -e ${EPREFIX}/var/cache/edb/mtimedb ]] && \
 		grep -q resume_backup "${EPREFIX}"/var/cache/edb/mtimedb ;
