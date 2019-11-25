@@ -194,7 +194,7 @@ fox_src_install() {
 
 	# slot fox-config
 	if [[ -f ${D}/${EPREFIX}/usr/bin/fox-config ]] ; then
-		mv "${D}/$EPREFIX}/usr/bin/fox-config" "${D}/${EPREFIX}/usr/bin/fox-${FOXVER}-config" \
+		mv "${D}/${EPREFIX}/usr/bin/fox-config" "${D}/${EPREFIX}/usr/bin/fox-${FOXVER}-config" \
 		|| die "failed to install fox-config"
 	fi
 }
