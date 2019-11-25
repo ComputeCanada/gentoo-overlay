@@ -185,7 +185,7 @@ fox_src_install() {
 	done
 
 	# remove documentation if USE=-doc
-	use doc || rm -fr "${D}/usr/share/doc/${PF}/html"
+	use doc || rm -fr "${D}/${EPREFIX}/usr/share/doc/${PF}/html"
 
 	# install class reference docs if USE=doc
 	if use doc && [[ -z ${FOX_COMPONENT} ]] ; then
@@ -193,8 +193,8 @@ fox_src_install() {
 	fi
 
 	# slot fox-config
-	if [[ -f ${D}/usr/bin/fox-config ]] ; then
-		mv "${D}/usr/bin/fox-config" "${D}/usr/bin/fox-${FOXVER}-config" \
+	if [[ -f ${D}/${EPREFIX}/usr/bin/fox-config ]] ; then
+		mv "${D}/$EPREFIX}/usr/bin/fox-config" "${D}/${EPREFIX}/usr/bin/fox-${FOXVER}-config" \
 		|| die "failed to install fox-config"
 	fi
 }
