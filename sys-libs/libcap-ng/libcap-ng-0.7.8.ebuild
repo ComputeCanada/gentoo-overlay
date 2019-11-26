@@ -29,7 +29,7 @@ RESTRICT="test"
 src_prepare() {
 	sed -i -e 's:AM_CONFIG_HEADER:AC_CONFIG_HEADERS:' configure.ac || die
 	sed -i -e "s:/usr/include/linux:${EPREFIX}/usr/include/linux:" bindings/python/Makefile.am || die
-	sed -i -e "s:/usr/include/linux:${EPREFIX}/usr/include/linux:" bindings/python/Makefile.am || die
+	sed -i -e "s:/usr/include/linux:${EPREFIX}/usr/include/linux:" bindings/python3/Makefile.am || die
 
 	autotools-utils_src_prepare
 
