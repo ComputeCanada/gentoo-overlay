@@ -92,7 +92,7 @@ src_install() {
 	# https://bugzilla.gnome.org/show_bug.cgi?id=370847
 	# is fixed.
 	if ! use pam ; then
-		fperms u+s "${EPREFIX}/usr/libexec/mate-screensaver-dialog"
+		fperms u+s /usr/libexec/mate-screensaver-dialog
 	fi
 
 	readme.gentoo_create_doc
