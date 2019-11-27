@@ -79,12 +79,8 @@ src_configure() {
 	mate_src_configure "${myconf[@]}"
 }
 
-src_compile() {
-	emake DBUS_SESSION_SERVICE_DIR=$(pkg-config --variable session_bus_services_dir dbus-1)
-}
-
 src_install() {
-	mate_src_install
+	mate_src_install DBUS_SESSION_SERVICE_DIR=$(pkg-config --variable session_bus_services_dir dbus-1)
 
 	# Install the conversion script in the documentation.
 	dodoc "${S}"/data/migrate-xscreensaver-config.sh
