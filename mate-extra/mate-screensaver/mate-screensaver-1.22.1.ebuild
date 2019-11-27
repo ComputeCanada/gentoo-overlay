@@ -80,7 +80,7 @@ src_configure() {
 }
 
 src_install() {
-	mate_src_install DBUS_SESSION_SERVICE_DIR=$(pkg-config --variable session_bus_services_dir dbus-1)
+	MAKEOPTS="${MAKEOPTS} DBUS_SESSION_SERVICE_DIR=$(pkg-config --variable session_bus_services_dir dbus-1)" mate_src_install
 
 	# Install the conversion script in the documentation.
 	dodoc "${S}"/data/migrate-xscreensaver-config.sh
