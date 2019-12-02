@@ -35,8 +35,8 @@ src_prepare() {
 src_configure() {
 	# use santitized headers and not headers from /usr/src
 	econf \
-		--prefix="{$EPREFIX}"/ \
-		--libdir="{$EPREFIX}"/usr/$(get_libdir) \
+		--prefix="${EPREFIX}"/ \
+		--libdir="${EPREFIX}"/usr/$(get_libdir) \
 		--includedir="${EPREFIX}"/usr/include \
 		--with-linux-headers="$(get_headers)"
 }
