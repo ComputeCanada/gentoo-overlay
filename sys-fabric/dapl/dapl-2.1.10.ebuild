@@ -10,7 +10,7 @@ SLOT="0"
 KEYWORDS="amd64 ~x86 ~amd64-linux"
 IUSE=""
 
-DEPEND="sys-fabric/rdma-core
+DEPEND="sys-cluster/rdma-core
 	sys-fabric/libscif"
 RDEPEND="${DEPEND}
 		!sys-fabric/openib-userspace"
