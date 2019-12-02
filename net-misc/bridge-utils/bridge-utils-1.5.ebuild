@@ -45,5 +45,5 @@ src_install () {
 	emake install DESTDIR="${D}"
 	dodoc AUTHORS ChangeLog README THANKS TODO \
 		doc/{FAQ,FIREWALL,HOWTO,PROJECTS,RPM-GPG-KEY,SMPNOTES,WISHLIST}
-	[ -f "${D}"/sbin/brctl ] || die "upstream makefile failed to install binary"
+	[ -f "${D}""${EPREFIX}"/sbin/brctl ] || die "upstream makefile failed to install binary"
 }
