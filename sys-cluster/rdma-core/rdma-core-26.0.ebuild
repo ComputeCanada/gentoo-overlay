@@ -61,10 +61,10 @@ pkg_setup() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_SYSCONFDIR=/etc
+		-DCMAKE_INSTALL_SYSCONFDIR="${EPREFIX}"/etc
 		-DCMAKE_INSTALL_FULL_RUNDIR=/run
 		-DCMAKE_INSTALL_SHAREDSTATEDIR=/var/lib
-		-DCMAKE_INSTALL_UDEV_RULESDIR="$(get_udevdir)"/rules.d
+		-DCMAKE_INSTALL_UDEV_RULESDIR="${EPREFIX}"/"$(get_udevdir)"/rules.d
 		-DCMAKE_INSTALL_SYSTEMD_SERVICEDIR="$(systemd_get_systemunitdir)"
 		-DCMAKE_DISABLE_FIND_PACKAGE_pandoc=yes
 		$(ver_test -ge 25 && echo -DCMAKE_DISABLE_FIND_PACKAGE_rst2man=yes)
