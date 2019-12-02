@@ -86,8 +86,8 @@ src_configure() {
 src_install() {
 	cmake-utils_src_install
 
-	udev_dorules "${D}"/etc/udev/rules.d/70-persistent-ipoib.rules
-	rm -r "${D}"/etc/{udev,init.d} || die
+	udev_dorules "${D}"/"${EPREFIX}"/etc/udev/rules.d/70-persistent-ipoib.rules
+	rm -r "${D}"/"${EPREFIX}"/etc/{udev,init.d} || die
 
 	newinitd "${FILESDIR}"/ibacm.init ibacm
 	newinitd "${FILESDIR}"/iwpmd.init iwpmd
