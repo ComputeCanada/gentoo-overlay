@@ -44,7 +44,7 @@ multilib_src_compile() {
 }
 
 multilib_src_install() {
-	emake DESTDIR="${ED}" \
+	emake DESTDIR="${D}" \
 		LIBDIR="${EPREFIX}\$(PREFIX)/$(get_libdir)" \
 		SHLIBDIR="${EPREFIX}/$(get_libdir)" \
 		install
