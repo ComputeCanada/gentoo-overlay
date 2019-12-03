@@ -39,13 +39,15 @@ src_prepare() {
 multilib_src_compile() {
 	tc-export CC AR RANLIB
 	emake \
-		LIBDIR="${EPREFIX}\$(PREFIX)/$(get_libdir)" \
+		PREFIX="${EPREFIX}/usr" \
+		LIBDIR="\$(PREFIX)/$(get_libdir)" \
 		SHLIBDIR="${EPREFIX}/$(get_libdir)"
 }
 
 multilib_src_install() {
 	emake DESTDIR="${D}" \
-		LIBDIR="${EPREFIX}\$(PREFIX)/$(get_libdir)" \
+		PREFIX="${EPREFIX}/usr" \
+		LIBDIR="\$(PREFIX)/$(get_libdir)" \
 		SHLIBDIR="${EPREFIX}/$(get_libdir)" \
 		install
 }
