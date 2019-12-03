@@ -22,6 +22,7 @@ src_install() {
 	keepdir /etc/eselect/wine
 
 	insinto /usr/share/eselect/modules
+	sed -i "s@CONFIG_DIR=\"\(.*\)\"@CONFIG_DIR=\"${EPREFIX}\1\"@" "${DISTDIR}"/wine.eselect-${PV}
 	newins "${DISTDIR}"/wine.eselect-${PV} wine.eselect
 }
 
