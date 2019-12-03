@@ -19,7 +19,7 @@ RDEPEND="app-admin/eselect
 S=${WORKDIR}
 
 src_install() {
-	keepdir "${EPREFIX}"/etc/eselect/wine
+	keepdir /etc/eselect/wine
 
 	insinto /usr/share/eselect/modules
 	newins "${DISTDIR}"/wine.eselect-${PV} wine.eselect
