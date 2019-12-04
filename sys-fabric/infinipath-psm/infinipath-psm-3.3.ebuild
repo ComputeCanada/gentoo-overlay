@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="amd64 ~x86 ~amd64-linux"
 IUSE=""
 
-RDEPEND="sys-fabric/rdma-core:${SLOT}"
+RDEPEND="sys-cluster/rdma-core:${SLOT}"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
