@@ -43,8 +43,8 @@ src_install() {
 	emake DESTDIR="${D}" install || die
 
 	# 450830
-	if [ -d "${D}"/var/run ]; then
-		rm -rf "${D}"/var/run || die
+	if [ -d "${ED}"/var/run ]; then
+		rm -rf "${ED}"/var/run || die
 	fi
 
 	dodir /etc/munge || die
