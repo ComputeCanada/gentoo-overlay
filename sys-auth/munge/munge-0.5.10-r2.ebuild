@@ -36,7 +36,7 @@ src_configure() {
 	fi
 
 	econf ${conf} \
-		--localstatedir=/var
+		--localstatedir="${EPREFIX}/var"
 }
 
 src_install() {
