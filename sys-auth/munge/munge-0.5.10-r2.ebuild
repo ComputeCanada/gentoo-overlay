@@ -30,13 +30,13 @@ src_configure() {
 	local conf=""
 
 	if use gcrypt; then
-		conf="${conf} --with-crypto-lib=libgcrypt"
+		conf="${conf} --with-crypto-lib=libgcrypt --with-libgcrypt-prefix=\"${EPREFIX}/usr\""
 	else
-		conf="${conf} --with-crypto-lib=openssl"
+		conf="${conf} --with-crypto-lib=openssl --with-openssl-prefix=\"${EPREFIX}/usr\""
 	fi
 
 	econf ${conf} \
-		--with-openssl-prefix="{$EPREFIX}/usr" --localstatedir=/var
+		--localstatedir=/var
 }
 
 src_install() {
