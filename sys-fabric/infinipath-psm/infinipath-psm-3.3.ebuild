@@ -6,7 +6,7 @@ EAPI=6
 inherit udev
 
 DESCRIPTION="OpenIB userspace driver for the PathScale InfiniBand HCAs"
-SRC_URI="https://www.openfabrics.org/downloads/infinipath-psm/${P}-19_g67c0807_open.tar.gz"
+SRC_URI="https://www.openfabrics.org/downloads/${PN}-psm/${P}-19_g67c0807_open.tar.gz"
 
 SLOT="0"
 KEYWORDS="amd64 ~x86 ~amd64-linux"
@@ -16,10 +16,7 @@ RDEPEND="sys-fabric/rdma-core:${SLOT}"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-src_unpack() {
-	default
-	mv "${S}"* "${S}"
-}
+S="${WORKDIR}/${P}-19_g67c0807_open"
 
 PATCHES=(
 	"${FILESDIR}/${P}-sysmacros-minor.patch"
@@ -36,7 +33,7 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}/${EPREFIX}" install
+	emake DESTDIR="${ED}" install
 	dodoc README
 	udev_dorules "${FILESDIR}"/42-infinipath-psm.rules
 }
