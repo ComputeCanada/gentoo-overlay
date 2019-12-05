@@ -54,4 +54,5 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" -C contribs/pmi install
 	emake DESTDIR="${D}" -C contribs/pmi2 install
+	find "${D}" -name '*.la' -delete || die
 }
