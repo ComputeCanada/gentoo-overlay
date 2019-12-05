@@ -168,16 +168,16 @@ pkg_preinst() {
 			"${ED}/${PBS_SERVER_HOME}/server_priv/nodes" || die
 	fi
 
-	echo "${PBS_SERVER_NAME}" > "${ED}${PBS_SERVER_HOME}/server_name" || die
+	#echo "${PBS_SERVER_NAME}" > "${ED}${PBS_SERVER_HOME}/server_name" || die
 
 	# Fix up the env.d file to use our set server home.
-	sed \
-		-e "s:/var/spool/${PN}:${PBS_SERVER_HOME}:g" \
-		-i "${ED}"/etc/env.d/25${PN} || die
+	#sed \
+	#	-e "s:/var/spool/${PN}:${PBS_SERVER_HOME}:g" \
+	#	-i "${ED}"/etc/env.d/25${PN} || die
 
-	if use munge; then
-		sed -i 's,\(PBS_USE_MUNGE=\).*,\11,' "${ED}"/etc/conf.d/${PN} || die
-	fi
+	#if use munge; then
+	#	sed -i 's,\(PBS_USE_MUNGE=\).*,\11,' "${ED}"/etc/conf.d/${PN} || die
+	#fi
 }
 
 pkg_postinst() {
