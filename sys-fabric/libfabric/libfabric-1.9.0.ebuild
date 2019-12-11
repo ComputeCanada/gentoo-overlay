@@ -17,9 +17,8 @@ RDEPEND="${DEPEND}
 	sys-fabric/rdma-core
 	sys-fabric/infinipath-psm
 	sys-fabric/opa-psm2
-	sys-cluster/ucx
 	dev-libs/libnl"
 
 src_configure() {
-	econf --enable-psm=dl --enable-psm2=dl --enable-mlx=dl --enable-verbs=dl --with-libnl="${EPREFIX}/usr"
+	econf --enable-psm=dl --enable-psm2=dl --enable-verbs=dl --with-libnl="${EPREFIX}/usr"
 }
