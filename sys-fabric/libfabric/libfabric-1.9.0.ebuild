@@ -14,7 +14,7 @@ IUSE=""
 
 DEPEND="virtual/pkgconfig"
 RDEPEND="${DEPEND}
-	sys-fabric/rdma-core
+	sys-cluster/rdma-core
 	sys-fabric/infinipath-psm
 	sys-fabric/opa-psm2
 	dev-libs/libnl"
