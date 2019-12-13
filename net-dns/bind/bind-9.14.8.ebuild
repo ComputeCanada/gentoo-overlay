@@ -131,7 +131,7 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
-		--sysconfdir=/etc/bind
+		--sysconfdir="${EPREFIX}"/etc/bind
 		--localstatedir=/var
 		--with-libtool
 		--enable-full-report
