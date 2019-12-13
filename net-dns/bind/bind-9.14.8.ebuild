@@ -265,18 +265,18 @@ src_install() {
 }
 
 pkg_postinst() {
-	if [ ! -f '/etc/bind/rndc.key' ]; then
+	if [ ! -f "${EPREFIX}/etc/bind/rndc.key" ]; then
 		if use urandom; then
 			einfo "Using /dev/urandom for generating rndc.key"
-			/usr/sbin/rndc-confgen -r /dev/urandom -a
+			"${EPREFIX}/usr/sbin/rndc-confgen" -r /dev/urandom -a
 			echo
 		else
 			einfo "Using /dev/random for generating rndc.key"
-			/usr/sbin/rndc-confgen -a
+			"${EPREFIX}/usr/sbin/rndc-confgen" -a
 			echo
 		fi
-		chown root:named /etc/bind/rndc.key || die
-		chmod 0640 /etc/bind/rndc.key || die
+		chown root:named "${EPREFIX}/etc/bind/rndc.key" || die
+		chmod 0640 "${EPREFIX}/etc/bind/rndc.key" || die
 	fi
 
 	einfo
@@ -294,7 +294,7 @@ pkg_postinst() {
 	einfo "2) Run \`emerge --config '=${CATEGORY}/${PF}'\`"
 	einfo
 
-	CHROOT=$(source /etc/conf.d/named 2>/dev/null; echo ${CHROOT})
+	CHROOT=$(source "${EPREFIX}/etc/conf.d/named" 2>/dev/null; echo ${CHROOT})
 	if [[ -n ${CHROOT} ]]; then
 		elog "NOTE: As of net-dns/bind-9.4.3_p5-r1 the chroot part of the init-script got some major changes!"
 		elog "To enable the old behaviour (without using mount) uncomment the"
