@@ -88,8 +88,8 @@ src_install() {
 	systemd_dounit "${FILESDIR}/vgl.service"
 
 	# Rename glxinfo to vglxinfo to avoid conflict with x11-apps/mesa-progs
-	mv "${D}"/usr/bin/{,v}glxinfo || die
+	mv "${ED}"/usr/bin/{,v}glxinfo || die
 
 	# Remove license files, bug 536284
-	rm "${D}"/usr/share/doc/${PF}/{LGPL.txt*,LICENSE*} || die
+	rm "${ED}"/usr/share/doc/${PF}/{LGPL.txt*,LICENSE*} || die
 }
