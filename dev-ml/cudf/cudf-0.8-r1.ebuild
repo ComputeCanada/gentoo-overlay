@@ -61,6 +61,6 @@ src_test() {
 }
 
 src_install() {
-	emake DESTDIR="${ED}" OCAMLLIBDIR="/usr/$(get_libdir)" install
+	emake DESTDIR="${ED}" OCAMLLIBDIR="/usr/$(get_libdir)/ocaml" install
 	dodoc BUGS ChangeLog README TODO
 }
