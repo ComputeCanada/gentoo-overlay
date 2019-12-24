@@ -118,7 +118,7 @@ src_compile() {
 }
 
 src_install() {
-	default
+	emake lustreincludedir="${EPREFIX}/usr/include/linux/lustre" DESTDIR="${D}" install
 	rm -r "${ED}"/{usr/bin,usr/sbin,etc} "${ED}"/usr/share/man/man[158]
 	rm -r "${D}"/{etc,usr,sbin}
 	#newinitd "${FILESDIR}/lnet.initd" lnet
