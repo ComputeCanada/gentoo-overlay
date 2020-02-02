@@ -48,6 +48,7 @@ if [ -z "$EASYBUILD_CONFIGFILES" ]; then
   EASYBUILD_CONFIGFILES=/cvmfs/soft.computecanada.ca/easybuild/config.cfg
 fi
 
+expandResponseParams "$@"
 extra=($RSNT_LDFLAGS)
 extraBefore=($RSNT_LDFLAGS_BEFORE)
 
