@@ -139,7 +139,7 @@ switch_profile() {
 	done
 	for x in ld* ; do
 		# CC CVMFS custom rpath wrapper for ld*, see comments in ld-wrapper.sh	    
-		atomic_ln "${EROOT}/usr/bin/ld-wrapper.sh" "${ROOT}/${BINPATH_LINKS}" "${x}"
+		atomic_ln "${EROOT}usr/bin/ld-wrapper.sh" "${ROOT}/${BINPATH_LINKS}" "${x}"
 	done
 	#
 	# Generate library / ldscripts symlinks
