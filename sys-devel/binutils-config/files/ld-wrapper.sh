@@ -38,15 +38,16 @@ EPREFIX="@GENTOO_PORTAGE_EPREFIX@"
 if [[ ${EPREFIX} == "@"GENTOO_PORTAGE_EPREFIX"@" ]] ; then
 	EPREFIX=""
 fi
+if [ -z "$EASYBUILD_CONFIGFILES" ]; then
+  EASYBUILD_CONFIGFILES=/cvmfs/soft.computecanada.ca/easybuild/config.cfg
+fi
+
+path_backup="$PATH"
 PATH="${EPREFIX}/usr/bin:${EPREFIX}/bin"
 MACHINE=$(gcc -dumpmachine)
 source "${EPREFIX}"/etc/env.d/binutils/config-$MACHINE
 source "${EPREFIX}"/etc/env.d/binutils/$MACHINE-$CURRENT
 LD="${EPREFIX}"/usr/${TARGET}/binutils-bin/${VER}/${0/*ld/ld}
-
-if [ -z "$EASYBUILD_CONFIGFILES" ]; then
-  EASYBUILD_CONFIGFILES=/cvmfs/soft.computecanada.ca/easybuild/config.cfg
-fi
 
 expandResponseParams "$@"
 extra=($RSNT_LDFLAGS)
