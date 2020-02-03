@@ -183,6 +183,10 @@ if [ "$RSNT_DONT_SET_RPATH" != 1 ]; then
     for i in $rpath; do
         extra+=(-rpath $i)
     done
+    # use RPATH, not RUNPATH
+    if [ -n "$rpath" ]; then
+	extra+=(--disable-new-dtags)
+    fi
 fi
 
 # Optionally print debug info.
