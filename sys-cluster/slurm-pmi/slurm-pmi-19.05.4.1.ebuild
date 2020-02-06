@@ -47,14 +47,14 @@ src_configure() {
 
 src_compile() {
 	default
-	emake LIB_SLURM="../../src/api/.libs/libslurm.a" -C contribs/pmi
+	#emake LIB_SLURM="../../src/api/.libs/libslurm.a" -C contribs/pmi
 	emake -C contribs/pmi2
 }
 
 src_install() {
-	emake DESTDIR="${D}" -C contribs/pmi install
-	insinto /usr/include/slurm
-	doins slurm/pmi.h
+	#emake DESTDIR="${D}" -C contribs/pmi install
+	#insinto /usr/include/slurm
+	#doins slurm/pmi.h
 	emake DESTDIR="${D}" -C contribs/pmi2 install
 	find "${D}" -name '*.la' -delete || die
 }
