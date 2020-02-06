@@ -152,6 +152,7 @@ src_install() {
 	#newenvd "${FILESDIR}"/${PN}-env.d 25${PN}
 
 	sed -i "s@#! /bin/sh@#!${EPREFIX}/bin/sh@" "${ED}/usr/bin/pbs-config"
+	sed -i 's/hardcode_libdir_flag=".*/hardcode_libdir_flag=""/' "${ED}/usr/bin/pbs-config"
 	rm -rf "${ED}"/usr/share # no manual pages needed
 	rm -rf "${ED}"/usr/lib64/*.la
 
