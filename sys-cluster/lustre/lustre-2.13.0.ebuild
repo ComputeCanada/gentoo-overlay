@@ -123,4 +123,5 @@ src_install() {
 	rm -r "${D}"/{etc,usr,sbin}
 	#newinitd "${FILESDIR}/lnet.initd" lnet
 	#newinitd "${FILESDIR}/lustre-client.initd" lustre-client
+	find "${D}" -name '*.la' -delete || die
 }
