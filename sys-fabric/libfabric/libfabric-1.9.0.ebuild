@@ -22,3 +22,9 @@ RDEPEND="${DEPEND}
 src_configure() {
 	econf --enable-psm=dl --enable-psm2=dl --enable-verbs=dl --with-libnl="${EPREFIX}/usr"
 }
+
+src_install() {
+	default
+	find "${D}" -name '*.la' -delete || die
+}
+
