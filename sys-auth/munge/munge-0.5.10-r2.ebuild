@@ -55,6 +55,8 @@ src_install() {
 
 	newconfd "${FILESDIR}"/${PN}d.confd ${PN}d || die
 	newinitd "${FILESDIR}"/${PN}d.initd ${PN}d || die
+
+	find "${D}" -name '*.la' -delete || die
 }
 
 src_test() {
