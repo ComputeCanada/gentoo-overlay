@@ -41,3 +41,8 @@ src_configure() {
 src_compile() {
 	BASE_CFLAGS="" emake
 }
+
+src_install() {
+	default
+	find "${D}" -name '*.la' -delete || die
+}
