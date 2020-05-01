@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright 2006-2018 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 2006-2019 Gentoo Authors; Distributed under the GPL v2
 
 trap 'exit 1' TERM KILL INT QUIT ABRT
 
@@ -375,6 +375,7 @@ bootstrap_setup() {
 			echo 'CXXFLAGS="${CFLAGS}"'
 			echo "MAKEOPTS=\"${MAKEOPTS}\""
 			echo "CONFIG_SHELL=\"${ROOT}/bin/bash\""
+			echo "DISTDIR=\"${DISTDIR:-${ROOT}/var/cache/distfiles}\""
 			if is-rap ; then
 				echo "# sandbox does not work well on Prefix, bug 490246"
 				echo 'FEATURES="${FEATURES} -usersandbox -sandbox"'
@@ -431,6 +432,11 @@ bootstrap_setup() {
 		i*86-apple-darwin1[012345678])
 			rev=${CHOST##*darwin}
 			profile="prefix/darwin/macos/10.$((rev - 4))/x86"
+			;;
+		x86_64-apple-darwin19)
+			# handle newer releases on the last profile we have headers
+			# and stuff for (https://opensource.apple.com/)
+			profile="prefix/darwin/macos/10.14/x64"
 			;;
 		x86_64-apple-darwin9|x86_64-apple-darwin1[012345678])
 			rev=${CHOST##*darwin}
@@ -932,9 +938,9 @@ bootstrap_gnu() {
 	einfo "${PN}-${PV} successfully bootstrapped"
 }
 
-PYTHONMAJMIN=3.6   # keep this number in line with PV below for stage1,2
+PYTHONMAJMIN=3.7   # keep this number in line with PV below for stage1,2
 bootstrap_python() {
-	PV=3.6.8
+	PV=3.7.7
 	A=Python-${PV}.tar.xz
 	patch=true
 
@@ -1202,7 +1208,9 @@ bootstrap_sed() {
 }
 
 bootstrap_findutils() {
-	bootstrap_gnu findutils 4.5.10 || bootstrap_gnu findutils 4.2.33
+	bootstrap_gnu findutils 4.7.0 ||
+	bootstrap_gnu findutils 4.5.10 ||
+	bootstrap_gnu findutils 4.2.33
 }
 
 bootstrap_wget() {
@@ -1549,10 +1557,22 @@ do_emerge_pkgs() {
 			-pcre
 			-ssl
 			-python
+			-qmanifest -qtegrity
 			bootstrap
 			clang
 			internal-glib
 		)
+		if [[ " ${USE} " == *" prefix-stack "* ]] &&
+		   [[ ${PORTAGE_OVERRIDE_EPREFIX} == */tmp ]] &&
+		   ! grep -q '^USE=".*" # by bootstrap-prefix.sh$' "${PORTAGE_OVERRIDE_EPREFIX}/etc/portage/make.conf"
+		then
+			# With prefix-stack, the USE env var does apply to the stacked
+			# prefix only, not the base prefix (any more? since some portage
+			# version?), so we have to persist the base USE flags into the
+			# base prefix - without the additional incoming USE flags.
+			echo "USE=\"\${USE} ${myuse[*]}\" # by bootstrap-prefix.sh" \
+				>> "${PORTAGE_OVERRIDE_EPREFIX}/etc/portage/make.conf"
+		fi
 		myuse=" ${myuse[*]} "
 		local use
 		for use in ${USE} ; do
@@ -1715,7 +1735,7 @@ bootstrap_stage2() {
 	for pkg in ${compiler_stage1} ; do
 		# <glibc-2.5 does not understand .gnu.hash, use
 		# --hash-style=both to produce also sysv hash.
-		EXTRA_ECONF="--with-sysroot=$NIXUSER_PROFILE --with-native-system-header-dir=/include --disable-bootstrap $(rapx --with-linker-hash-style=both)" \
+		EXTRA_ECONF="--with-sysroot=$NIXUSER_PROFILE --with-native-system-header-dir=/include --disable-bootstrap $(rapx --with-linker-hash-style=both) --with-local-prefix=${ROOT}" \
 		MYCMAKEARGS="-DCMAKE_USE_SYSTEM_LIBRARY_LIBUV=OFF" \
 		GCC_MAKE_TARGET=all \
 		TPREFIX="${ROOT}" \
@@ -1857,6 +1877,24 @@ bootstrap_stage3() {
 				> "${ROOT}"/usr/bin/perl
 			chmod +x "${ROOT}"/usr/bin/perl
 		fi
+
+		# Need rsync to for linux-headers installation
+		if [[ ! -x "${ROOT}"/usr/bin/rsync ]]; then
+			cat > "${ROOT}"/usr/bin/rsync <<-EOF
+		#!${ROOT}/bin/bash
+		while (( \$# > 0 )); do
+		case \$1 in
+		-*) shift; continue ;;
+		*) break ;;
+		esac
+		done
+		dst="\$2"/\$(basename \$1)
+		mkdir -p "\${dst}"
+		cp -rv \$1/* "\${dst}"/
+		EOF
+			chmod +x "${ROOT}"/usr/bin/rsync
+		fi
+
 		# Tell dynamic loader the path of libgcc_s.so of stage2
 		if [[ ! -f "${ROOT}"/etc/ld.so.conf.d/stage2.conf ]]; then
 			mkdir -p "${ROOT}"/etc/ld.so.conf.d
@@ -1876,6 +1914,8 @@ bootstrap_stage3() {
 		with_stack_emerge_pkgs --nodeps "${pkgs[@]}" || return 1
 		grep -q 'apiversion=9999' "${ROOT}"/usr/bin/perl && \
 			rm "${ROOT}"/usr/bin/perl
+		grep -q 'esac' "${ROOT}"/usr/bin/rsync && \
+			rm "${ROOT}"/usr/bin/rsync
 
 		pkgs=(
 			sys-devel/binutils-config
@@ -1886,6 +1926,15 @@ bootstrap_stage3() {
 		RAP_DLINKER=$(echo "${ROOT}"/$(get_libdir)/ld*.so.[0-9])
 		export LDFLAGS="-L${ROOT}/usr/$(get_libdir) -Wl,--dynamic-linker=${RAP_DLINKER}"
 		BOOTSTRAP_RAP=yes \
+		with_stack_emerge_pkgs --nodeps "${pkgs[@]}" || return 1
+
+		# avoid circular deps with sys-libs/pam, bug#712020
+		pkgs=(
+				sys-apps/attr
+				sys-libs/libcap
+		)
+		BOOTSTRAP_RAP=yes \
+		USE="${USE} -pam" \
 		with_stack_emerge_pkgs --nodeps "${pkgs[@]}" || return 1
 
 		# create symlinks to system nssswitch.conf, libraries, and regenerate locales
@@ -2050,8 +2099,8 @@ EOF
 		emerge --sync || emerge-webrsync || return 1
 	fi
 
-	# avoid installing git just for fun while completing @system
-	export USE="-git"
+	# avoid installing git or encryption just for fun while completing @system
+	export USE="-git -crypt"
 
 	# Portage should figure out itself what it needs to do, if anything.
 	# Avoid glib compiling for Cocoa libs if it finds them, since we're
@@ -2067,7 +2116,7 @@ EOF
 
 	# "wipe" mtimedb such that the resume list is proper after this stage
 	# (--depclean may fail, which is ok)
-	sed -i -e 's/resume_backup/cleared/' "${EPREFIX}"/var/cache/edb/mtimedb
+	sed -i -e 's/resume/cleared/' "${ROOT}"/var/cache/edb/mtimedb
 
 	einfo "stage3 successfully finished"
 }
@@ -2685,10 +2734,20 @@ EOF
 			EPREFIX=
 			continue
 		fi
+		if [[ $(stat -c '%U/%G' "${EPREFIX}"/.canihaswrite) != \
+			$(stat -c '%U/%G' "${EPREFIX}") ]] ;
+		then
+			echo
+			echo "The $EPREFIX directory has different ownership than expected."
+			echo "Ensure the directory is owned (user and group) by your"
+			echo "primary ids"
+			EPREFIX=
+			continue
+		fi
 		# don't really expect this one to fail
 		rm -f "${EPREFIX}"/.canihaswrite || exit 1
 		# location seems ok
-		break;
+		break
 	done
 	export STAGE1_PATH=${PATH}
 	export PATH="$EPREFIX/usr/bin:$EPREFIX/bin:$EPREFIX/tmp/usr/bin:$EPREFIX/tmp/bin:$EPREFIX/tmp/usr/local/bin:${PATH}"
@@ -2846,7 +2905,7 @@ EOF
 
 	local cmd="emerge -e system"
 	if [[ -e ${EPREFIX}/var/cache/edb/mtimedb ]] && \
-		grep -q resume_backup "${EPREFIX}"/var/cache/edb/mtimedb ;
+		grep -q resume "${EPREFIX}"/var/cache/edb/mtimedb ;
 	then
 		cmd="emerge --resume"
 	fi
