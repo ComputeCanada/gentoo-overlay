@@ -1735,7 +1735,7 @@ bootstrap_stage2() {
 	for pkg in ${compiler_stage1} ; do
 		# <glibc-2.5 does not understand .gnu.hash, use
 		# --hash-style=both to produce also sysv hash.
-		EXTRA_ECONF="--with-sysroot=$NIXUSER_PROFILE --with-native-system-header-dir=/include --disable-bootstrap $(rapx --with-linker-hash-style=both) --with-local-prefix=${ROOT}" \
+		EXTRA_ECONF="--with-sysroot=/cvmfs/soft.computecanada.ca/nix/var/nix/profiles/glibc-2.24 --with-native-system-header-dir=/include --disable-bootstrap $(rapx --with-linker-hash-style=both) --with-local-prefix=${ROOT}" \
 		MYCMAKEARGS="-DCMAKE_USE_SYSTEM_LIBRARY_LIBUV=OFF" \
 		GCC_MAKE_TARGET=all \
 		TPREFIX="${ROOT}" \
