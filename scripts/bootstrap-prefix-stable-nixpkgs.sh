@@ -1925,7 +1925,7 @@ bootstrap_stage3() {
 		# use the new dynamic linker in place of rpath from now on.
 		RAP_DLINKER=$(echo "${ROOT}"/$(get_libdir)/ld*.so.[0-9])
 		export LDFLAGS="-L${ROOT}/usr/$(get_libdir) -Wl,--dynamic-linker=${RAP_DLINKER}"
-		BOOTSTRAP_RAP=yes \
+		CC="gcc -isysroot ${ROOT}/usr" CXX="g++ -isysroot ${ROOT}/usr" BOOTSTRAP_RAP=yes \
 		with_stack_emerge_pkgs --nodeps "${pkgs[@]}" || return 1
 
 		# avoid circular deps with sys-libs/pam, bug#712020
@@ -2004,6 +2004,7 @@ EOF
 	EXTRA_ECONF="--disable-compiler-version-checks $(rapx --disable-lto)" \
 	MYCMAKEARGS="-DCMAKE_USE_SYSTEM_LIBRARY_LIBUV=OFF" \
 	PYTHON_COMPAT_OVERRIDE=python${PYTHONMAJMIN} \
+	CC="gcc -isysroot ${ROOT}/usr" CXX="g++ -isysroot ${ROOT}/usr" \
 	with_stack_emerge_pkgs --nodeps ${compiler} || return 1
 	# undo libgcc_s.so path of stage2
 
