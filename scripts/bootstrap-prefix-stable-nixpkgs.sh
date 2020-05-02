@@ -2035,14 +2035,14 @@ EOF
 	# now we have a shell right there
 	unset CONFIG_SHELL
 
-	# Build portage and dependencies.
+	# Build portage and dependencies (force stable gawk to avoid issues)
 	pkgs=(
 		sys-apps/coreutils
 		sys-apps/findutils
 		app-arch/gzip
 		app-arch/tar
 		sys-apps/grep
-		sys-apps/gawk
+		=sys-apps/gawk-4.2.1-r1
 		sys-devel/make
 		sys-apps/file
 		app-admin/eselect
