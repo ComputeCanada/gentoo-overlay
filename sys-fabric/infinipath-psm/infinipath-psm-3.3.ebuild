@@ -6,7 +6,7 @@ EAPI=6
 inherit udev
 
 DESCRIPTION="OpenIB userspace driver for the PathScale InfiniBand HCAs"
-SRC_URI="https://www.openfabrics.org/downloads/${PN}-psm/${P}-19_g67c0807_open.tar.gz"
+SRC_URI="https://www.openfabrics.org/downloads/${PN}/${P}-19_g67c0807_open.tar.gz"
 
 SLOT="0"
 KEYWORDS="amd64 ~x86 ~amd64-linux"
