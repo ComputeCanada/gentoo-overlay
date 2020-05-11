@@ -95,6 +95,11 @@ if [ "$RSNT_DONT_SET_RPATH" != 1 ]; then
 	    fi
             return 0
         fi
+        # exclude gcccore files at runtime, use Gentoo libstdc++ instead
+        GCCCORE_ROOT=$EASYBUILD_DIR/software/$(basename $EPREFIX)/Core/gcccore/
+        if [ "${1##$GCCCORE_ROOT}" != "$1" ]; then
+            return 0
+        fi
         # also exclude stub libraries like for CUDA
         if [ "${1%%/stubs}" != "$1" ]; then
             return 0
