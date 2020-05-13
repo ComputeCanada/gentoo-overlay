@@ -70,6 +70,7 @@ multilib_src_configure() {
 		$(use_enable static-libs static)
 		--enable-isadir='.' #464016
 		--includedir="${EPREFIX}"/usr/include/security
+		--disable-regenerate-docu
 		)
 	ECONF_SOURCE="${S}" econf ${myconf[@]}
 }
