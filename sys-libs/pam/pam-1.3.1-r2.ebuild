@@ -58,7 +58,7 @@ multilib_src_configure() {
 	local myconf=(
 		--with-db-uniquename=-$(db_findver sys-libs/db)
 		--enable-securedir="${EPREFIX}"/$(get_libdir)/security
-		--libdir=/usr/$(get_libdir)
+		--libdir="${EPREFIX}"/usr/$(get_libdir)
 		--disable-prelude
 		$(use_enable audit)
 		$(use_enable berkdb db)
