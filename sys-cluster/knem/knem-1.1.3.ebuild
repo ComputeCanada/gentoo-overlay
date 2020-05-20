@@ -22,10 +22,10 @@ IUSE="debug modules"
 
 DEPEND="
 		sys-apps/hwloc
-		virtual/linux-sources"
+		modules? ( virtual/linux-sources )"
 RDEPEND="
 		sys-apps/hwloc
-		virtual/modutils"
+		modules? ( virtual/modutils )"
 
 KERNEL_DIR="${EPREFIX}/${KERNEL_DIR}"
 MODULE_NAMES="knem(misc:${S}/driver/linux)"
