@@ -3,7 +3,8 @@
 
 EAPI=6
 
-inherit autotools linux-mod linux-info toolchain-funcs udev multilib
+inherit autotools
+#inherit autotools linux-mod linux-info toolchain-funcs udev multilib
 
 DESCRIPTION="High-Performance Intra-Node MPI Communication"
 HOMEPAGE="http://runtime.bordeaux.inria.fr/knem/"
@@ -20,12 +21,12 @@ LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 IUSE="debug modules"
 
-DEPEND="
-		sys-apps/hwloc
-		modules? ( virtual/linux-sources )"
-RDEPEND="
-		sys-apps/hwloc
-		modules? ( virtual/modutils )"
+#DEPEND="
+#		sys-apps/hwloc
+#		modules? ( virtual/linux-sources )"
+#RDEPEND="
+#		sys-apps/hwloc
+#		modules? ( virtual/modutils )"
 
 KERNEL_DIR="${EPREFIX}/${KERNEL_DIR}"
 MODULE_NAMES="knem(misc:${S}/driver/linux)"
