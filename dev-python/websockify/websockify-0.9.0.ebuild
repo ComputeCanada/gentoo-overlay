@@ -20,6 +20,7 @@ python_prepare() {
 	default
 	sed -i 's/install_requires/#install_requires/' setup.py
 	sed -i 's/    warnings.warn/    #warnings.warn/' websockify/websocket.py
+	sed -i "s@wsdir = @wsdir = \'${EPREFIX}/usr/bin\' #@" websockify/websocketproxy.py
 }
 
 python_compile() {
