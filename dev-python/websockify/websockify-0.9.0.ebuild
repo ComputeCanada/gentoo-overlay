@@ -29,6 +29,6 @@ python_compile() {
 
 python_install() {
 	distutils-r1_python_install
-	mkdir -p "${ED}"/lib/websockify
-	cp rebind.so "${ED}"/lib/websockify
+	mkdir -p "${ED}"/usr/lib/websockify
+	cp rebind.so "${ED}"/usr/lib/websockify
 }
