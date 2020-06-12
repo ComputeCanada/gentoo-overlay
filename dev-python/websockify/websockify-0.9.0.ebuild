@@ -15,3 +15,20 @@ SLOT="0"
 KEYWORDS="amd64 ~arm64 x86"
 
 DEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+
+python_prepare() {
+	default
+	sed -i 's/install_requires/#install_requires/' setup.py
+	sed -i 's/    warnings.warn/    #warnings.warn/' websockify/websocket.py
+}
+
+python_compile() {
+	distutils-r1_python_compile
+	emake rebind.so
+}
+
+python_install() {
+	distutils-r1_python_install
+	mkdir -p "${ED}"/lib/websockify
+	cp rebind.so "${ED}"/lib/websockify
+}
