@@ -1,0 +1,1259 @@
+# remove python 3.8
+dev-lang/python:3.8 -*
+# required by prefix-toolkit (argument)
+=app-portage/prefix-toolkit-9 ~amd64
+# need to avoid PYTHON_SINGLE_TARGET python2_7
+net-print/cups ~amd64
+# to work on older kernels
+dev-qt/qtcore ~amd64
+dev-qt/qtgui ~amd64
+dev-qt/qtwidgets ~amd64
+dev-qt/qttest ~amd64
+dev-qt/qtdbus ~amd64
+dev-qt/qtnetwork ~amd64
+dev-qt/qtxml ~amd64
+dev-qt/qtprintsupport ~amd64
+dev-qt/qtsvg ~amd64
+dev-qt/linguist-tools ~amd64
+# needed for Python 3.7
+x11-misc/mozo ~amd64
+# fix compilation issue with glib
+app-arch/engrampa ~amd64
+# required by dev-haskell/wai-3.2.1.1::gentoo
+# required by dev-haskell/wai-extra-3.0.18::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/vault-0.3.1.3 ~amd64
+# required by dev-haskell/uuid-1.3.12::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/random-1.1 ~amd64
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/blaze-markup-0.7.1.0 ~amd64
+# required by dev-haskell/aeson-1.0.2.1::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/semigroups-0.18.2 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[dbus]
+# required by git-annex (argument)
+=dev-haskell/fdo-notify-0.3.1 ~amd64
+# required by dev-haskell/concurrent-output-1.7.8::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[concurrentoutput]
+# required by git-annex (argument)
+=dev-haskell/async-2.1.1 ~amd64
+# required by dev-haskell/comonad-5.0.5::gentoo
+# required by dev-haskell/free-4.12.4::gentoo
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/cabal-doctest-1.0.8 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/uuid-1.3.12 ~amd64
+# required by dev-haskell/memory-0.15.0::gentoo
+# required by dev-haskell/cryptonite-0.26-r1::gentoo
+# required by dev-haskell/uuid-1.3.12::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/basement-0.0.11 ~amd64
+# required by dev-haskell/cipher-aes-0.2.11::gentoo
+# required by dev-haskell/cprng-aes-0.6.1::gentoo
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/securemem-0.1.10 ~amd64
+# required by dev-haskell/language-javascript-0.6.0.14::gentoo
+# required by dev-haskell/hjsmin-0.2.0.4::gentoo
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/happy-1.19.12 ~amd64
+# required by dev-haskell/uuid-1.3.12::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/network-info-0.2.0.10 ~amd64
+# required by dev-haskell/conduit-extra-1.1.15::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/streaming-commons-0.1.16 ~amd64
+# required by dev-haskell/haskeline-0.7.2.3::gentoo[terminfo]
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/terminfo-0.4.0.2 ~amd64
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/yesod-form-1.4.10 ~amd64
+# required by dev-haskell/wai-logger-2.2.7::gentoo
+# required by dev-haskell/wai-extra-3.0.18::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/byteorder-1.0.4 ~amd64
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/word8-0.1.3 ~amd64
+# required by dev-haskell/cryptonite-0.26-r1::gentoo
+# required by dev-haskell/uuid-1.3.12::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/memory-0.15.0 ~amd64
+# required by dev-haskell/profunctors-5.2::gentoo
+# required by dev-haskell/free-4.12.4::gentoo
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/bifunctors-5.4.1 ~amd64
+# required by dev-haskell/asn1-encoding-0.9.6::gentoo
+# required by dev-haskell/asn1-parse-0.9.4::gentoo
+# required by dev-haskell/x509-1.6.5::gentoo
+# required by dev-haskell/x509-system-1.6.4::gentoo
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/hourglass-0.2.12 ~amd64
+# required by dev-haskell/concurrent-output-1.7.8::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[concurrentoutput]
+# required by git-annex (argument)
+=dev-haskell/ansi-terminal-0.6.2.3 ~amd64
+# required by dev-haskell/persistent-2.6-r1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/resource-pool-0.2.3.2 ~amd64
+# required by dev-haskell/securemem-0.1.10::gentoo
+# required by dev-haskell/crypto-cipher-types-0.0.9::gentoo
+# required by dev-haskell/cipher-aes-0.2.11::gentoo
+# required by dev-haskell/cprng-aes-0.6.1::gentoo
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/byteable-0.1.1 ~amd64
+# required by dev-haskell/cipher-aes-0.2.11::gentoo
+# required by dev-haskell/cprng-aes-0.6.1::gentoo
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/crypto-cipher-types-0.0.9 ~amd64
+# required by dev-haskell/x509-1.6.5::gentoo
+# required by dev-haskell/x509-system-1.6.4::gentoo
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/pem-0.2.2 ~amd64
+# required by dev-haskell/sandi-0.4.0::gentoo[with-conduit]
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/conduit-1.2.12.1 ~amd64
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/x509-system-1.6.4 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/yesod-default-1.2.0 ~amd64
+# required by dev-haskell/uuid-1.3.12::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/uuid-types-1.0.3 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[concurrentoutput]
+# required by git-annex (argument)
+=dev-haskell/concurrent-output-1.7.8 ~amd64
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/wai-extra-3.0.18 ~amd64
+# required by dev-haskell/xml-hamlet-0.4.0.12::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/xml-conduit-1.3.4.2 ~amd64
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/old-locale-1.0.0.7 ~amd64
+# required by dev-haskell/persistent-sqlite-2.6::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/persistent-2.6-r1 ~amd64
+# required by dev-haskell/yesod-persistent-1.4.1.1::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/persistent-template-2.5.1.6-r2 ~amd64
+# required by dev-haskell/scientific-0.3.4.9::gentoo
+# required by dev-haskell/aeson-1.0.2.1::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/binary-0.8.3.0 ~amd64
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/distributive-0.5.2 ~amd64
+# required by dev-haskell/wai-extra-3.0.18::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/network-2.6.3.1-r1 ~amd64
+# required by dev-haskell/http-types-0.9.1::gentoo
+# required by dev-haskell/http-client-0.5.7.0::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/case-insensitive-1.2.1.0 ~amd64
+# required by dev-haskell/profunctors-5.2::gentoo
+# required by dev-haskell/free-4.12.4::gentoo
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/base-orphans-0.5.4 ~amd64
+# required by dev-haskell/free-4.12.4::gentoo
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/prelude-extras-0.4.0.3 ~amd64
+# required by dev-haskell/vector-0.11.0.0::gentoo
+# required by dev-haskell/aeson-1.0.2.1::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/primitive-0.6.1.0-r1 ~amd64
+# required by dev-haskell/aeson-compat-0.3.6::gentoo
+# required by dev-haskell/persistent-template-2.5.1.6-r2::gentoo
+# required by dev-haskell/yesod-persistent-1.4.1.1::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/nats-1 ~amd64
+# required by dev-haskell/tls-1.3.9::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/x509-validation-1.6.5 ~amd64
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/clientsession-0.9.1.2 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/split-0.2.3.3 ~amd64
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/http-types-0.9.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/optparse-applicative-0.14.2.0 ~amd64
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/xml-hamlet-0.4.0.12 ~amd64
+# required by dev-haskell/network-uri-2.6.1.0::gentoo
+# required by dev-haskell/http-client-0.5.7.0::gentoo[network-uri]
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/parsec-3.1.11 ~amd64
+# required by dev-haskell/tls-1.3.9::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/cereal-0.4.1.1 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/file-embed-0.0.11 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/path-pieces-0.2.1 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/css-text-0.1.3.0 ~amd64
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/adjunctions-4.3 ~amd64
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/cprng-aes-0.6.1 ~amd64
+# required by dev-lang/ghc-8.0.2::gentoo[-ghcbootstrap]
+# required by dev-haskell/aeson-1.0.2.1::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=app-admin/haskell-updater-1.3.2 ~amd64
+# required by dev-haskell/fast-logger-2.4.7::gentoo
+# required by dev-haskell/monad-logger-0.3.20.1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/easy-file-0.2.1 ~amd64
+# required by dev-haskell/wai-app-static-3.1.6.1::gentoo
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/mime-types-0.1.0.9 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/cryptohash-0.11.9 ~amd64
+# required by dev-haskell/data-default-0.5.3::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/data-default-instances-containers-0.0.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[assistant]
+# required by git-annex (argument)
+=dev-haskell/dns-2.0.6 ~amd64
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/connection-0.2.5 ~amd64
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/mwc-random-0.13.4.0 ~amd64
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/deepseq-generics-0.2.0.0 ~amd64
+# required by dev-haskell/enclosed-exceptions-1.0.3::gentoo
+# required by dev-haskell/yaml-0.8.21.2::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/lifted-base-0.2.3.12 ~amd64
+# required by dev-haskell/fast-logger-2.4.7::gentoo
+# required by dev-haskell/monad-logger-0.3.20.1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/unix-time-0.3.7 ~amd64
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/blaze-builder-0.4.0.2 ~amd64
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/data-default-0.5.3 ~amd64
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/socks-0.5.5 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/cryptohash-conduit-0.1.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/warp-tls-3.2.3 ~amd64
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/warp-3.2.11 ~amd64
+# required by dev-haskell/data-default-0.5.3::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/data-default-instances-base-0.0.1 ~amd64
+# required by dev-haskell/resourcet-1.1.9::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/transformers-base-0.4.4 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[pairing]
+# required by git-annex (argument)
+=dev-haskell/network-multicast-0.1.0 ~amd64
+# required by dev-haskell/uri-bytestring-0.2.2.1::gentoo
+# required by dev-haskell/http-api-data-0.3.3::gentoo
+# required by dev-haskell/persistent-2.6-r1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/attoparsec-0.13.2.3 ~amd64
+# required by dev-haskell/language-javascript-0.6.0.14::gentoo
+# required by dev-haskell/hjsmin-0.2.0.4::gentoo
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/alex-3.2.4 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/wai-app-static-3.1.6.1 ~amd64
+# required by dev-haskell/xss-sanitize-0.3.6::gentoo
+# required by dev-haskell/yesod-form-1.4.10::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-lang/ghc-8.0.2 ~amd64
+# required by dev-haskell/cprng-aes-0.6.1::gentoo
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/crypto-random-0.0.9 ~amd64
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/skein-1.0.9.4 ~amd64
+# required by dev-haskell/parsec-3.1.11::gentoo
+# required by dev-haskell/regex-tdfa-1.2.2::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/text-1.2.2.1 ~amd64
+# required by dev-haskell/yesod-form-1.4.10::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/xss-sanitize-0.3.6 ~amd64
+# required by dev-haskell/contravariant-1.4::gentoo
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/void-0.7.3 ~amd64
+# required by dev-haskell/torrent-10000.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[torrentparser]
+# required by git-annex (argument)
+=dev-haskell/syb-0.5.1 ~amd64
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/tls-1.3.9 ~amd64
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/wai-3.2.1.1 ~amd64
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/free-4.12.4 ~amd64
+# required by dev-haskell/quickcheck-2.9.2::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/tf-random-0.5 ~amd64
+# required by dev-haskell/persistent-template-2.5.1.6-r2::gentoo
+# required by dev-haskell/yesod-persistent-1.4.1.1::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/aeson-compat-0.3.6 ~amd64
+# required by dev-haskell/dns-2.0.6::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[assistant]
+# required by git-annex (argument)
+=dev-haskell/safe-0.3.17 ~amd64
+# required by dev-haskell/iproute-1.5.0::gentoo
+# required by dev-haskell/dns-2.0.6::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[assistant]
+# required by git-annex (argument)
+=dev-haskell/appar-0.1.8 ~amd64
+# required by dev-haskell/http-api-data-0.3.3::gentoo
+# required by dev-haskell/persistent-2.6-r1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/time-locale-compat-0.1.1.5 ~amd64
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/haskeline-0.7.2.3 ~amd64
+# required by dev-haskell/aeson-1.0.2.1::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/dlist-0.8.0.2 ~amd64
+# required by dev-haskell/dns-2.0.6::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[assistant]
+# required by git-annex (argument)
+=dev-haskell/iproute-1.5.0 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/yesod-static-1.5.1.1 ~amd64
+# required by dev-haskell/xss-sanitize-0.3.6::gentoo
+# required by dev-haskell/yesod-form-1.4.10::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/tagsoup-0.13.10 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/persistent-sqlite-2.6 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[magic]
+# required by git-annex (argument)
+=dev-haskell/magic-1.1 ~amd64
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/semigroupoids-5.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/shakespeare-2.0.21 ~amd64
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/data-default-class-0.0.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/regex-tdfa-1.2.2 ~amd64
+# required by dev-haskell/http2-1.6.2::gentoo
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/psqueues-0.2.2.3 ~amd64
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/http-client-0.5.7.0 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/old-time-1.1.0.3-r1 ~amd64
+# required by dev-haskell/language-javascript-0.6.0.14::gentoo
+# required by dev-haskell/hjsmin-0.2.0.4::gentoo
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/utf8-string-1.0.1.1 ~amd64
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/monad-logger-0.3.20.1 ~amd64
+# required by dev-haskell/dbus-0.10.13::gentoo
+# required by dev-haskell/fdo-notify-0.3.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[dbus]
+# required by git-annex (argument)
+=dev-haskell/libxml-sax-0.7.5 ~amd64
+# required by dev-haskell/profunctors-5.2::gentoo
+# required by dev-haskell/free-4.12.4::gentoo
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/comonad-5.0.5 ~amd64
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/kan-extensions-5.0.1 ~amd64
+# required by dev-haskell/wai-extra-3.0.18::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/wai-logger-2.2.7 ~amd64
+# required by dev-haskell/concurrent-output-1.7.8::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[concurrentoutput]
+# required by git-annex (argument)
+=dev-haskell/terminal-size-0.3.2.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/quickcheck-2.9.2 ~amd64
+# required by dev-haskell/wai-logger-2.2.7::gentoo
+# required by dev-haskell/wai-extra-3.0.18::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/fast-logger-2.4.7 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/dav-1.3.3 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[assistant]
+# required by git-annex (argument)
+=dev-haskell/mountpoints-1.0.2 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/yesod-core-1.4.31 ~amd64
+# required by dev-haskell/regex-tdfa-1.2.2::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/regex-base-0.93.2-r1 ~amd64
+# required by dev-haskell/data-default-0.5.3::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/data-default-instances-old-locale-0.0.1 ~amd64
+# required by dev-haskell/xss-sanitize-0.3.6::gentoo
+# required by dev-haskell/yesod-form-1.4.10::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/cabal-1.24.2.0 ~amd64
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/crypto-api-0.13.2 ~amd64
+# required by dev-haskell/persistent-2.6-r1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/silently-1.2.5.1 ~amd64
+# required by dev-haskell/persistent-sqlite-2.6::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/resourcet-1.1.9 ~amd64
+# required by dev-haskell/appar-0.1.8::gentoo
+# required by dev-haskell/iproute-1.5.0::gentoo
+# required by dev-haskell/dns-2.0.6::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[assistant]
+# required by git-annex (argument)
+=dev-haskell/fail-4.9.0.0 ~amd64
+# required by dev-haskell/wai-3.2.1.1::gentoo
+# required by dev-haskell/wai-extra-3.0.18::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/bytestring-builder-0.10.8.2.0 ~amd64
+# required by dev-haskell/conduit-1.2.12.1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/mmorph-1.0.9 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[assistant]
+# required by git-annex (argument)
+=dev-haskell/hinotify-0.3.8.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/sandi-0.4.0 ~amd64
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/contravariant-1.4 ~amd64
+# required by dev-haskell/free-4.12.4::gentoo
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/exceptions-0.8.3 ~amd64
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/yaml-0.8.21.2 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/http-conduit-2.2.3 ~amd64
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/cookie-0.4.4 ~amd64
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/reflection-2.1.4 ~amd64
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/mtl-2.2.1-r1 ~amd64
+# required by git-annex (argument)
+=dev-vcs/git-annex-6.20170818-r1 ~amd64
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/http-client-tls-0.3.3 ~amd64
+# required by dev-haskell/stm-chans-3.0.0.4::gentoo
+# required by dev-haskell/monad-logger-0.3.20.1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/stm-2.4.4.1 ~amd64
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/lens-4.14 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/feed-0.3.11.1 ~amd64
+# required by dev-haskell/pem-0.2.2::gentoo
+# required by dev-haskell/x509-system-1.6.4::gentoo
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/base64-bytestring-1.0.0.2 ~amd64
+# required by dev-haskell/libxml-sax-0.7.5::gentoo
+# required by dev-haskell/dbus-0.10.13::gentoo
+# required by dev-haskell/fdo-notify-0.3.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[dbus]
+# required by git-annex (argument)
+=dev-haskell/xml-types-0.3.6 ~amd64
+# required by dev-haskell/torrent-10000.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[torrentparser]
+# required by git-annex (argument)
+=dev-haskell/bencode-0.6.0.0 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[dbus]
+# required by git-annex (argument)
+=dev-haskell/dbus-0.10.13 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/edit-distance-0.2.2.1-r1 ~amd64
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/aeson-1.0.2.1 ~amd64
+# required by dev-haskell/x509-store-1.6.2::gentoo
+# required by dev-haskell/x509-system-1.6.4::gentoo
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/asn1-encoding-0.9.6 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[torrentparser]
+# required by git-annex (argument)
+=dev-haskell/torrent-10000.1.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/yesod-1.4.4 ~amd64
+# required by dev-haskell/yaml-0.8.21.2::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/enclosed-exceptions-1.0.3 ~amd64
+# required by dev-haskell/tls-1.3.9::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/x509-1.6.5 ~amd64
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/simple-sendfile-0.2.28 ~amd64
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/auto-update-0.1.6 ~amd64
+# required by dev-haskell/persistent-2.6-r1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/http-api-data-0.3.3 ~amd64
+# required by dev-haskell/asn1-encoding-0.9.6::gentoo
+# required by dev-haskell/asn1-parse-0.9.4::gentoo
+# required by dev-haskell/x509-1.6.5::gentoo
+# required by dev-haskell/x509-system-1.6.4::gentoo
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/asn1-types-0.3.3 ~amd64
+# required by dev-haskell/aeson-compat-0.3.6::gentoo
+# required by dev-haskell/persistent-template-2.5.1.6-r2::gentoo
+# required by dev-haskell/yesod-persistent-1.4.1.1::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/vector-0.11.0.0 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/unix-compat-0.4.3.1 ~amd64
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/profunctors-5.2 ~amd64
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/yesod-persistent-1.4.1.1 ~amd64
+# required by dev-haskell/vault-0.3.1.3::gentoo
+# required by dev-haskell/wai-3.2.1.1::gentoo
+# required by dev-haskell/wai-extra-3.0.18::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/unordered-containers-0.2.10.0 ~amd64
+# required by dev-haskell/wai-app-static-3.1.6.1::gentoo
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/zlib-0.6.2.1 ~amd64
+# required by dev-haskell/resourcet-1.1.9::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/monad-control-1.0.2.3 ~amd64
+# required by dev-haskell/cprng-aes-0.6.1::gentoo
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/cipher-aes-0.2.11 ~amd64
+# required by dev-haskell/optparse-applicative-0.14.2.0::gentoo
+# required by dev-haskell/hjsmin-0.2.0.4::gentoo
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/ansi-wl-pprint-0.6.8.2-r1 ~amd64
+# required by dev-haskell/x509-1.6.5::gentoo
+# required by dev-haskell/x509-system-1.6.4::gentoo
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/asn1-parse-0.9.4 ~amd64
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/http-date-0.0.8 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/esqueleto-2.4.3-r1 ~amd64
+# required by dev-haskell/monad-logger-0.3.20.1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/stm-chans-3.0.0.4 ~amd64
+# required by dev-haskell/aeson-compat-0.3.6::gentoo
+# required by dev-haskell/persistent-template-2.5.1.6-r2::gentoo
+# required by dev-haskell/yesod-persistent-1.4.1.1::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/tagged-0.8.6 ~amd64
+# required by dev-haskell/tls-1.3.9::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/cryptonite-0.26-r1 ~amd64
+# required by dev-haskell/monad-logger-0.3.20.1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/monad-loops-0.4.3 ~amd64
+# required by dev-haskell/persistent-2.6-r1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/blaze-html-0.8.1.2 ~amd64
+# required by dev-haskell/mmorph-1.0.9::gentoo
+# required by dev-haskell/resourcet-1.1.9::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/transformers-compat-0.5.1.4 ~amd64
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/conduit-extra-1.1.15 ~amd64
+# required by dev-haskell/aeson-1.0.2.1::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/base-compat-0.9.1 ~amd64
+# required by dev-haskell/contravariant-1.4::gentoo[statevar]
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/statevar-1.1.1.1 ~amd64
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/http2-1.6.2 ~amd64
+# required by dev-haskell/hjsmin-0.2.0.4::gentoo
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/language-javascript-0.6.0.14 ~amd64
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/entropy-0.3.7 ~amd64
+# required by dev-haskell/psqueues-0.2.2.3::gentoo
+# required by dev-haskell/http2-1.6.2::gentoo
+# required by dev-haskell/warp-3.2.11::gentoo
+# required by dev-haskell/warp-tls-3.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/hashable-1.2.7.0 ~amd64
+# required by dev-haskell/x509-system-1.6.4::gentoo
+# required by dev-haskell/connection-0.2.5::gentoo
+# required by dev-haskell/http-client-tls-0.3.3::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/x509-store-1.6.2 ~amd64
+# required by dev-haskell/yesod-static-1.5.1.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/hjsmin-0.2.0.4 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/ifelse-0.85-r1 ~amd64
+# required by dev-haskell/clientsession-0.9.1.2::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/setenv-0.1.1.3 ~amd64
+# required by dev-haskell/feed-0.3.11.1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/xml-1.3.14 ~amd64
+# required by dev-haskell/attoparsec-0.13.2.3::gentoo
+# required by dev-haskell/aeson-1.0.2.1::gentoo
+# required by dev-haskell/http-conduit-2.2.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/scientific-0.3.4.9 ~amd64
+# required by dev-haskell/http-api-data-0.3.3::gentoo
+# required by dev-haskell/persistent-2.6-r1::gentoo
+# required by dev-haskell/esqueleto-2.4.3-r1::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/uri-bytestring-0.2.2.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/disk-free-space-0.1.0.1 ~amd64
+# required by dev-haskell/yesod-form-1.4.10::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/email-validate-2.0.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/safesemaphore-0.10.1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/hslogger-1.2.10 ~amd64
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/parallel-3.2.1.0 ~amd64
+# required by dev-haskell/wai-extra-3.0.18::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/stringsearch-0.3.6.6-r1 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[network-uri]
+# required by git-annex (argument)
+=dev-haskell/network-uri-2.6.1.0 ~amd64
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo
+# required by git-annex (argument)
+=dev-haskell/bloomfilter-2.0.1.0 ~amd64
+# required by dev-haskell/profunctors-5.2::gentoo
+# required by dev-haskell/free-4.12.4::gentoo
+# required by dev-haskell/adjunctions-4.3::gentoo
+# required by dev-haskell/kan-extensions-5.0.1::gentoo
+# required by dev-haskell/lens-4.14::gentoo
+# required by dev-haskell/dav-1.3.3::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webdav]
+# required by git-annex (argument)
+=dev-haskell/transformers-0.5.2.0 ~amd64
+# required by dev-haskell/data-default-0.5.3::gentoo
+# required by dev-haskell/yesod-core-1.4.31::gentoo
+# required by dev-haskell/yesod-1.4.4::gentoo
+# required by dev-vcs/git-annex-6.20170818-r1::gentoo[webapp]
+# required by git-annex (argument)
+=dev-haskell/data-default-instances-dlist-0.0.1 ~amd64
+# required by sys-apps/proot (argument)
+=sys-apps/proot-5.1.0-r2 ~amd64
+# required by sys-devel/bmake (argument)
+=sys-devel/bmake-20181221 ~amd64
+# required by ksh (argument)
+=app-shells/ksh-2020.0.0-r1 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/http-4000.3.14 ~amd64
+# required by dev-haskell/hxt-9.3.1.18::gentoo
+# required by dev-haskell/skylighting-0.3::gentoo
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/hxt-regex-xmlschema-9.2.0.3 ~amd64
+# required by app-text/pandoc (argument)
+=app-text/pandoc-1.19.2.1-r1 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/pandoc-types-1.17.0.4 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/juicypixels-3.2.8 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/zip-archive-0.3.3 ~amd64
+# required by dev-haskell/zip-archive-0.3.3::gentoo
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/digest-0.0.1.2 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/skylighting-0.3 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/sha-1.6.4.4 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/extensible-exceptions-0.1.1.4 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/texmath-0.9.1 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/filemanip-0.3.6.3 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/doctemplates-0.1.0.2 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/cmark-0.5.6 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/haddock-library-1.4.2 ~amd64
+# required by dev-haskell/skylighting-0.3::gentoo
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/hxt-9.3.1.18 ~amd64
+# required by dev-haskell/hxt-9.3.1.18::gentoo
+# required by dev-haskell/skylighting-0.3::gentoo
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/hxt-unicode-9.0.2.4 ~amd64
+# required by dev-haskell/skylighting-0.3::gentoo
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/regex-pcre-0.94.4-r1 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/hslua-0.3.13 ~amd64
+# required by dev-haskell/hxt-regex-xmlschema-9.2.0.3::gentoo
+# required by dev-haskell/hxt-9.3.1.18::gentoo
+# required by dev-haskell/skylighting-0.3::gentoo
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/hxt-charproperties-9.2.0.1 ~amd64
+# required by app-text/pandoc-1.19.2.1-r1::gentoo
+# required by app-text/pandoc (argument)
+=dev-haskell/temporary-1.2.0.4 ~amd64
+# required by x11-misc/xfe (argument)
+=x11-misc/xfe-1.43.2 ~amd64
+# required by x11-misc/xfe-1.43.2::gentoo
+# required by x11-misc/xfe (argument)
+=x11-libs/fox-1.6.57-r1 ~amd64
+# required by dev-util/perf (argument)
+=dev-util/perf-5.6.4 ~amd64
+# required by dev-ml/dose3-5.0.1::gentoo
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/cudf-0.8-r1 ~amd64
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/dose3-5.0.1 ~amd64
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/cmdliner-1.0.2 ~amd64
+# required by dev-ml/dose3-5.0.1::gentoo[xml]
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/ocaml-expat-1.1.0 ~amd64
+# required by dev-ml/opam (argument)
+=dev-ml/opam-1.3.1-r1 ~amd64
+# required by dev-ml/dose3-5.0.1::gentoo[bzip2]
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/camlbz2-0.6.0 ~amd64
+# required by dev-ml/jsonm-1.0.1::gentoo
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/uutf-1.0.1 ~amd64
+# required by dev-ml/uutf-1.0.1::gentoo
+# required by dev-ml/jsonm-1.0.1::gentoo
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/uchar-0.0.2 ~amd64
+# required by dev-ml/uutf-1.0.1::gentoo
+# required by dev-ml/jsonm-1.0.1::gentoo
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/topkg-0.9.1 ~amd64
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/jsonm-1.0.1 ~amd64
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/ocaml-re-1.7.1 ~amd64
+# required by dev-ml/cmdliner-1.0.2::gentoo
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/result-1.2 ~amd64
+# required by dev-ml/uchar-0.0.2::gentoo
+# required by dev-ml/uutf-1.0.1::gentoo
+# required by dev-ml/jsonm-1.0.1::gentoo
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-lang/ocaml-4.05.0-r1 ~amd64
+# required by dev-ml/cudf-0.8-r1::computecanada
+# required by dev-ml/dose3-5.0.1::gentoo
+# required by dev-ml/opam-1.3.1-r1::gentoo
+# required by dev-ml/opam (argument)
+=dev-ml/camlp4-4.08_p1 ~amd64
+# required by dev-ruby/gist (argument)
+=dev-ruby/gist-5.1.0 ~amd64
+# required by dev-haskell/cabal-install-1.24.0.2::gentoo
+# required by dev-haskell/cabal-install (argument)
+=dev-haskell/tar-0.5.1.1 ~amd64
+# required by dev-haskell/cabal-install (argument)
+=dev-haskell/cabal-install-1.24.0.2 ~amd64
+# required by dev-haskell/hackage-security-0.5.2.2::gentoo
+# required by dev-haskell/cabal-install-1.24.0.2::gentoo
+# required by dev-haskell/cabal-install (argument)
+=dev-haskell/ed25519-0.0.5.0 ~amd64
+# required by dev-haskell/cabal-install-1.24.0.2::gentoo
+# required by dev-haskell/cabal-install (argument)
+=dev-haskell/cryptohash-sha256-0.11.100.1 ~amd64
+# required by dev-haskell/cabal-install-1.24.0.2::gentoo
+# required by dev-haskell/cabal-install (argument)
+=dev-haskell/hackage-security-0.5.2.2 ~amd64
+# required by dev-haskell/hackage-security-0.5.2.2::gentoo
+# required by dev-haskell/cabal-install-1.24.0.2::gentoo
+# required by dev-haskell/cabal-install (argument)
+=dev-haskell/base16-bytestring-0.1.1.6 ~amd64
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/html-1.0.1.2-r1 ~amd64
+# required by dev-haskell/graphviz-2999.18.1.2::gentoo
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/colour-2.3.5 ~amd64
+# required by dev-vcs/darcs (argument)
+=dev-vcs/darcs-2.12.5 ~amd64
+# required by dev-haskell/graphviz-2999.18.1.2::gentoo
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/wl-pprint-text-1.1.1.0 ~amd64
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/graphviz-2999.18.1.2 ~amd64
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/fgl-5.5.3.0 ~amd64
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/data-ordlist-0.4.7.0 ~amd64
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/regex-applicative-0.3.3 ~amd64
+# required by dev-haskell/graphviz-2999.18.1.2::gentoo
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/polyparse-1.11 ~amd64
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/mmap-0.5.9 ~amd64
+# required by dev-vcs/darcs-2.12.5::gentoo
+# required by dev-vcs/darcs (argument)
+=dev-haskell/regex-compat-tdfa-0.95.1.4 ~amd64
+# required by media-libs/openimageio-1.8.17-r2::gentoo[opengl,qt5]
+# required by media-libs/opencolorio-1.1.0-r4::gentoo[opengl]
+# required by media-libs/opencolorio (argument)
+=dev-qt/qtopengl-5.14.2 ~amd64
+=sys-cluster/torque-4.2.10-r1 ~amd64
+# required by sys-fabric/libscif-3.8.4::computecanada
+# required by sys-fabric/dapl-2.1.10::computecanada
+# required by =sys-fabric/dapl-2.1.10 (argument)
+=dev-util/gen-symver-map-3.8.4 ~amd64
+# required by sys-fabric/dapl-2.1.10::computecanada
+# required by =sys-fabric/dapl-2.1.10 (argument)
+=sys-fabric/libscif-3.8.4 ~amd64
+# required by sys-fabric/libscif-3.8.4::computecanada
+# required by sys-fabric/dapl-2.1.10::computecanada
+# required by =sys-fabric/dapl-2.1.10 (argument)
+=sys-libs/mpss-headers-3.8.4 ~amd64
+# required by x11-misc/xvfb-run (argument)
+=x11-misc/xvfb-run-1.20.8_p2 ~amd64
+# required by dev-lua/bit32 (argument)
+=dev-lua/bit32-5.3.0 ~amd64
+=app-portage/layman-2.4.3 ~amd64
+=dev-vcs/subversion-1.13.0-r1 ~amd64
+sys-cluster/knem ~amd64

@@ -1,0 +1,75 @@
+*/* PYTHON_TARGETS: -python3_6 -python3_8 python3_7
+*/* PYTHON_SINGLE_TARGET: -* python3_7
+app-text/texlive cjk context detex dvi2tty epspdf extra games humanities jadetex music tex4ht xetex
+app-text/texlive-core cjk xetex
+# required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
+# required by pfl (argument)
+>=sys-apps/util-linux-2.33.2 caps
+x11-base/xorg-server -elogind
+net-misc/tigervnc server
+# required by media-libs/assimp-4.0.1::gentoo
+# required by assimp (argument)
+>=sys-libs/zlib-1.2.11-r2 minizip
+# required by app-emulation/wine-vanilla-5.0::gentoo[sdl]
+# required by virtual/wine-0-r7::gentoo
+# required by wine (argument)
+>=media-libs/libsdl2-2.0.10-r1 haptic
+sys-auth/munge gcrypt
+media-libs/leptonica utils
+net-libs/gnutls crywrap dane tools
+dev-libs/nss utils
+dev-libs/libnl utils
+net-analyzer/nmap ncat ndiff nping
+net-dns/bind dlz
+net-libs/nghttp2 utils
+dev-db/mysql server
+dev-ml/lablgtk gnomecanvas
+# required by xpra (argument)
+x11-wm/xpra server
+sys-apps/util-linux fdformat
+# required by sys-libs/libunwind-1.2.1-r3::gentoo[lzma]
+# required by dev-util/google-perftools-2.6.2::gentoo
+# required by dev-util/google-perftools (argument)
+>=app-arch/xz-utils-5.2.4-r2 static-libs
+media-gfx/graphicsmagick -imagemagick
+dev-util/perf -python slang
+# Things that still require Python 2.7:
+dev-lang/yasm python_single_target_python2_7
+dev-util/gtk-builder-convert python_single_target_python2_7
+net-analyzer/nmap python_single_target_python2_7
+net-analyzer/rrdtool python_single_target_python2_7
+app-editors/pluma python_single_target_python2_7
+sys-process/audit -python
+
+sys-apps/coreutils selinux
+sys-apps/net-tools selinux
+sys-process/lsof selinux
+sys-apps/sed selinux
+sys-apps/findutils selinux
+app-arch/tar selinux
+sys-process/psmisc selinux
+sys-apps/util-linux selinux
+app-editors/vim selinux
+sys-fs/eudev selinux
+dev-libs/glib selinux
+x11-libs/libxcb selinux
+dev-util/systemtap selinux
+app-editors/gvim selinux
+media-libs/mesa selinux
+sys-libs/pam selinux
+sys-auth/elogind selinux
+sys-process/procps selinux
+net-misc/openssh selinux
+sys-auth/pambase selinux
+app-editors/emacs selinux
+
+app-emulation/wine-vanilla -realtime -udisks
+mate-base/mate -extras
+mate-base/mate-applets -cpupower
+app-editors/emacs mailutils
+# disables use of privileged utempter
+x11-terms/xterm -utempter
+net-misc/mosh -utempter
+# disables caps for gnome-keyring (impossible on cvmfs)
+mate-base/mate-session-manager -gnome-keyring
+sys-auth/elogind -policykit
