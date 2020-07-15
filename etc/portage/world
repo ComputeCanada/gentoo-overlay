@@ -2,7 +2,6 @@ acct-group/locate
 app-arch/engrampa
 app-arch/p7zip
 app-arch/sharutils
-app-arch/snappy
 app-arch/zip
 app-backup/dar
 app-crypt/mit-krb5
@@ -44,9 +43,6 @@ dev-cpp/glog
 dev-cpp/gtkmm
 dev-cpp/libxmlpp
 dev-db/libiodbc
-dev-db/lmdb
-dev-db/mysql
-dev-db/postgresql
 dev-haskell/cabal-install
 dev-lang/nasm
 dev-libs/cyrus-sasl
@@ -98,10 +94,8 @@ media-gfx/feh
 media-gfx/graphicsmagick
 media-gfx/graphviz
 media-gfx/transfig
-media-libs/assimp
 media-libs/leptonica
 media-libs/netpbm
-media-libs/opencolorio
 media-libs/portmidi
 media-libs/sdl-image
 media-libs/sdl-mixer
@@ -117,15 +111,11 @@ net-ftp/lftp
 net-libs/nghttp2
 net-libs/zeromq
 net-misc/bridge-utils
-net-misc/mosh
 net-misc/netkit-fingerd
 net-misc/telnet-bsd
 net-misc/tigervnc
-sci-libs/cfitsio
 sci-libs/flann
-sci-libs/proj
 sci-libs/szip
-sci-visualization/gnuplot
 sys-apps/dstat
 sys-apps/hwloc
 sys-apps/lsb-release
