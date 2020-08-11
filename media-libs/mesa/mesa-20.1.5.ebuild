@@ -521,6 +521,12 @@ multilib_src_compile() {
 
 multilib_src_install() {
 	meson_src_install
+	if use libglvnd; then
+		# symlink indirect to mesa GLX, similar to Debian, see
+		# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=881789
+		# This helps in certain X forwarding situations (e.g. XQuartz)
+		ln -s libGLX_mesa.so.0 "${ED}"/usr/lib64/libGLX_indirect.so.0
+	fi
 }
 
 multilib_src_install_all() {
@@ -536,11 +542,6 @@ pkg_postinst() {
 		# Switch to the xorg implementation.
 		echo
 		eselect opengl set --use-old ${OPENGL_DIR}
-	else
-		# symlink indirect to mesa GLX, similar to Debian, see
-		# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=881789
-		# This helps in certain X forwarding situations (e.g. XQuartz)
-		ln -s libGLX_mesa.so.0 "${ED}"/usr/lib64/libGLX_indirect.so.0
 	fi
 }
 
