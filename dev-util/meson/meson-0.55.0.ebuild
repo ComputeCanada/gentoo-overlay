@@ -57,6 +57,8 @@ python_prepare_all() {
 	rm -r "test cases/frameworks/1 boost" || die
 
 	distutils-r1_python_prepare_all
+
+	eapply "${FILESDIR}/${P}-intel-library-path.patch"
 }
 
 src_test() {
