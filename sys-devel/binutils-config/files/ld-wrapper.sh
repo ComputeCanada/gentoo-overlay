@@ -47,7 +47,7 @@ PATH="${EPREFIX}/usr/bin:${EPREFIX}/bin"
 MACHINE=$(gcc -dumpmachine)
 source "${EPREFIX}"/etc/env.d/binutils/config-$MACHINE
 source "${EPREFIX}"/etc/env.d/binutils/$MACHINE-$CURRENT
-LD="${EPREFIX}"/usr/${TARGET}/binutils-bin/${VER}/${0/*ld/ld}
+LD="${EPREFIX}"/usr/${TARGET}/binutils-bin/${VER}/ld${0#*ld}
 
 expandResponseParams "$@"
 extra=($RSNT_LDFLAGS)
