@@ -153,6 +153,7 @@ src_install() {
 
 	sed -i "s@#! /bin/sh@#!${EPREFIX}/bin/sh@" "${ED}/usr/bin/pbs-config"
 	sed -i "s@/usr/include@${EPREFIX}/usr/include@g" "${ED}/usr/bin/pbs-config"
+	sed -i 's@^\(sys_lib_dlsearch_path=.*\)"@\1 ${EPREFIX}/usr/lib64"@' "${ED}/usr/bin/pbs-config"
 	sed -i 's/hardcode_libdir_flag=".*/hardcode_libdir_flag=""/' "${ED}/usr/bin/pbs-config"
 	rm -rf "${ED}"/usr/share # no manual pages needed
 	rm -rf "${ED}"/usr/lib64/*.la
