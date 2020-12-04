@@ -115,7 +115,7 @@ multilib_src_configure() {
 		--with-nscd
 		--with-unicode-lib="glib2"
 		--disable-rpath
-		--sbindir=/usr/sbin
+		--sbindir="${EPREFIX}"/usr/sbin
 		--without-kcm
 		$(use_with samba libwbclient)
 		--with-secrets
