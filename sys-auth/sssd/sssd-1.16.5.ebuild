@@ -84,9 +84,6 @@ src_prepare() {
 	sed -i 's:#!/sbin/runscript:#!/sbin/openrc-run:' \
 		"${S}"/src/sysv/gentoo/sssd.in || die "sed sssd.in"
 
-	eapply "${FILESDIR}"/${PN}-curl-macros.patch
-	eapply "${FILESDIR}"/${PN}-fix-CVE-2019-3811.patch
-
 	default
 	eautoreconf
 	multilib_copy_sources
@@ -106,7 +103,7 @@ multilib_src_configure() {
 	append-ldflags "-Wl,--allow-shlib-undefined"
 
 	myconf+=(
-		--localstatedir="${EPREFIX}"/var
+		--localstatedir=/var
 		--enable-nsslibdir="${EPREFIX}"/$(get_libdir)
 		--with-plugin-path="${EPREFIX}"/usr/$(get_libdir)/sssd
 		--enable-pammoddir="${EPREFIX}"/$(getpam_mod_dir)
@@ -208,15 +205,7 @@ multilib_src_install_all() {
 	newconfd "${FILESDIR}"/sssd.conf sssd
 	newinitd "${FILESDIR}"/sssd sssd
 
-	keepdir /var/lib/sss/db
-	keepdir /var/lib/sss/deskprofile
-	keepdir /var/lib/sss/gpo_cache
-	keepdir /var/lib/sss/keytabs
-	keepdir /var/lib/sss/mc
-	keepdir /var/lib/sss/pipes/private
-	keepdir /var/lib/sss/pubconf/krb5.include.d
-	keepdir /var/lib/sss/secrets
-	keepdir /var/log/sssd
+	rm -rf "${D}"/var
 
 	systemd_dounit "${FILESDIR}/${PN}.service"
 }
