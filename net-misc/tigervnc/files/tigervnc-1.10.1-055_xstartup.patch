@@ -2,7 +2,7 @@ diff --git a/unix/vncserver b/unix/vncserver
 index 9e7a6ac5..fff53bdb 100755
 --- a/unix/vncserver
 +++ b/unix/vncserver
-@@ -63,27 +63,7 @@ $defaultXStartup
+@@ -63,27 +63,10 @@ $defaultXStartup
      = ("#!/bin/sh\n\n".
         "unset SESSION_MANAGER\n".
         "unset DBUS_SESSION_BUS_ADDRESS\n".
@@ -23,11 +23,11 @@ index 9e7a6ac5..fff53bdb 100755
 -       "if [ -f /etc/X11/xinit/xinitrc ]; then\n".
 -       "  exec sh /etc/X11/xinit/xinitrc\n".
 -       "fi\n".
--       "[ -r \$HOME/.Xresources ] && xrdb \$HOME/.Xresources\n".
--       "xsetroot -solid grey\n".
--       "xterm -geometry 80x24+10+10 -ls -title \"\$VNCDESKTOP Desktop\" &\n".
+        "[ -r \$HOME/.Xresources ] && xrdb \$HOME/.Xresources\n".
+        "xsetroot -solid grey\n".
+        "xterm -geometry 80x24+10+10 -ls -title \"\$VNCDESKTOP Desktop\" &\n".
 -       "twm &\n");
-+       "exec /etc/X11/xinit/xinitrc\n");
++       "mate-session &\n");
  
  $defaultConfig
      = ("## Supported server options to pass to vncserver upon invocation can be listed\n".
