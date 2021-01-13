@@ -15,7 +15,7 @@
  	])
  fi
  
-+AC_SEARCH_LIBS([tputs], [tinfo],, [
++AC_SEARCH_LIBS([tputs], [tinfow],, [
 +	AC_MSG_ERROR([No library was found providing tputs])
 +])
  
