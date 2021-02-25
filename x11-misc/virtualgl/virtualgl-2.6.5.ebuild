@@ -82,9 +82,9 @@ src_install() {
 	cmake-multilib_src_install
 
 	# Make config dir
-	dodir /var/lib/VirtualGL
-	fowners root:video /var/lib/VirtualGL
-	fperms 0750 /var/lib/VirtualGL
+	#dodir /var/lib/VirtualGL
+	#fowners root:video /var/lib/VirtualGL
+	#fperms 0750 /var/lib/VirtualGL
 	newinitd "${FILESDIR}/vgl.initd-r3" vgl
 	newconfd "${FILESDIR}/vgl.confd-r2" vgl
 
@@ -97,4 +97,7 @@ src_install() {
 
 	# Remove license files, bug 536284
 	rm "${ED}"/usr/share/doc/${PF}/{LGPL.txt*,LICENSE*} || die
+
+	# fallback to system paths for faker libs (/usr/lib64/nvidia)
+	rm "${ED}"/usr/bin/.vglrun.vars64 || die
 }
