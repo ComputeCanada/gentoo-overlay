@@ -46,6 +46,10 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+PATCHES=(
+	"${FILESDIR}"/find-host-vgl-libraries.patch
+)
+
 src_prepare() {
 	# Use /var/lib, bug #428122
 	sed -e "s#/etc/opt#/var/lib#g" -i doc/unixconfig.txt doc/index.html doc/advancedopengl.txt \
@@ -62,6 +66,7 @@ src_configure() {
 	abi_configure() {
 		local mycmakeargs=(
 			-DVGL_USESSL="$(usex ssl)"
+			-DVGL_FAKEOPENCL=OFF
 			-DCMAKE_INSTALL_DOCDIR="${EPREFIX}/usr/share/doc/${PF}"
 			-DTJPEG_INCLUDE_DIR="${EPREFIX}/usr/include"
 			-DCMAKE_INSTALL_LIBDIR="${EPREFIX}/usr/$(get_libdir)/VirtualGL"
