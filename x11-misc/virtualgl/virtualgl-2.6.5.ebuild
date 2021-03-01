@@ -98,6 +98,8 @@ src_install() {
 	# Remove license files, bug 536284
 	rm "${ED}"/usr/share/doc/${PF}/{LGPL.txt*,LICENSE*} || die
 
-	# fallback to system paths for faker libs (/usr/lib64/nvidia)
+	# don't use LD_LIBRARY_PATH for faker libs
 	rm "${ED}"/usr/bin/.vglrun.vars64 || die
+	echo "LDPATH=${EPREFIX}/usr/$(get_libdir)/VirtualGL" > 99virtualgl || die
+	doenvd 99virtualgl
 }
