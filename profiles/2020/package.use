@@ -66,10 +66,28 @@ app-editors/emacs selinux
 app-emulation/wine-vanilla -realtime -udisks
 mate-base/mate -extras
 mate-base/mate-applets -cpupower
-app-editors/emacs mailutils
 # disables use of privileged utempter
 x11-terms/xterm -utempter
 net-misc/mosh -utempter
 # disables caps for gnome-keyring (impossible on cvmfs)
 mate-base/mate-session-manager -gnome-keyring
 sys-auth/elogind -policykit
+# required by media-sound/pulseaudio-13.0::gentoo[alsa-plugin,alsa]
+# required by pulseaudio (argument)
+>=media-plugins/alsa-plugins-1.2.2 pulseaudio
+# required by net-print/cups-filters-1.25.11::gentoo[postscript]
+# required by net-print/cups-2.3.3-r1::gentoo
+# required by net-print/cups (argument)
+>=app-text/ghostscript-gpl-9.50 cups
+net-print/cups -pam
+sys-auth/sssd -acl -manpages
+# required by sys-auth/sssd-1.16.3-r3::computecanada
+# required by sys-auth/sssd (argument)
+>=net-nds/openldap-2.4.50 sasl
+sys-libs/glibc FEATURES="splitdebug"
+sys-apps/duc -tokyocabinet gui
+
+sys-libs/binutils-libs static-libs
+sys-libs/zlib static-libs
+net-libs/mbedtls static-libs
+sys-process/htop hwloc

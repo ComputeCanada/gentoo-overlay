@@ -1,7 +1,7 @@
 # Added by bootstrap-prefix.sh for x86_64-pc-linux-gnu
 # already set USE="acl amd64 berkdb bzip2 cli crypt cxx dri fortran gdbm iconv ipv6 libtirpc ncurses nptl openmp pcre prefix readline seccomp ssl tcpd zlib"
 # set by bootstrap-prefix: USE="nls unicode"
-USE="alsa ao apng cairo cjk curl dbus djvu elogind emboss encode exif expat ffmpeg flac fontconfig gif gimp git gnome-keyring graphviz gstreamer gtk gtk3 icu jpeg jpeg2k json kerberos ladspa latex lua luajit lzma lzo mad mng mp3 mp4 mpeg nls numa ogg openexr opengl pango pcre16 pdf perl pmi png python sdl smp sndfile spell sqlite -suid svg tcl text theora threads tiff tk truetype unicode valgrind vorbis webp wavpack wxwidgets x264 xcb xkb xml xpm xv xvfb xvid X pgo lto vnc libglvnd osmesa postscript old-kernel emacs imagemagick xft zstd egl gles2"
+USE="ao apng cairo cjk curl dbus djvu elogind emboss encode exif expat flac fontconfig gif gimp git gnome-keyring graphviz gstreamer gtk gtk3 hwloc icu jpeg jpeg2k json kerberos ladspa latex lua luajit lzma lzo mad mng mp3 mp4 mpeg nls numa ogg openexr opengl pango pcre16 pdf perl pmi png python sdl smp sndfile spell sqlite -suid svg tcl text theora threads tiff tk truetype unicode valgrind vorbis webp wavpack wxwidgets x264 x265 xcb xkb xml xpm xv xvfb xvid X pgo lto vnc libglvnd osmesa postscript old-kernel emacs imagemagick xft zstd egl gles2"
 FEATURES="-sfperms suidctl"
 CFLAGS="${CFLAGS} -march=nocona -mtune=generic -O2 -ftree-vectorize -fno-math-errno -pipe"
 CXXFLAGS="${CFLAGS}"
@@ -11,7 +11,7 @@ DISTDIR="/cvmfs/soft.computecanada.ca/gentoo/2020/var/cache/distfiles"
 # sandbox does not work well on Prefix, bug 490246
 FEATURES="${FEATURES} -usersandbox -sandbox"
 INPUT_DEVICES=""
-VIDEO_CARDS=""
+VIDEO_CARDS="virgl"
 L10N="en fr"
 ACCEPT_KEYWORDS="-~amd64"
 # Safety: Force asking user to confirm with --ask
