@@ -6,7 +6,8 @@ app-text/texlive-core cjk xetex
 # required by pfl (argument)
 >=sys-apps/util-linux-2.33.2 caps
 x11-base/xorg-server -elogind
-net-misc/tigervnc server
+# need server on clusters + GNU TLS encryption for VNC
+net-misc/tigervnc server gnutls
 # required by media-libs/assimp-4.0.1::gentoo
 # required by assimp (argument)
 >=sys-libs/zlib-1.2.11-r2 minizip
