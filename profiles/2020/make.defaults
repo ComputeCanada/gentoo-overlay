@@ -1,7 +1,9 @@
 # Added by bootstrap-prefix.sh for x86_64-pc-linux-gnu
 # already set USE="acl amd64 berkdb bzip2 cli crypt cxx dri fortran gdbm iconv ipv6 libtirpc ncurses nptl openmp pcre prefix readline seccomp ssl tcpd zlib"
 # set by bootstrap-prefix: USE="nls unicode"
-USE="ao apng cairo cjk curl dbus djvu elogind emboss encode exif expat flac fontconfig gif gimp git gnome-keyring graphviz gstreamer gtk gtk3 hwloc icu jpeg jpeg2k json kerberos ladspa latex lua luajit lzma lzo mad mng mp3 mp4 mpeg nls numa ogg openexr opengl pango pcre16 pdf perl pmi png python sdl smp sndfile spell sqlite -suid svg tcl text theora threads tiff tk truetype unicode valgrind vorbis webp wavpack wxwidgets x264 x265 xcb xkb xml xpm xv xvfb xvid X pgo lto vnc libglvnd osmesa postscript old-kernel emacs imagemagick xft zstd egl gles2 python_targets_python3_7 python_single_target_python3_7"
+USE="ao apng cairo cjk curl dbus djvu elogind emboss encode exif expat flac fontconfig gif gimp git gnome-keyring graphviz gstreamer gtk gtk3 hwloc icu jpeg jpeg2k json kerberos ladspa latex lua luajit lzma lzo mad mng mp3 mp4 mpeg nls numa ogg openexr opengl pango pcre16 pdf perl pmi png python sdl smp sndfile spell sqlite -suid svg tcl text theora threads tiff tk truetype unicode valgrind vorbis webp wavpack wxwidgets x264 x265 xcb xkb xml xpm xv xvfb xvid X pgo lto vnc libglvnd osmesa postscript old-kernel emacs imagemagick xft zstd egl gles2"
+PYTHON_TARGETS="-python2_7 python3_7"
+PYTHON_SINGLE_TARGET="python3_7"
 FEATURES="-sfperms suidctl"
 CFLAGS="${CFLAGS} -march=nocona -mtune=generic -O2 -ftree-vectorize -fno-math-errno -pipe"
 CXXFLAGS="${CFLAGS}"
