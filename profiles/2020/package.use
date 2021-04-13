@@ -1,5 +1,3 @@
-*/* PYTHON_TARGETS: -python3_6 -python3_8 python3_7
-*/* PYTHON_SINGLE_TARGET: -* python3_7
 app-text/texlive cjk context detex dvi2tty epspdf extra games humanities jadetex music tex4ht xetex
 app-text/texlive-core cjk xetex
 # required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
@@ -85,7 +83,6 @@ sys-auth/sssd -acl -manpages
 # required by sys-auth/sssd-1.16.3-r3::computecanada
 # required by sys-auth/sssd (argument)
 >=net-nds/openldap-2.4.50 sasl
-sys-libs/glibc FEATURES="splitdebug"
 sys-apps/duc -tokyocabinet gui
 
 sys-libs/binutils-libs static-libs
