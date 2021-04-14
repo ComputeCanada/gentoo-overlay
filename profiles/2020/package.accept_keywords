@@ -1260,3 +1260,5 @@ sys-cluster/knem ~amd64
 app-misc/tmux ~amd64
 sys-libs/libunwind ~amd64
 =sys-apps/hwloc-1.11.13 ~amd64
+=media-libs/jpeg-8d-r2 ~amd64
+=sys-apps/duc-1.4.4 ~amd64
