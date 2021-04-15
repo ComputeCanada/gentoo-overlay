@@ -1,7 +1,9 @@
 acct-group/locate
 app-arch/engrampa
 app-arch/p7zip
+app-arch/pbzip2
 app-arch/pigz
+app-arch/pxz
 app-arch/sharutils
 app-arch/zip
 app-backup/dar
