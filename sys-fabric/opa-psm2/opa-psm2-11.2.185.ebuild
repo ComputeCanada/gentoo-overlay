@@ -6,7 +6,7 @@ EAPI=7
 inherit udev
 
 DESCRIPTION="OpenIB userspace driver for the PathScale InfiniBand HCAs"
-SRC_URI="https://github.com/intel/${PN}/archive/PSM2_${PV}.tar.gz -> {P}.tar.gz"
+SRC_URI="https://github.com/cornelisnetworks/${PN}/archive/refs/tags/PSM2_${PV}.tar.gz -> ${P}.tar.gz"
 
 SLOT="0"
 KEYWORDS="amd64 ~x86 ~amd64-linux"
@@ -19,6 +19,10 @@ RDEPEND="${DEPEND}
 	virtual/udev"
 
 S="${WORKDIR}/${PN}-PSM2_${PV}"
+
+PATCHES=(
+	"${FILESDIR}/${PN}-hfi-user.patch"
+)
 
 src_compile() {
 	emake arch=x86_64 USE_PSM_UUID=1 WERROR=
