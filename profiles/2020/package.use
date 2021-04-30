@@ -89,3 +89,5 @@ sys-libs/binutils-libs static-libs
 sys-libs/zlib static-libs
 net-libs/mbedtls static-libs
 sys-process/htop hwloc
+
+sys-libs/glibc gd
