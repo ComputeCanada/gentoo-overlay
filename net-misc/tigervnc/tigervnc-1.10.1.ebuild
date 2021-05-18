@@ -77,6 +77,7 @@ DEPEND="${CDEPEND}
 
 PATCHES=(
 	"${FILESDIR}"/${P}-055_xstartup.patch
+	"${FILESDIR}"/${P}-check-tmp.patch
 )
 
 src_prepare() {

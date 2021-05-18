@@ -1,0 +1,17 @@
+diff --git a/unix/vncserver b/unix/vncserver
+index 9e7a6ac5..fff53bdb 100755
+--- a/unix/vncserver
++++ b/unix/vncserver
+@@ -504,6 +504,12 @@
+ sub CheckDisplayNumber
+ {
+     local ($n) = @_;
++    my @output = `ss`;
++    if (grep( /\/tmp\/.X11-unix\/X$n /, @output) != 0) {
++        warn "\nWarning: $host:$n is taken by another process\n";
++        return 0;
++    }
++
+
+     socket(S, $AF_INET, $SOCK_STREAM, 0) || die "$prog: socket failed: $!\n";
+     eval 'setsockopt(S, &SOL_SOCKET, &SO_REUSEADDR, pack("l", 1))';
