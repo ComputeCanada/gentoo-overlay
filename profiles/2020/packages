@@ -205,3 +205,4 @@ x11-terms/xterm
 x11-wm/twm
 x11-wm/xpra
 xfce-base/thunar
+-*net-misc/openssh
