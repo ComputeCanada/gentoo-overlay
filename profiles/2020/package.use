@@ -94,3 +94,4 @@ sys-libs/glibc gd
 media-libs/portmidi -python
 sys-apps/pciutils -kmod
 sys-fs/eudev -kmod
+sys-cluster/rdma-core -python
