@@ -91,3 +91,4 @@ net-libs/mbedtls static-libs
 sys-process/htop hwloc
 
 sys-libs/glibc gd
+media-libs/portmidi -python
