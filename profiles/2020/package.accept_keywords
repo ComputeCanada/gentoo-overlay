@@ -1265,3 +1265,4 @@ sys-libs/libunwind ~amd64
 dev-libs/opencl-icd-loader ~amd64
 dev-util/opencl-headers ~amd64
 dev-util/clinfo ~amd64
+virtual/opencl ~amd64
