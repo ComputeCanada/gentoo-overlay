@@ -1267,4 +1267,5 @@ dev-util/opencl-headers ~amd64
 dev-util/clinfo ~amd64
 virtual/opencl ~amd64
 media-libs/vulkan-layers ~amd64
+dev-util/vulkan-headers ~amd64
 dev-util/glslang ~amd64
