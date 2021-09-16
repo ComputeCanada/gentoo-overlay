@@ -104,6 +104,9 @@ if [ "$RSNT_DONT_SET_RPATH" != 1 ]; then
         if [ "${1%%/stubs}" != "$1" ]; then
             return 0
         fi
+        if [ "${1%%/stubs/lib64}" != "$1" ]; then
+            return 0
+        fi
 	# check if soft equivalent exists for restricted
 	rpath_to_add=$1
         if [ "${1:0:${#EASYBUILD_RESTRICTED_DIR}}" == "$EASYBUILD_RESTRICTED_DIR" -a \
