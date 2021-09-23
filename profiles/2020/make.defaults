@@ -4,7 +4,7 @@
 USE="alsa ao apng cairo cjk curl dbus djvu elogind emboss encode exif expat flac fontconfig gif gimp git gnome-keyring graphviz gstreamer gtk gtk3 hwloc icu jpeg jpeg2k json kerberos ladspa latex lua luajit lzma lzo mad mng mp3 mp4 mpeg nls numa ogg openexr opengl pango pcre16 pdf perl pmi png python sdl smp sndfile spell sqlite -suid svg tcl text theora threads tiff tk truetype unicode valgrind vorbis webp wavpack wxwidgets x264 x265 xcb xkb xml xpm xv xvfb xvid X pgo lto vnc libglvnd osmesa postscript old-kernel emacs imagemagick xft zstd egl gles2"
 PYTHON_TARGETS="-python3_6 -python3_8 python3_7"
 PYTHON_SINGLE_TARGET="-* python3_7"
-FEATURES="-sfperms suidctl"
+FEATURES="-sfperms suidctl preserve-libs"
 CFLAGS="${CFLAGS} -march=nocona -mtune=generic -O2 -ftree-vectorize -fno-math-errno -pipe"
 CXXFLAGS="${CFLAGS}"
 MAKEOPTS="-j8"
