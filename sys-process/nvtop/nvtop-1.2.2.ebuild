@@ -21,7 +21,7 @@ else
 		https://github.com/Syllo/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 		https://download.nvidia.com/XFree86/nvidia-settings/nvidia-settings-${NVIDIA_PV}.tar.bz2
 	"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 ~x86"
 fi
 
 LICENSE="GPL-3"
