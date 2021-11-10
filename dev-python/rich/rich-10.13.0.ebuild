@@ -25,3 +25,7 @@ RDEPEND="
 
 distutils_enable_tests pytest
 
+python_prepare() {
+        default
+        echo "from pyproject2setuppy.main import main; main()" > setup.py
+}
