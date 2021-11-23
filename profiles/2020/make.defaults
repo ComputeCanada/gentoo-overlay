@@ -16,6 +16,6 @@ INPUT_DEVICES="-*"
 VIDEO_CARDS="-* virgl"
 L10N="en fr"
 ACCEPT_KEYWORDS="-~amd64"
-ACCEPT_LICENSE="-* @FREE szip"
+ACCEPT_LICENSE="-* @FREE szip curl isa-l"
 # Safety: Force asking user to confirm with --ask
 EMERGE_DEFAULT_OPTS="--ask"
