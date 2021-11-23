@@ -11,7 +11,7 @@ SRC_URI="https://github.com/01org/isa-l/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-3"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 
 DEPEND="|| ( dev-lang/yasm dev-lang/nasm )"
 RDEPEND=""
