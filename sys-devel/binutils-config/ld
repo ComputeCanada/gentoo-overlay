@@ -34,7 +34,7 @@ set -e
 # This wrapper will be symlinked at the -*> as GCC's collect2
 # calls $EPREFIX/usr/x86_64-pc-linux-gnu/bin/ld
 
-EPREFIX="@GENTOO_PORTAGE_EPREFIX@"
+EPREFIX="/cvmfs/soft.computecanada.ca/gentoo/2020"
 if [[ ${EPREFIX} == "@"GENTOO_PORTAGE_EPREFIX"@" ]] ; then
 	EPREFIX=""
 fi
