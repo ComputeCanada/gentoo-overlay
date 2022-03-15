@@ -17,5 +17,7 @@ VIDEO_CARDS="-* virgl"
 L10N="en fr"
 ACCEPT_KEYWORDS="-~amd64"
 ACCEPT_LICENSE="-* @FREE szip curl BSD-3"
+PORTAGE_USER="gentoouser"
+PORTAGE_GROUP="gentoouser"
 # Safety: Force asking user to confirm with --ask
 EMERGE_DEFAULT_OPTS="--ask"
