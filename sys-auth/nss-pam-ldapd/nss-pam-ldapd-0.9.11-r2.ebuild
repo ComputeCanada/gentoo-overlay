@@ -98,7 +98,7 @@ multilib_src_install_all() {
 	#insinto /usr/share/nss-pam-ldapd
 	#doins "${WORKDIR}/${P}/nslcd.conf"
 
-	#fperms o-r /etc/nslcd.conf
+	rm "${ED}"/etc/nslcd.conf
 
 	if use utils; then
 		python_moduleinto nslcd
