@@ -11,7 +11,7 @@ HOMEPAGE="https://libvips.github.io/libvips/"
 RESTRICT="mirror"
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE="doc debug exif fits fftw graphicsmagick imagemagick jpeg lcms matio openexr
 	+orc png svg static-libs tiff webp"
 
