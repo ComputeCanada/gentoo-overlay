@@ -1,6 +1,13 @@
 --- meson-0.55.0/mesonbuild/backend/backends.py.orig	2020-06-29 17:00:15.000000000 +0000
-+++ meson-0.55.0/mesonbuild/backend/backends.py	2022-04-22 12:16:12.574549933 +0000
-@@ -459,6 +459,38 @@
++++ meson-0.55.0/mesonbuild/backend/backends.py	2022-04-22 13:37:31.116764089 +0000
+@@ -455,10 +455,45 @@
+                 args.extend(self.environment.coredata.get_external_link_args(target.for_machine, lang))
+             except Exception:
+                 pass
++        library_path = os.environ.get("LIBRARY_PATH",'')
++        if library_path:
++            args.extend(['-L' + p for p in library_path.split(':')])
+         for arg in args:
              if arg.startswith('-Wl,-rpath='):
                  for dir in arg.replace('-Wl,-rpath=','').split(':'):
                      dirs.add(dir)
