@@ -59,6 +59,7 @@ python_prepare_all() {
 	distutils-r1_python_prepare_all
 
 	eapply "${FILESDIR}/${P}-intel-library-path.patch"
+	eapply "${FILESDIR}/${P}-fix-rpath.patch"
 }
 
 src_test() {

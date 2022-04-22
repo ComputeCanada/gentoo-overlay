@@ -1,0 +1,41 @@
+--- meson-0.55.0/mesonbuild/backend/backends.py.orig	2020-06-29 17:00:15.000000000 +0000
++++ meson-0.55.0/mesonbuild/backend/backends.py	2022-04-22 12:16:12.574549933 +0000
+@@ -459,6 +459,38 @@
+             if arg.startswith('-Wl,-rpath='):
+                 for dir in arg.replace('-Wl,-rpath=','').split(':'):
+                     dirs.add(dir)
++            # Try to add rpaths similar to ld-wrapper so that they are not removed.
++            # based on https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/build-managers/meson/fix-rpath.patch
++            elif not arg.startswith('-L'):
++                continue
++            dir = arg[2:]
++            # Only EASYBUILD library paths are added to rpath. No /tmp, /dev/shm, etc.
++            # Same logic as ld wrapper
++            easybuild_dir = '/cvmfs/soft.computecanada.ca/easybuild'
++            easybuild_restricted_dir = easybuild_dir.replace('soft', 'restricted')
++            easybuild_home_dir = os.path.join(os.environ.get("HOME", ''), '.local', 'easybuild')
++            easybuild_local_dir = easybuild_home_dir
++            local_module_paths = os.environ.get("RSNT_LOCAL_MODULEPATHS", '')
++            if local_module_paths:
++                easybuild_local_dir = os.path.dirname(local_module_paths)
++            if (dir.startswith(easybuild_dir) or
++                dir.startswith(easybuild_restricted_dir) or
++                dir.startswith(easybuild_home_dir) or
++                dir.startswith(easybuild_local_dir)):
++                # exclude gcccore files at runtime, use Gentoo libstdc++ instead
++                gcccore_root = os.path.join(easybuild_dir, 'software',
++                                            os.path.basename(os.environ.get("EPREFIX", '')),
++                                            'Core', 'gcccore')
++                # also exclude stub libraries like for CUDA
++                if not (dir.startswith(gcccore_root) or dir.endswith('/stubs') or dir.endswith('/stubs/lib64')):
++                    # check if soft equivalent exists for restricted
++                    if dir.startswith(easybuild_restricted_dir):
++                        softdir = os.path.join(easybuild_dir, dir[len(easybuild_restricted_dir):])
++                        if os.path.isdir(softdir):
++                            dir = softdir
++                    if dir.endswith('/lib') and os.path.isdir(os.path.join(dir, '..',  'lib64')):
++                        dirs.add(os.path.join(dir, '..',  'lib64'))
++                    dirs.add(dir)
+         return dirs
+ 
+     def rpaths_for_bundled_shared_libraries(self, target, exclude_system=True):
