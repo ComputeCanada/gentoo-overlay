@@ -1,0 +1,64 @@
+Backported below to 19.3.0.
+
+From 795993fd6024cab2f118b88b55289689d72c793f Mon Sep 17 00:00:00 2001
+From: Thomas Kluyver <thomas@kluyver.me.uk>
+Date: Fri, 11 Dec 2020 11:04:47 +0000
+Subject: [PATCH 1/2] Initialise backend on first use instead of on import
+
+---
+ keyring/core.py | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff -ur keyring-19.3.0.orig/keyring/core.py keyring-19.3.0/keyring/core.py
+--- keyring-19.3.0.orig/keyring/core.py	2019-11-30 19:55:52.000000000 +0000
++++ keyring-19.3.0/keyring/core.py	2022-04-25 12:33:58.008916898 +0000
+@@ -30,6 +30,8 @@
+ def get_keyring():
+     """Get current keyring backend.
+     """
++    if _keyring_backend is None:
++        init_backend()
+     return _keyring_backend
+ 
+ 
+@@ -53,25 +55,25 @@
+ def get_password(service_name, username):
+     """Get password from the specified service.
+     """
+-    return _keyring_backend.get_password(service_name, username)
++    return get_keyring().get_password(service_name, username)
+ 
+ 
+ def set_password(service_name, username, password):
+     """Set password for the user in the specified service.
+     """
+-    _keyring_backend.set_password(service_name, username, password)
++    get_keyring().set_password(service_name, username, password)
+ 
+ 
+ def delete_password(service_name, username):
+     """Delete the password for the user in the specified service.
+     """
+-    _keyring_backend.delete_password(service_name, username)
++    get_keyring().delete_password(service_name, username)
+ 
+ 
+ def get_credential(service_name, username):
+     """Get a Credential for the specified service.
+     """
+-    return _keyring_backend.get_credential(service_name, username)
++    return get_keyring().get_credential(service_name, username)
+ 
+ 
+ def recommended(backend):
+@@ -186,7 +188,3 @@
+         sys.path.insert(0, path)
+     except (configparser.NoOptionError, configparser.NoSectionError):
+         pass
+-
+-
+-# init the _keyring_backend
+-init_backend()
+Only in keyring-19.3.0/keyring: core.py~
+Only in keyring-19.3.0/keyring: core.py.orig
+Only in keyring-19.3.0/keyring: core.py.rej
