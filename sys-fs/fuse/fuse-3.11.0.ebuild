@@ -74,6 +74,8 @@ multilib_src_install_all() {
 
 	# useroot=false prevents the build system from doing this.
 	use suid && fperms u+s /usr/bin/fusermount3
+	# can't have setuid-needing fusermount
+	rm "${ED}"/usr/bin/fusermount3 || die
 
 	# manually install man pages to respect compression
 	rm -r "${ED}"/usr/share/man || die
