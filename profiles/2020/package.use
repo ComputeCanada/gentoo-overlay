@@ -97,3 +97,5 @@ sys-fs/eudev -kmod
 sys-cluster/rdma-core -python
 dev-util/scons -test
 dev-lang/yasm -python
+
+sys-fs/e2fsprogs fuse
