@@ -1268,3 +1268,5 @@ dev-util/clinfo ~amd64
 virtual/opencl ~amd64
 sys-fs/squashfuse ~amd64
 app-arch/upx ~amd64
+# fakeroot 1.22 is no more, use "unstable" 1.24
+sys-apps/fakeroot ~amd64
