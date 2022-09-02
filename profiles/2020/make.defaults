@@ -20,5 +20,8 @@ ACCEPT_LICENSE="-* @FREE szip curl BSD-3"
 PORTAGE_USER="gentoouser"
 PORTAGE_USERNAME="gentoouser"
 PORTAGE_GROUP="gentoouser"
+PORTAGE_GID="1012"
+PORTAGE_INST_GID="1012"
+PORTAGE_INST_UID="1012"
 # Safety: Force asking user to confirm with --ask
 EMERGE_DEFAULT_OPTS="--ask"
