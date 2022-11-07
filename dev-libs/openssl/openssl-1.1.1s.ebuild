@@ -330,6 +330,12 @@ multilib_src_install_all() {
 
 	diropts -m0700
 	keepdir ${SSL_CNF_DIR}/private
+
+	# symlink libraries to avoid CVMFS update bug.
+	mv "${ED}"/usr/lib64/libssl.so.{1.1,${PV}}
+	mv "${ED}"/usr/lib64/libcrypto.so.{1.1,${PV}}
+	ln -s libssl.so.${PV} "${ED}"/usr/lib64/libssl.so.1.1
+	ln -s libcrypto.so.${PV} "${ED}"/usr/lib64/libcrypto.so.1.1
 }
 
 pkg_postinst() {
