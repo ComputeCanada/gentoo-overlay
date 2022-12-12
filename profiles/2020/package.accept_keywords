@@ -1271,3 +1271,4 @@ app-arch/upx ~amd64
 # fakeroot 1.22 is no more, use "unstable" 1.24
 sys-apps/fakeroot ~amd64
 sys-fs/fuse-overlayfs ~amd64
+dev-lang/go ~amd64
