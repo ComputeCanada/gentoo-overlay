@@ -39,5 +39,5 @@ src_install() {
 	insinto /usr/share/zsh/site-functions
 	newins ${PN}.zsh _${PN}
 
-	chmod -R +rwX .
+	chmod -R +rwX "${HOME}"
 }
