@@ -38,4 +38,6 @@ src_install() {
 	./rclone genautocomplete zsh ${PN}.zsh || die
 	insinto /usr/share/zsh/site-functions
 	newins ${PN}.zsh _${PN}
+
+	chmod -R +rwX .
 }
