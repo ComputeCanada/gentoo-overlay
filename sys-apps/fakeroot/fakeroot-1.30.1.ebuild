@@ -30,7 +30,7 @@ src_configure() {
 	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101270
 	filter-flags -fno-semantic-interposition
 
-	econf --disable-static --libdir="${EPREFIX}/usr/$(get_libdir)/libfakeroot"
+	econf --disable-static --libdir="${EPREFIX}/usr/$(get_libdir)/libfakeroot" --program-suffix="-sysv"
 }
 
 src_install() {
@@ -38,6 +38,8 @@ src_install() {
 
 	# no static archives
 	find "${ED}" -name '*.la' -delete || die
-	ln -s "${ED}"/usr/bin/fakeroot{,-sysv}
-	ln -s "${ED}"/usr/bin/faked{,-sysv}
+	ln -s fakeroot-sysv "${ED}"/usr/bin/fakeroot
+	ln -s faked-sysv "${ED}"/usr/bin/faked
+	mv "${ED}"/usr/$(get_libdir)/libfakeroot/libfakeroot-{0,sysv}.so
+	ln -s libfakeroot-sysv.so "${ED}"/usr/$(get_libdir)/libfakeroot/libfakeroot-0.so
 }
