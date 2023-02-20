@@ -101,3 +101,6 @@ dev-lang/yasm -python
 sys-fs/e2fsprogs fuse
 # disable use of thin-provisioning-tools by lvm2/cryptsetup
 sys-fs/lvm2 -thin
+
+# broken patch
+media-libs/libpng-compat -apng
