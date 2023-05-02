@@ -48,7 +48,7 @@ sys-apps/findutils selinux
 app-arch/tar selinux
 sys-process/psmisc selinux
 sys-apps/util-linux selinux
-app-editors/vim selinux
+app-editors/vim selinux terminal
 sys-fs/eudev selinux
 dev-libs/glib selinux
 x11-libs/libxcb selinux
