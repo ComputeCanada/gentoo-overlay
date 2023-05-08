@@ -104,3 +104,6 @@ sys-fs/lvm2 -thin
 
 # broken patch
 media-libs/libpng-compat -apng
+
+# no xscreensaver to avoid issues with VNC and passwords
+xfce-base/xfce4-session -xscreensaver
