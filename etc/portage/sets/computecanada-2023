@@ -1,0 +1,15 @@
+app-shells/bash-completion
+app-shells/ksh
+app-shells/pdsh
+app-shells/tcsh
+app-shells/zsh
+
+dev-python/GitPython
+dev-python/keyring
+dev-python/pycodestyle
+dev-python/pyyaml
+dev-python/rich
+
+sys-cluster/rdma-core
+
+sys-process/numactl
