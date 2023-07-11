@@ -24,8 +24,8 @@ dev-python/pycodestyle
 dev-python/pyyaml
 dev-python/rich
 
-=sys-auth/nss-pam-ldapd-0.9.12-r2::computecanada
-=sys-auth/sssd-2.8.2::computecanada
+=sys-auth/nss-pam-ldapd-0.9.12-r2
+=sys-auth/sssd-2.8.2
 
 sys-cluster/rdma-core
 
