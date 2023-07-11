@@ -19,13 +19,13 @@ app-shells/tcsh
 app-shells/zsh
 
 dev-python/GitPython
-dev-python/keyring::gentoo
+dev-python/keyring
 dev-python/pycodestyle
 dev-python/pyyaml
 dev-python/rich
 
-sys-auth/nss-pam-ldapd
-sys-auth/sssd
+=sys-auth/nss-pam-ldapd-0.9.12-r2::computecanada
+=sys-auth/sssd-2.8.2::computecanada
 
 sys-cluster/rdma-core
 
