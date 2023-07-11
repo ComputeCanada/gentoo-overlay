@@ -92,8 +92,34 @@ dev-vcs/subversion
 
 mate-base/mate
 
-=media-libs/libglvnd-1.6.0
+media-fonts/dejavu
+media-fonts/font-adobe-100dpi
+media-fonts/font-xfree86-type1
+media-fonts/liberation-fonts
+
+media-gfx/eom
+media-gfx/exiv2
+media-gfx/feh
+media-gfx/graphicsmagick
+media-gfx/transfig
+
+media-libs/freeimage
 =media-libs/harfbuzz-7.3.0
+media-libs/leptonica
+=media-libs/libglvnd-1.6.0
+media-libs/libpng-compat
+media-libs/netpbm
+media-libs/openal
+media-libs/portmidi
+media-libs/sdl-image
+media-libs/sdl2-image
+media-libs/sdl2-mixer
+media-libs/sdl2-ttf
+media-libs/vidstab
+media-libs/vips
+media-libs/vulkan-layers
+media-plugins/gst-plugins-libav
+media-sound/sox
 
 =sys-auth/nss-pam-ldapd-0.9.12-r2
 =sys-auth/sssd-2.8.2
@@ -106,6 +132,7 @@ sys-process/numactl
 
 virtual/wine
 
+x11-apps/mesa-progs
 x11-apps/xclock
 x11-apps/xeyes
 x11-apps/xfontsel
