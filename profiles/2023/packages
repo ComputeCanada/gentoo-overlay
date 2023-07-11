@@ -1,3 +1,17 @@
+app-arch/libdeflate
+app-arch/p7zip
+app-arch/pbzip2
+app-arch/pigz
+app-arch/pxz
+app-arch/sharutils
+app-arch/upx
+app-arch/zip
+
+app-backup/dar
+app-backup/rdiff-backup
+
+app-benchmarks/i7z
+
 app-shells/bash-completion
 app-shells/ksh
 app-shells/pdsh
@@ -10,6 +24,14 @@ dev-python/pycodestyle
 dev-python/pyyaml
 dev-python/rich
 
+sys-auth/nss-pam-ldapd
+sys-auth/sssd
+
 sys-cluster/rdma-core
 
+sys-devel/gdb
+
 sys-process/numactl
+
+
+-*net-misc/openssh
