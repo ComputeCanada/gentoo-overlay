@@ -121,6 +121,20 @@ media-libs/vulkan-layers
 media-plugins/gst-plugins-libav
 media-sound/sox
 
+net-analyzer/nmap
+net-analyzer/rrdtool
+net-analyzer/traceroute
+net-fs/sshfs
+net-ftp/lftp
+net-libs/mbedtls
+net-libs/zeromq
+=net-misc/bridge-utils-1.7.1-r1
+net-misc/netkit-fingerd
+net-misc/rclone
+net-misc/rdesktop
+net-misc/telnet-bsd
+=net-misc/tigervnc-1.13.1-r2
+
 =sys-auth/nss-pam-ldapd-0.9.12-r2
 =sys-auth/sssd-2.8.2
 
@@ -131,6 +145,9 @@ sys-devel/gdb
 sys-process/numactl
 
 virtual/wine
+
+www-client/elinks
+www-client/w3m
 
 x11-apps/mesa-progs
 x11-apps/xclock
