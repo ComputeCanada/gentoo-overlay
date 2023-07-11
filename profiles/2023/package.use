@@ -4,3 +4,24 @@ dev-libs/libdbusmenu gtk3
 
 sys-auth/nss-pam-ldapd -nslcd
 sys-auth/sssd -daemon
+
+sys-apps/coreutils selinux
+sys-apps/net-tools selinux
+sys-process/lsof selinux
+sys-apps/sed selinux
+sys-apps/findutils selinux
+app-arch/tar selinux
+sys-process/psmisc selinux
+sys-apps/util-linux selinux
+app-editors/vim selinux terminal
+sys-fs/eudev selinux
+dev-libs/glib selinux
+x11-libs/libxcb selinux
+dev-util/systemtap selinux
+app-editors/gvim selinux
+media-libs/mesa selinux
+sys-auth/elogind selinux
+sys-process/procps selinux
+app-editors/emacs selinux
+
+x11-base/xorg-server xvfb

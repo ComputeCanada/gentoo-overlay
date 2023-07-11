@@ -20,6 +20,14 @@ app-editors/joe
 app-editors/nedit
 app-editors/vim
 
+app-misc/colordiff
+app-misc/fdupes
+app-misc/jq
+app-misc/mc
+app-misc/screen
+app-misc/tmux
+app-misc/vifm
+
 app-shells/bash-completion
 app-shells/ksh
 app-shells/pdsh
@@ -40,6 +48,12 @@ dev-python/pycodestyle
 dev-python/pyyaml
 dev-python/rich
 
+dev-vcs/cvs
+dev-vcs/darcs
+dev-vcs/mercurial
+dev-vcs/rcs
+dev-vcs/subversion
+
 mate-base/mate
 
 =media-libs/libglvnd-1.6.0
@@ -53,6 +67,9 @@ sys-cluster/rdma-core
 sys-devel/gdb
 
 sys-process/numactl
+
+x11-wm/twm
+x11-wm/xpra
 
 xfce-base/xfce4-meta
 
