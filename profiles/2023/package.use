@@ -1,6 +1,9 @@
 app-text/texlive-core xetex
 app-text/xmlto text
 dev-libs/libdbusmenu gtk3
+dev-libs/libpcre2 pcre32
+
+media-libs/libsdl2 haptic
 
 sys-auth/nss-pam-ldapd -nslcd
 sys-auth/sssd -daemon
