@@ -1,2 +1,6 @@
+app-text/texlive-core xetex
+app-text/xmlto text
+dev-libs/libdbusmenu gtk3
+
 sys-auth/nss-pam-ldapd -nslcd
 sys-auth/sssd -daemon
