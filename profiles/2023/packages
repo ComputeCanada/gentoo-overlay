@@ -42,17 +42,34 @@ app-text/texlive
 app-text/tree
 app-text/wdiff
 
+dev-cpp/gflags
+dev-cpp/glog
+dev-cpp/gtkmm
+dev-cpp/libxmlpp
+dev-cpp/nlohmann_json
+
+dev-libs/check
+=dev-libs/isa-l-2.30.0-r1
+dev-libs/jemalloc
+dev-libs/libdwarf
+dev-libs/libedit
+dev-libs/libffi-compat
+dev-libs/libgit2
+dev-libs/libmemcached
+dev-libs/libtar
+dev-libs/libzip
+dev-libs/openssl-compat
+dev-libs/pugixml
+dev-libs/tinyxml
+dev-libs/tinyxml2
+dev-libs/xmlsec
+dev-libs/xqilla
+
 dev-python/GitPython
 dev-python/keyring
 dev-python/pycodestyle
 dev-python/pyyaml
 dev-python/rich
-
-dev-vcs/cvs
-dev-vcs/darcs
-dev-vcs/mercurial
-dev-vcs/rcs
-dev-vcs/subversion
 
 dev-util/ccache
 dev-util/clinfo
@@ -66,6 +83,12 @@ dev-util/perf
 dev-util/strace
 dev-util/systemtap
 dev-util/vulkan-tools
+
+dev-vcs/cvs
+dev-vcs/darcs
+dev-vcs/mercurial
+dev-vcs/rcs
+dev-vcs/subversion
 
 mate-base/mate
 
