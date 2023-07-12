@@ -3,6 +3,7 @@ app-text/xmlto text
 dev-libs/libdbusmenu gtk3
 dev-libs/libpcre2 pcre32
 
+dev-util/cmake -emacs
 dev-util/desktop-file-utils -emacs
 
 media-libs/libsdl2 haptic
