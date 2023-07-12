@@ -12,6 +12,9 @@ app-backup/rdiff-backup
 
 app-benchmarks/i7z
 
+app-containers/crun
+app-containers/slirp4netns
+
 app-doc/doxygen
 
 app-editors/gedit
@@ -20,6 +23,8 @@ app-editors/joe
 app-editors/nedit
 app-editors/vim
 
+app-eselect/eselect-repository
+
 app-misc/colordiff
 app-misc/fdupes
 app-misc/jq
@@ -27,6 +32,10 @@ app-misc/mc
 app-misc/screen
 app-misc/tmux
 app-misc/vifm
+
+app-portage/gentoolkit
+app-portage/pfl
+app-portage/prefix-toolkit
 
 app-shells/bash-completion
 app-shells/ksh
@@ -48,6 +57,13 @@ dev-cpp/gtkmm
 dev-cpp/libxmlpp
 dev-cpp/nlohmann_json
 
+dev-db/libiodbc
+
+dev-haskell/cabal-install
+
+dev-lua/lua-bit32
+dev-lua/luafilesystem
+
 dev-libs/check
 =dev-libs/isa-l-2.30.0-r1
 dev-libs/jemalloc
@@ -65,12 +81,19 @@ dev-libs/tinyxml2
 dev-libs/xmlsec
 dev-libs/xqilla
 
+#dev-ml/opam
+
 =dev-python/docutils-0.19
 dev-python/GitPython
 dev-python/keyring
 dev-python/pycodestyle
 dev-python/pyyaml
 dev-python/rich
+
+dev-ruby/gist
+
+dev-tcltk/expect
+dev-tcltk/tktable
 
 dev-util/ccache
 dev-util/clinfo
@@ -91,6 +114,8 @@ dev-vcs/mercurial
 dev-vcs/rcs
 dev-vcs/subversion
 
+mail-filter/procmail
+
 mate-base/mate
 
 media-fonts/dejavu
@@ -98,7 +123,6 @@ media-fonts/font-adobe-100dpi
 media-fonts/font-xfree86-type1
 media-fonts/liberation-fonts
 
-media-gfx/eom
 media-gfx/exiv2
 media-gfx/feh
 media-gfx/graphicsmagick
@@ -136,6 +160,9 @@ net-misc/rdesktop
 net-misc/telnet-bsd
 =net-misc/tigervnc-1.13.1-r2
 
+sci-libs/flann
+sci-libs/szip
+
 sys-apps/bubblewrap
 sys-apps/dstat
 sys-apps/duc
@@ -148,8 +175,10 @@ sys-apps/proot
 =sys-auth/nss-pam-ldapd-0.9.12-r2
 =sys-auth/sssd-2.8.2
 
+#sys-cluster/lustre
 sys-cluster/rdma-core
 
+sys-devel/bmake
 sys-devel/gdb
 
 sys-fs/cryptsetup
