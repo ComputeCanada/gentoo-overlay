@@ -6,8 +6,16 @@ dev-libs/libpcre2 pcre32
 media-libs/libsdl2 haptic
 media-libs/sdl2-ttf -harfbuzz
 
+net-analyzer/nmap ncat ndiff nping
+
+sys-apps/util-linux caps
+
 sys-auth/nss-pam-ldapd -nslcd
 sys-auth/sssd -daemon
+
+sys-devel/binutils gprofng
+
+sys-process/htop hwloc
 
 sys-apps/coreutils selinux
 sys-apps/net-tools selinux
