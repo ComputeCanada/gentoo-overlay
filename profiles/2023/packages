@@ -136,6 +136,15 @@ net-misc/rdesktop
 net-misc/telnet-bsd
 =net-misc/tigervnc-1.13.1-r2
 
+sys-apps/bubblewrap
+sys-apps/dstat
+sys-apps/duc
+sys-apps/fakeroot
+sys-apps/lsb-release
+sys-apps/man-pages
+sys-apps/mawk
+sys-apps/proot
+=sys-auth/munge-0.5.15
 =sys-auth/nss-pam-ldapd-0.9.12-r2
 =sys-auth/sssd-2.8.2
 
@@ -143,7 +152,10 @@ sys-cluster/rdma-core
 
 sys-devel/gdb
 
-sys-process/numactl
+=sys-process/htop-3.2.2
+sys-process/lsof
+#sys-process/nvtop
+sys-process/parallel
 
 virtual/wine
 
