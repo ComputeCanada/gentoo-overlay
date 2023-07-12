@@ -166,6 +166,3 @@ x11-wm/twm
 x11-wm/xpra
 
 xfce-base/xfce4-meta
-
--*net-misc/openssh
--*sys-libs/pam
