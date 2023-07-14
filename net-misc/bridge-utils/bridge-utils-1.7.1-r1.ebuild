@@ -42,7 +42,7 @@ src_configure() {
 		--prefix="${EPREFIX}"/
 		--libdir="${EPREFIX}"/usr/$(get_libdir)
 		--includedir="${EPREFIX}"/usr/include
-		--with-linux-headers="$(get_headers)"
+		--with-linux-headers="${EPREFIX}$(get_headers)"
 	)
 	econf "${myeconfargs[@]}"
 }
