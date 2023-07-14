@@ -3,4 +3,3 @@ dev-ruby/gist ~amd64
 sys-apps/duc ~amd64
 sys-auth/munge ~amd64
 =sys-devel/gcc-12.3.0 ~amd64
-sys-fs/fuse ~amd64

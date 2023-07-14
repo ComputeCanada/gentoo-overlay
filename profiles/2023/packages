@@ -182,7 +182,7 @@ sys-devel/bmake
 sys-devel/gdb
 
 sys-fs/cryptsetup
-=sys-fs/fuse-3.15.0
+=sys-fs/fuse-3.14.1
 sys-fs/fuse-overlayfs
 sys-fs/ncdu
 sys-fs/squashfs-tools
