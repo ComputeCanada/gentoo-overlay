@@ -81,9 +81,9 @@ src_install() {
 	cmake-multilib_src_install
 
 	# Make config dir
-	keepdir /var/lib/VirtualGL
-	fowners root:video /var/lib/VirtualGL
-	fperms 0750 /var/lib/VirtualGL
+	#keepdir /var/lib/VirtualGL
+	#fowners root:video /var/lib/VirtualGL
+	#fperms 0750 /var/lib/VirtualGL
 	newinitd "${FILESDIR}/vgl.initd-r4" vgl
 	newconfd "${FILESDIR}/vgl.confd-r2" vgl
 
