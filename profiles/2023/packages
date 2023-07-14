@@ -103,7 +103,7 @@ dev-util/google-perftools
 dev-util/gtk-builder-convert
 dev-util/numdiff
 dev-util/perf
-=dev-util/spirv-tools-1.3.246
+=dev-util/spirv-tools-1.3.243
 dev-util/strace
 dev-util/systemtap
 dev-util/vulkan-tools
