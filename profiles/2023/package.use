@@ -11,7 +11,7 @@ media-libs/sdl2-ttf -harfbuzz
 
 net-analyzer/nmap ncat ndiff nping
 
-net-misc/tigervnc -server
+net-misc/tigervnc -server -opengl
 net-misc/turbovnc -viewer
 
 sys-apps/util-linux caps
