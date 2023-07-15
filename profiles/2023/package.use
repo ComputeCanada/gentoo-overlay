@@ -11,6 +11,9 @@ media-libs/sdl2-ttf -harfbuzz
 
 net-analyzer/nmap ncat ndiff nping
 
+net-misc/tigervnc -server
+net-misc/turbovnc -viewer
+
 sys-apps/util-linux caps
 
 sys-auth/nss-pam-ldapd -nslcd
