@@ -3,7 +3,7 @@
 
 EAPI=4
 
-inherit user
+#inherit user
 
 DESCRIPTION="An authentication service for creating and validating credentials"
 HOMEPAGE="https://code.google.com/p/munge/"
