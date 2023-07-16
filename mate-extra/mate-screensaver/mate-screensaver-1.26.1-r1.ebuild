@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2023 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -6,24 +6,19 @@ EAPI=7
 inherit mate readme.gentoo-r1
 
 if [[ ${PV} != 9999 ]]; then
-	KEYWORDS="amd64 ~arm ~arm64 x86"
+	KEYWORDS="amd64 ~arm ~arm64 ~loong ~riscv x86"
 fi
 
 DESCRIPTION="Replaces xscreensaver, integrating with the MATE desktop"
 
-LICENSE="GPL-2"
+LICENSE="GPL-2+ HPND LGPL-2+"
 SLOT="0"
-IUSE="X debug consolekit elogind kernel_linux libnotify opengl pam systemd"
+IUSE="X debug elogind libnotify opengl pam systemd"
 REQUIRED_USE="?? ( elogind systemd )"
-
-DOC_CONTENTS="
-	Information for converting screensavers is located in
-	/usr/share/doc/${PF}/xss-conversion.txt*
-"
 
 COMMON_DEPEND="
 	>=dev-libs/dbus-glib-0.71:0
-	>=dev-libs/glib-2.50:2
+	>=dev-libs/glib-2.58:2
 	gnome-base/dconf
 	>=mate-base/libmatekbd-1.17.0
 	>=mate-base/mate-desktop-1.17.0
@@ -36,28 +31,35 @@ COMMON_DEPEND="
 	x11-libs/libXext
 	x11-libs/libXrandr
 	x11-libs/libXScrnSaver
-	x11-libs/libXxf86misc
 	x11-libs/libXxf86vm
 	x11-libs/libxklavier
 	x11-libs/pango
-	virtual/libintl
-	consolekit? ( sys-auth/consolekit )
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	opengl? ( virtual/opengl )
 	pam? ( gnome-base/gnome-keyring sys-libs/pam )
 	!pam? ( kernel_linux? ( sys-apps/shadow ) )
 	elogind? ( sys-auth/elogind )
 	systemd? ( sys-apps/systemd:= )
-	!!<gnome-extra/gnome-screensaver-3"
+"
 
 RDEPEND="${COMMON_DEPEND}
-	>=mate-base/mate-session-manager-1.6"
+	>=mate-base/mate-session-manager-1.6
+	virtual/libintl
+	!!<gnome-extra/gnome-screensaver-3
+	mate-base/mate-panel
+"
 
 DEPEND="${COMMON_DEPEND}
-	>=dev-util/intltool-0.50.1
-	sys-devel/gettext:*
+	dev-libs/libxml2
+	>=sys-devel/gettext-0.19.8:*
 	x11-base/xorg-proto
-	virtual/pkgconfig:*"
+	virtual/pkgconfig:*
+"
+
+DOC_CONTENTS="
+	Information for converting screensavers is located in
+	/usr/share/doc/${PF}/xss-conversion.txt*
+"
 
 src_configure() {
 	local myconf=(
@@ -66,8 +68,8 @@ src_configure() {
 		--with-xf86gamma-ext
 		--with-xscreensaverdir="${EPREFIX}/usr/share/xscreensaver/config"
 		--with-xscreensaverhackdir="${EPREFIX}/usr/$(get_libdir)/misc/xscreensaver"
+		--without-console-kit
 		$(use_with X x)
-		$(use_with consolekit console-kit)
 		$(use_with elogind)
 		$(use_with libnotify)
 		$(use_with opengl libgl)
