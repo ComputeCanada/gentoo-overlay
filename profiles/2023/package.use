@@ -55,7 +55,7 @@ sys-auth/elogind selinux
 sys-process/procps selinux
 app-editors/emacs selinux
 
-app-arch/xz-utils-5.2.4-r2 static-libs
+app-arch/xz-utils static-libs
 sys-libs/binutils-libs static-libs
 sys-libs/zlib static-libs
 net-libs/mbedtls static-libs
