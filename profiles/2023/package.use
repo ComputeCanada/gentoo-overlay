@@ -1,3 +1,7 @@
+# only install Python 3.11
+*/* PYTHON_TARGETS: -* python3_11
+*/* PYTHON_SINGLE_TARGET: -* python3_11
+
 app-text/texlive cjk context extra games humanities music tex4ht xetex
 app-text/texlive-core cjk xetex
 app-text/xmlto text
