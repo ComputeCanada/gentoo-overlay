@@ -2,6 +2,8 @@
 USE="a52 aac acpi alsa bluetooth branding cairo cdda cdr cups dbus dri dts dvd dvdr elogind encode exif flac gif gpm gtk gui icu jpeg lcms libnotify mad mng mp3 mp4 mpeg ogg opengl pango pdf png policykit ppds sdl sound spell startup-notification svg tiff truetype vorbis udisks unicode upower usb vulkan wxwidgets X xcb xft x264 x265 xml xv xvid"
 # other global use flags needed
 USE="${USE} emacs fontconfig"
+PYTHON_TARGETS: -* python3_11
+PYTHON_SINGLE_TARGET: -* python3_11
 FEATURES="-sfperms suidctl preserve-libs"
 CFLAGS="${CFLAGS} -march=nocona -mtune=generic -O2 -ftree-vectorize -fno-math-errno -pipe"
 CXXFLAGS="${CFLAGS}"
