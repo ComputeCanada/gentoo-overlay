@@ -1,25 +1,38 @@
-app-text/texlive-core xetex
+app-text/texlive cjk context extra games humanities music tex4ht xetex
+app-text/texlive-core cjk xetex
 app-text/xmlto text
+
 dev-libs/libdbusmenu gtk3
+dev-libs/libnl utils
 dev-libs/libpcre2 pcre32
+dev-libs/nss utils
 
 dev-util/cmake -emacs
 dev-util/desktop-file-utils -emacs
 
+media-libs/leptonica utils
 media-libs/libsdl2 haptic
 media-libs/sdl2-ttf -harfbuzz
 
 net-analyzer/nmap ncat ndiff nping
 
-net-misc/tigervnc -server -opengl
+net-libs/gnutls dane tools
+net-libs/nghttp2 utils
+
+net-misc/tigervnc -server -opengl gnutls
 net-misc/turbovnc -viewer
 
-sys-apps/util-linux caps
+sys-apps/duc -tokyocabinet gui
+sys-apps/util-linux caps fdformat
 
+sys-auth/munge gcrypt
 sys-auth/nss-pam-ldapd -nslcd
-sys-auth/sssd -daemon
+sys-auth/sssd -daemon -man
 
 sys-devel/binutils gprofng
+
+sys-libs/glibc gd
+sys-libs/zlib minizip
 
 sys-process/htop hwloc
 
@@ -41,5 +54,10 @@ media-libs/mesa selinux
 sys-auth/elogind selinux
 sys-process/procps selinux
 app-editors/emacs selinux
+
+app-arch/xz-utils-5.2.4-r2 static-libs
+sys-libs/binutils-libs static-libs
+sys-libs/zlib static-libs
+net-libs/mbedtls static-libs
 
 x11-base/xorg-server xvfb
