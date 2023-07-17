@@ -1,0 +1,2 @@
+# mask dev-lang/rust so rust-bin is used instead (temporarily)
+dev-lang/rust
