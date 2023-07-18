@@ -25,9 +25,9 @@ Signed-off-by: Andrej Shadura <andrew.shadura@collabora.co.uk>
 
 diff --git a/ld/emultempl/elf32.em b/ld/emultempl/elf32.em
 index ad31a625ef..63d026f734 100644
---- a/ld/emultempl/elf32.em
-+++ b/ld/emultempl/elf32.em
-@@ -881,6 +881,10 @@ gld${EMULATION_NAME}_parse_ld_so_conf_include
+--- a/ld/ldelf.c
++++ b/ld/ldelf.c
+@@ -795,6 +795,10 @@ gld${EMULATION_NAME}_parse_ld_so_conf_include
        memcpy (newp + (p - filename + 1), pattern, patlen);
        pattern = newp;
      }
