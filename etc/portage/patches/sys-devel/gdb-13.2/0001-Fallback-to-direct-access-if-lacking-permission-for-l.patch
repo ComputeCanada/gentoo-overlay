@@ -1,0 +1,38 @@
+From 2e2d58a28c6a6ab1cb2824f8411ca26a9dbc1961 Mon Sep 17 00:00:00 2001
+From: Tyson Whitehead <twhitehead@gmail.com>
+Date: Fri, 10 Feb 2023 15:33:33 -0500
+Subject: [PATCH] Fallback to direct access if lacking permission for linux
+ namespaces
+
+The case where gdb and the target had the same path always used to
+work. Now it fails if gdb and the target are in different namespaces
+and gdb doesn't have permission to enter the target namespace.
+
+This commit causes gdb to fall back to trying direct access should
+it lack permission to enter the namespace. This way it does not
+break a case that used to work or require capabilites not required.
+---
+ gdb/nat/linux-namespaces.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/gdb/nat/linux-namespaces.c b/gdb/nat/linux-namespaces.c
+index 4b1fee18425..8922717be10 100644
+--- a/gdb/nat/linux-namespaces.c
++++ b/gdb/nat/linux-namespaces.c
+@@ -935,6 +935,13 @@ linux_mntns_access_fs (pid_t pid)
+ 	  if (error == ENOSYS)
+ 	    error = ENOTSUP;
+ 
++	  /* EPERM indicates the required capabilites are not available
++	     for this. Fall back to the old direct gdb behaviour in
++	     order to not break cases where this used to work as the
++	     path could still be the same in both namespaces. */
++	  if (error == EPERM)
++	    return MNSH_FS_DIRECT;
++
+ 	  errno = error;
+ 	  return MNSH_FS_ERROR;
+ 	}
+-- 
+2.38.1
+

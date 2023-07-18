@@ -1,0 +1,76 @@
+diff -Naur glibc-2.33/malloc/memusagestat.c glibc-2.33-modified/malloc/memusagestat.c
+--- glibc-2.33/malloc/memusagestat.c	2021-02-01 12:15:33.000000000 -0500
++++ glibc-2.33-modified/malloc/memusagestat.c	2021-04-15 13:06:36.963385474 -0400
+@@ -139,7 +139,7 @@
+   uint64_t end_time;
+   uint64_t total_time;
+   const char *heap_format, *stack_format;
+-  int heap_scale, stack_scale, line;
++  size_t heap_scale, stack_scale, line;
+ 
+   outname = NULL;
+   xsize = XSIZE;
+@@ -248,13 +248,13 @@
+   grey = gdImageColorAllocate (im_out, 224, 224, 224);
+ 
+   /* Set transparent color. */
+-  gdImageColorTransparent (im_out, grey);
++  //gdImageColorTransparent (im_out, grey);
+ 
+   /* These are all the other colors we need (in the moment).  */
+-  red = gdImageColorAllocate (im_out, 255, 0, 0);
++  red = gdImageColorAllocate (im_out, 130, 0, 0);
+   green = gdImageColorAllocate (im_out, 0, 130, 0);
+-  blue = gdImageColorAllocate (im_out, 0, 0, 255);
+-  yellow = gdImageColorAllocate (im_out, 154, 205, 50);
++  blue = gdImageColorAllocate (im_out, 0, 65, 65);
++  yellow = gdImageColorAllocate (im_out, 49, 65, 16);
+   black = gdImageColorAllocate (im_out, 0, 0, 0);
+ 
+   gdImageRectangle (im_out, 40, 20, xsize - 40, ysize - 20, blue);
+@@ -269,11 +269,21 @@
+       heap_format = "%Zuk";
+       heap_scale = 1024;
+     }
+-  else
++  else if (maxsize_heap < 100ULL * 1024 * 1024 * 1024)
+     {
+       heap_format = "%ZuM";
+       heap_scale = 1024 * 1024;
+     }
++  else if (maxsize_heap < 100ULL * 1024 * 1024 * 1024 * 1024)
++    {
++      heap_format = "%ZuG";
++      heap_scale = 1024 * 1024 * 1024;
++    }
++  else
++    {
++      heap_format = "%ZuT";
++      heap_scale = 1024ULL * 1024 * 1024 * 1024;
++    }
+ 
+   if (maxsize_stack < 1024)
+     {
+@@ -285,11 +295,21 @@
+       stack_format = "%Zuk";
+       stack_scale = 1024;
+     }
+-  else
++  else if (maxsize_stack < 100ULL * 1024 * 1024 * 1024)
+     {
+       stack_format = "%ZuM";
+       stack_scale = 1024 * 1024;
+     }
++  else if (maxsize_stack < 100ULL * 1024 * 1024 * 1024 * 1024)
++    {
++      stack_format = "%ZuG";
++      stack_scale = 1024 * 1024 * 1024;
++    }
++  else
++    {
++      stack_format = "%ZuT";
++      stack_scale = 1024ULL * 1024 * 1024 * 1024;
++    }
+ 
+   gdImageString (im_out, gdFontSmall, 38, ysize - 14, (unsigned char *) "0",
+                  blue);
