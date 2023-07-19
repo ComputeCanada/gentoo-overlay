@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit prefix
+
 if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://anongit.gentoo.org/git/proj/binutils-config.git"
 	inherit git-r3
@@ -30,6 +32,7 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" PV="${PV}" install
 	newbin "${FILESDIR}"/ld-wrapper.sh ld-wrapper.sh
+	use prefix && eprefixify "${ED}"/usr/bin/ld-wrapper.sh
 }
 
 pkg_postinst() {
