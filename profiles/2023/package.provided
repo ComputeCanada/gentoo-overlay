@@ -1,3 +1,4 @@
 # pretend this is provided to satisfy deps
+dev-libs/boost-1.82.0-r1
 net-misc/openssh-9.3_p1-r1
 sys-libs/pam-1.5.2-r3
