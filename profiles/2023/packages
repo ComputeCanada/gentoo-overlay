@@ -193,7 +193,7 @@ sys-libs/ncurses-compat
 
 sys-process/htop
 sys-process/lsof
-#sys-process/nvtop
+sys-process/nvtop
 sys-process/parallel
 
 virtual/wine
