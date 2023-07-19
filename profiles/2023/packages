@@ -81,7 +81,7 @@ dev-libs/tinyxml2
 dev-libs/xmlsec
 dev-libs/xqilla
 
-#dev-ml/opam
+dev-ml/opam
 
 dev-python/docutils
 dev-python/GitPython
