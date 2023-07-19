@@ -43,7 +43,7 @@ src_test() {
 
 src_install() {
 	dodir /usr/$(get_libdir)/ocaml/${PN}
-	emake INSTALLDIR="${D}"/usr/$(get_libdir)/ocaml/${PN} install
+	emake INSTALLDIR="${ED}"/usr/$(get_libdir)/ocaml/${PN} install
 
 	cat > "${ED}"/usr/$(get_libdir)/ocaml/${PN}/META || die << EOF
 name="${PN}"
@@ -54,7 +54,7 @@ archive(byte)="xml-light.cma"
 EOF
 
 	if use ocamlopt; then
-		emake INSTALLDIR="${D}"/usr/$(get_libdir)/ocaml/${PN} installopt
+		emake INSTALLDIR="${ED}"/usr/$(get_libdir)/ocaml/${PN} installopt
 		echo 'archive(native)="xml-light.cmxa"' >> "${ED}"/usr/$(get_libdir)/ocaml/${PN}/META || die
 	fi
 
