@@ -176,7 +176,7 @@ sys-auth/munge
 sys-auth/nss-pam-ldapd
 sys-auth/sssd
 
-#sys-cluster/lustre
+sys-cluster/lustre
 sys-cluster/rdma-core
 
 sys-devel/bmake

@@ -29,6 +29,8 @@ sys-auth/munge gcrypt
 sys-auth/nss-pam-ldapd -nslcd
 sys-auth/sssd -daemon -man
 
+sys-cluster/lustre -utils
+
 sys-devel/binutils gprofng
 
 sys-libs/glibc gd
