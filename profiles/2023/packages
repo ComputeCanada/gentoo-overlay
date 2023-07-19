@@ -84,11 +84,7 @@ dev-libs/xqilla
 dev-ml/opam
 
 dev-python/docutils
-dev-python/GitPython
-dev-python/keyring
 dev-python/pycodestyle
-dev-python/pyyaml
-dev-python/rich
 
 dev-ruby/gist
 
@@ -176,6 +172,7 @@ sys-auth/munge
 sys-auth/nss-pam-ldapd
 sys-auth/sssd
 
+sys-cluster/easybuild
 sys-cluster/lustre
 sys-cluster/rdma-core
 
