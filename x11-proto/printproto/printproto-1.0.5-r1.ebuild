@@ -1,10 +1,10 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 XORG_MULTILIB=yes
-inherit xorg-2
+inherit xorg-3
 
 DESCRIPTION="X.Org Print protocol headers"
 SRC_URI="https://www.x.org/releases/individual/proto/${P}.tar.bz2"
