@@ -1,0 +1,14 @@
+--- a/src/binutils-config	2019-12-29 20:39:50.000000000 +0000
++++ b/src/binutils-config	2020-05-08 13:11:50.367235033 +0000
+@@ -134,7 +134,10 @@
+ 			atomic_ln "${TARGET}-${x}" "${EROOT}/usr/bin" "${x}"
+ 		fi
+ 	done
+-
++	for x in ld* ; do
++		# CC CVMFS custom rpath wrapper for ld*, see comments in ld-wrapper.sh
++		atomic_ln "${EROOT}usr/bin/ld-wrapper.sh" "${ROOT}/${BINPATH_LINKS}" "${x}"
++	done
+ 	#
+ 	# Generate library / ldscripts symlinks
+ 	#
