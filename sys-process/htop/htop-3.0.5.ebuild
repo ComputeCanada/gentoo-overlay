@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_7 )
+PYTHON_COMPAT=( python3_7 python3_11 )
 
 inherit autotools linux-info python-any-r1
 
