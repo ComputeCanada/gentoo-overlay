@@ -27,7 +27,7 @@ SLOT="0"
 IUSE="client +utils modules server readline tests"
 
 RDEPEND="
-	virtual/awk
+	app-alternatives/awk
 	dev-libs/libnl
 	readline? ( sys-libs/readline:0 )
 	server? (
