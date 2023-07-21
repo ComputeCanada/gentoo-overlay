@@ -1,8 +1,8 @@
-diff -ur coreutils-8.31/src/uname.c coreutils-8.31.orig/src/uname.c
---- coreutils-8.31/src/uname.c	2020-11-27 14:27:17.163142377 +0000
-+++ coreutils-8.31.orig/src/uname.c	2019-01-05 10:36:22.000000000 +0000
-@@ -49,12 +49,6 @@
- # include <mach-o/arch.h>
+diff -ur coreutils-9.3/src/uname.c coreutils-9.3.orig/src/uname.c
+--- coreutils-9.3/src/uname.c	2023-07-21 12:59:36.587536463 +0000
++++ coreutils-9.3.orig/src/uname.c	2023-03-13 18:08:10.000000000 +0000
+@@ -44,12 +44,6 @@
+ # endif
  #endif
  
 -#if defined (__linux__)
@@ -14,7 +14,7 @@ diff -ur coreutils-8.31/src/uname.c coreutils-8.31.orig/src/uname.c
  #include "system.h"
  #include "die.h"
  #include "error.h"
-@@ -160,119 +154,6 @@
+@@ -155,119 +149,6 @@
    exit (status);
  }
  
@@ -134,23 +134,24 @@ diff -ur coreutils-8.31/src/uname.c coreutils-8.31.orig/src/uname.c
  /* Print ELEMENT, preceded by a space if something has already been
     printed.  */
  
-@@ -420,14 +301,10 @@
-   if (toprint & PRINT_PROCESSOR)
-     {
-       char const *element = unknown;
+@@ -442,15 +323,11 @@
+       element = "powerpc";
+ # endif
+ #endif
 -#if (HAVE_SYSINFO && defined SI_ARCHITECTURE) || defined (USE_PROCINFO)
 +#if HAVE_SYSINFO && defined SI_ARCHITECTURE
-       {
-         static char processor[257];
+       if (element == unknown)
+         {
+           static char processor[257];
 -#if defined (USE_PROCINFO)
--        if (0 <= __linux_procinfo (PROCINFO_PROCESSOR, processor, sizeof processor))
+-          if (0 <= __linux_procinfo (PROCINFO_PROCESSOR, processor, sizeof processor))
 -#else
-         if (0 <= sysinfo (SI_ARCHITECTURE, processor, sizeof processor))
+           if (0 <= sysinfo (SI_ARCHITECTURE, processor, sizeof processor))
 -#endif
-           element = processor;
-       }
+             element = processor;
+         }
  #endif
-@@ -480,13 +357,9 @@
+@@ -483,13 +360,9 @@
        if (element == unknown)
          {
            static char hardware_platform[257];
