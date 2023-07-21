@@ -1,4 +1,4 @@
-#!/bin/bash
+#!@GENTOO_PORTAGE_EPREFIX@/bin/bash
 
 expandResponseParams() {
     local inparams=("$@")
