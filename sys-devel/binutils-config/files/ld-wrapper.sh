@@ -215,8 +215,4 @@ if [ -n "$RSNT_DEBUG" ]; then
 fi
 
 PATH="$path_backup"
-# strip off sysroot if present otherwise we get double prefixes
-if [ "${params[0]}" = "--sysroot=$EPREFIX" ]; then
-    exec $LD ${extraBefore[@]} "${params[@]:1}" ${extra[@]}
-fi
 exec $LD ${extraBefore[@]} "${params[@]}" ${extra[@]}
