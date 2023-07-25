@@ -20,6 +20,7 @@ app-doc/doxygen
 app-editors/gedit
 app-editors/gvim
 app-editors/joe
+app-editors/nano
 app-editors/nedit
 app-editors/vim
 
