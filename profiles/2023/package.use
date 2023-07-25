@@ -25,6 +25,8 @@ net-libs/nghttp2 utils
 net-misc/tigervnc -server -opengl gnutls
 net-misc/turbovnc -viewer
 
+net-nds/openldap minimal
+
 sys-apps/duc -tokyocabinet gui
 sys-apps/util-linux caps fdformat
 
