@@ -16,6 +16,7 @@ media-libs/sdl2-ttf -harfbuzz
 
 net-analyzer/nmap ncat ndiff nping
 
+net-libs/glib-networking -libproxy
 net-libs/gnutls dane tools
 net-libs/nghttp2 utils
 
