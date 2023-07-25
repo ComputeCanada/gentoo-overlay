@@ -1,0 +1,11 @@
+--- a/bin/install-qa-check.d/05prefix	2023-03-19 19:17:07.000000000 +0000
++++ b/bin/install-qa-check.d/05prefix	2023-07-18 15:19:34.208954239 +0000
+@@ -49,7 +49,7 @@
+ 		line=( ${line#"#!"} )
+ 		IFS=${oldIFS}
+ 		[[ ${WHITELIST} == *" ${line[0]} "* ]] && continue
+-		local fp=${fn#${D}} ; fp=/${fp%/*}
++		local fp=${fn#${D%/}/} ; fp=/${fp%/*}
+ 		# line[0] can be an absolutised path, bug #342929
+ 		local eprefix=$(canonicalize ${EPREFIX})
+ 		local rf=${fn}
