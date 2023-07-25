@@ -32,6 +32,7 @@ sys-auth/sssd -daemon -man
 sys-cluster/lustre -utils
 
 sys-devel/binutils gprofng
+sys-devel/gcc -pie -ssp graphite
 
 sys-libs/glibc gd
 sys-libs/zlib minizip
