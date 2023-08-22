@@ -67,6 +67,7 @@ dev-lua/luafilesystem
 
 dev-libs/check
 dev-libs/isa-l
+dev-libs/level-zero
 dev-libs/libdwarf
 dev-libs/libedit
 dev-libs/libffi-compat
@@ -177,6 +178,7 @@ sys-cluster/rdma-core
 
 sys-devel/bmake
 sys-devel/gdb
+sys-devel/mold
 
 sys-fs/cryptsetup
 sys-fs/fuse
