@@ -1273,3 +1273,5 @@ sys-apps/fakeroot ~amd64
 sys-fs/fuse-overlayfs ~amd64
 dev-lang/go ~amd64
 xfce-base/xfce4-session ~amd64
+
+dev-libs/level-zero ~amd64
