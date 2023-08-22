@@ -2,4 +2,6 @@ dev-libs/isa-l ~amd64
 dev-ruby/gist ~amd64
 net-misc/turbovnc ~amd64
 sys-apps/duc ~amd64
+sys-devel/mold ~amd64
 sys-devel/binutils ~amd64
+sys-libs/binutils-libs ~amd64
