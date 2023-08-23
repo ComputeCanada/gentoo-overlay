@@ -20,7 +20,7 @@ IUSE="static-libs test"
 RESTRICT="!test? ( test )"
 
 src_install() {
-	emake DESTDIR="${ED}" PREFIX=/usr LIBDIR="/usr/$(get_libdir)" install
+	emake DESTDIR="${ED}" PREFIX="${EPREFIX}"/usr LIBDIR="${EPREFIX}/usr/$(get_libdir)" install
 	if ! use static-libs; then
 		find "${ED}" -name '*.a' -delete || die
 	fi
