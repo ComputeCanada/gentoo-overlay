@@ -177,6 +177,7 @@ sys-cluster/lustre
 sys-cluster/rdma-core
 
 sys-devel/bmake
+sys-devel/crossdev
 sys-devel/gdb
 sys-devel/mold
 
