@@ -173,6 +173,7 @@ sys-auth/nss-pam-ldapd
 sys-auth/sssd
 
 sys-cluster/easybuild
+sys-cluster/knem
 sys-cluster/lustre
 sys-cluster/rdma-core
 
