@@ -193,6 +193,7 @@ sys-libs/ncurses-compat
 
 sys-process/htop
 sys-process/lsof
+sys-process/numactl
 sys-process/nvtop
 sys-process/parallel
 
