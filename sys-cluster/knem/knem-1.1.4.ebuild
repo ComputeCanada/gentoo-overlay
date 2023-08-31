@@ -33,8 +33,6 @@ MODULE_NAMES="knem(misc:${S}/driver/linux)"
 BUILD_TARGETS="all"
 BUILD_PARAMS="KDIR=${KERNEL_DIR}"
 
-PATCHES=( "${FILESDIR}/${P}-setup_timer.patch" )
-
 pkg_setup() {
 	linux-info_pkg_setup
 	#CONFIG_CHECK="DMA_ENGINE"
