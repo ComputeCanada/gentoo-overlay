@@ -24,9 +24,9 @@ DEPEND="
 "
 RDEPEND="
 	${DEPEND}
-	acct-group/munge
-	acct-user/munge
 "
+	#acct-group/munge
+	#acct-user/munge
 BDEPEND="app-arch/xz-utils[extra-filters]"
 
 src_prepare() {
@@ -39,7 +39,7 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
-		--localstatedir="${EPREFIX}"/var
+		--localstatedir=/var
 		--with-logrotateddir="${EPREFIX}"/etc/logrotate.d
 		--with-pkgconfigdir="${EPREFIX}/usr/$(get_libdir)/pkgconfig"
 		--with-systemdunitdir="$(systemd_get_systemunitdir)"
@@ -66,7 +66,7 @@ src_install() {
 	fi
 
 	dodir /etc/munge
-	keepdir /var/{lib,log}/munge
+	rm -rf "${D}"/var
 
 	local d
 	for d in "init.d" "default" "sysconfig"; do
