@@ -1,6 +1,5 @@
 dev-libs/isa-l ~amd64
 dev-ruby/gist ~amd64
-dev-util/patchelf ~amd64
 net-misc/turbovnc ~amd64
 sys-apps/duc ~amd64
 sys-cluster/knem ~amd64
