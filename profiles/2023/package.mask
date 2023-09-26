@@ -2,3 +2,5 @@
 dev-lang/rust
 # mask older spirv-tools with confusing version
 =dev-util/spirv-tools-2019.10_pre20191027-r1
+# mask newer patchelf (buggy)
+=dev-util/patchelf-0.18.0
