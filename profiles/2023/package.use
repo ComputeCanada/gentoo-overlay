@@ -1,3 +1,5 @@
+app-arch/brotli static-libs
+
 app-text/texlive cjk context extra games humanities music tex4ht xetex
 app-text/texlive-core cjk xetex
 app-text/xmlto text
