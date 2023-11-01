@@ -198,3 +198,16 @@ index 68a4c9028..50b9c4483 100644
                              if ec not in easyconfigs + additional:
 
  
+diff --git a/easybuild/tools/toolchain/linalg.py b/easybuild/tools/toolchain/linalg.py
+index b7ce694ff..4b1075a4d 100644
+--- a/easybuild/tools/toolchain/linalg.py
++++ b/easybuild/tools/toolchain/linalg.py
+@@ -92,7 +92,7 @@ class LinAlg(Toolchain):
+         # TODO is link order fully preserved with this order ?
+         self._set_blas_variables()
+         self._set_lapack_variables()
+-        if getattr(self, 'MPI_MODULE_NAME', None):
++        if getattr(self, 'MPI_MODULE_NAME', None) and self.SCALAPACK_LIB is not None:
+             self._set_blacs_variables()
+             self._set_scalapack_variables()
+ 
