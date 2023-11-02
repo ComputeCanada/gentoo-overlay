@@ -1,11 +1,11 @@
 # Fixes: swrast fails to load with certain remote X servers
 # https://gitlab.freedesktop.org/mesa/mesa/issues/99
 # From Tom Hughes <tom@compton.nu>, June 2015
-# Adapted for later Mesa by Bart Oldeman <bart.oldeman@calculquebec.ca>, September 2019
+# Adapted for later Mesa by Bart Oldeman <bart.oldeman@calculquebec.ca>, Sept 2019, Oct 2023
 # Breaks "radeonsi" driver but this driver is not built by the easyconfig.
---- mesa-20.1.5/src/glx/dri_common.c.orig	2020-03-19 22:11:21.522610000 +0100
-+++ mesa-20.1.5/src/glx/dri_common.c	2020-03-19 22:14:39.290225004 +0100
-@@ -200,6 +200,36 @@
+--- mesa-23.1.6/src/glx/dri_common.c.orig	2023-08-16 17:19:13.000000000 +0000
++++ mesa-23.1.6/src/glx/dri_common.c	2023-11-02 15:06:29.377376832 +0000
+@@ -139,6 +139,36 @@
  }
  
  static int
@@ -42,7 +42,7 @@
  driConfigEqual(const __DRIcoreExtension *core,
                 struct glx_config *config, const __DRIconfig *driConfig)
  {
-@@ -247,7 +277,38 @@
+@@ -175,7 +205,36 @@
           if (value & __DRI_ATTRIB_TEXTURE_RECTANGLE_BIT)
              glxValue |= GLX_TEXTURE_RECTANGLE_BIT_EXT;
           if (config->bindToTextureTargets != GLX_DONT_CARE &&
@@ -69,12 +69,10 @@
 +
 +      case __DRI_ATTRIB_BIND_TO_TEXTURE_RGB:
 +      case __DRI_ATTRIB_BIND_TO_TEXTURE_RGBA:
-+      case __DRI_ATTRIB_BIND_TO_MIPMAP_TEXTURE:
 +          break;
 +
 +      case __DRI_ATTRIB_SAMPLE_BUFFERS:
 +      case __DRI_ATTRIB_SAMPLES:
-+      case __DRI_ATTRIB_AUX_BUFFERS:
 +      case __DRI_ATTRIB_MAX_PBUFFER_WIDTH:
 +      case __DRI_ATTRIB_MAX_PBUFFER_HEIGHT:
 +      case __DRI_ATTRIB_MAX_PBUFFER_PIXELS:
