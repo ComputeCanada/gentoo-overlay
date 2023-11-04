@@ -162,7 +162,6 @@ net-misc/telnet-bsd
 net-misc/tigervnc
 net-misc/turbovnc
 
-sci-libs/flann
 sci-libs/szip
 
 sys-apps/bubblewrap
