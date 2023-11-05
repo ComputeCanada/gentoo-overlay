@@ -23,7 +23,6 @@ dev-python/GitPython[${PYTHON_USEDEP}]
 dev-python/pyyaml[${PYTHON_USEDEP}]
 dev-python/autopep8[${PYTHON_USEDEP}]
 dev-python/requests[${PYTHON_USEDEP}]
-dev-python/cryptography[${PYTHON_USEDEP}]
 dev-python/rich[${PYTHON_USEDEP}]
 dev-python/archspec[${PYTHON_USEDEP}]
 "
