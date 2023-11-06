@@ -1,4 +1,3 @@
-cross-nvptx-none/nvptx-tools ~amd64
 dev-libs/isa-l ~amd64
 dev-ruby/gist ~amd64
 net-misc/turbovnc ~amd64
@@ -6,4 +5,5 @@ sys-apps/duc ~amd64
 sys-cluster/knem ~amd64
 sys-devel/mold ~amd64
 sys-devel/binutils ~amd64
+sys-devel/nvptx-tools ~amd64
 sys-libs/binutils-libs ~amd64
