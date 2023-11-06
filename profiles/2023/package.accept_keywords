@@ -1,3 +1,4 @@
+cross-nvptx-none/nvptx-tools ~amd64
 dev-libs/isa-l ~amd64
 dev-ruby/gist ~amd64
 net-misc/turbovnc ~amd64
