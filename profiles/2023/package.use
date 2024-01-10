@@ -67,7 +67,7 @@ app-editors/gvim selinux
 media-libs/mesa selinux
 sys-auth/elogind selinux
 sys-process/procps selinux
-app-editors/emacs selinux
+app-editors/emacs selinux jit
 
 app-arch/xz-utils static-libs
 sys-libs/binutils-libs static-libs
