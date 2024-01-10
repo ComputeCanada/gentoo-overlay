@@ -42,7 +42,7 @@ sys-auth/sssd -daemon -man
 sys-cluster/lustre -utils
 
 sys-devel/binutils gprofng
-sys-devel/gcc -pie -ssp graphite
+sys-devel/gcc -pie -ssp graphite jit
 sys-devel/gettext openmp
 
 sys-libs/glibc gd
