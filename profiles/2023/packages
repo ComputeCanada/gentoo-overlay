@@ -171,7 +171,9 @@ sys-apps/fakeroot
 sys-apps/lsb-release
 sys-apps/man-pages
 sys-apps/mawk
+sys-apps/moreutils
 sys-apps/proot
+
 sys-auth/munge
 sys-auth/nss-pam-ldapd
 sys-auth/sssd
