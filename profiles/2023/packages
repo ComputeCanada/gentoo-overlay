@@ -219,6 +219,7 @@ x11-apps/xlsfonts
 x11-apps/xrandr
 x11-libs/gl2ps
 x11-libs/libGLw
+x11-libs/libxkbcommon
 x11-libs/xcb-util-image
 x11-libs/xcb-util-renderutil
 x11-libs/xcb-util-wm
