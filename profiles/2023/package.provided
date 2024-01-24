@@ -1,4 +1,5 @@
 # pretend this is provided to satisfy deps
+app-arch/rpm-4.18.0
 dev-libs/boost-1.82.0-r1
 dev-python/jeepney-0.8.0
 dev-python/secretstorage-3.3.3
