@@ -131,6 +131,8 @@ media-gfx/graphicsmagick
 media-gfx/transfig
 
 media-libs/freeimage
+media-libs/glew
+media-libs/glm
 media-libs/harfbuzz
 media-libs/libglvnd
 media-libs/libpng-compat
