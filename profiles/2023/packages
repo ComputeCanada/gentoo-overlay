@@ -165,6 +165,7 @@ net-misc/tigervnc
 net-misc/turbovnc
 
 sci-libs/szip
+sci-mathematics/z3
 
 sys-apps/bubblewrap
 sys-apps/dstat
