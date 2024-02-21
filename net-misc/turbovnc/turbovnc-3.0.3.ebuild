@@ -102,6 +102,10 @@ src_configure() {
 			-DXKB_BIN_DIRECTORY=${EPREFIX}/usr/bin
 			-DXKB_DFLT_RULES=base
 			-DCMAKE_INSTALL_SYSCONFDIR=${EPREFIX}/etc
+			-DXORG_DRI_DRIVER_PATH=${EPREFIX}/usr/lib64/dri
+			-DXKB_BASE_DIRECTORY=${EPREFIX}/usr/share/X11/xkb
+			-DXORG_FONT_PATH=${EPREFIX}/usr/share/fonts/misc/,${EPREFIX}/usr/share/fonts/Type1/,${EPREFIX}/usr/share/fonts/75dpi/,${EPREFIX}/usr/share/fonts/100dpi/
+			-DXORG_REGISTRY_PATH=${EPREFIX}/usr/lib64/xorg
 		)
 		if use ssl ; then
 			# Link properly against OpenSSL to ensure
