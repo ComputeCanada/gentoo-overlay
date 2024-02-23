@@ -91,6 +91,7 @@ dev-ml/opam
 
 dev-python/docutils
 dev-python/pycodestyle
+dev-python/websockify
 
 dev-ruby/gist
 
