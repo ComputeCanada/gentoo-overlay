@@ -146,5 +146,7 @@ src_install() {
 	# don't need this in our setup
 	rm "${ED}"/etc/turbovncserver-security.conf || die
 
+	sed -i "s!/etc/X11/xinit/Xsession!${EPREFIX}/etc/X11/Sessions/Xsession!" "${ED}"/usr/bin/xstartup.turbovnc || die
+
 	einstalldocs
 }
