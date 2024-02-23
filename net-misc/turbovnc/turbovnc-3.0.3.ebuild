@@ -148,6 +148,7 @@ src_install() {
 
 	sed -i "s!/etc/X11/xinit!${EPREFIX}/etc/X11/xinit!" "${ED}"/usr/bin/xstartup.turbovnc || die
 	sed -i "s!/usr/share/xsessions!${EPREFIX}/usr/share/xsessions!" "${ED}"/usr/bin/xstartup.turbovnc || die
+	sed -i "s!/usr/bin/env!${EPREFIX}/usr/bin/env!" "${ED}"/usr/bin/vncserver || die
 	sed -i 's!"gnome"!"mate"!' "${ED}"/usr/bin/xstartup.turbovnc || die
 
 	einstalldocs
