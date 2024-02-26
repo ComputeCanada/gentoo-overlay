@@ -33,7 +33,7 @@ python_prepare() {
 
 python_compile() {
 	distutils-r1_python_compile
-	emake rebind.so
+	emake rebind.so LDFLAGS="${LDFLAGS/ -Wl,-z,pack-relative-relocs/}"
 }
 
 python_install() {
