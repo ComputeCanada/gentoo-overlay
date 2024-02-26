@@ -27,6 +27,8 @@ python_prepare() {
 	default
 	sed -i 's/    warnings.warn/    #warnings.warn/' websockify/websocket.py
 	sed -i "s@wsdir = @wsdir = \'${EPREFIX}/usr/bin\' #@" websockify/websocketproxy.py
+	# This makes rebind.so compatible with glibc < 2.34
+	echo 'asm(".symver dlsym, dlsym@GLIBC_2.2.5");' >> rebind.c
 }
 
 python_compile() {
