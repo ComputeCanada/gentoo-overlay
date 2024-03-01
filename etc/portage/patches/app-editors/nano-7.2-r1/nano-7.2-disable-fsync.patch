@@ -1,0 +1,14 @@
+fsync() is slow on some Lustre file systems on clusters (e.g. Beluga), let's
+disable it.
+diff -ur nano-7.2.orig/src/files.c nano-7.2/src/files.c
+--- nano-7.2.orig/src/files.c	2023-01-18 08:19:15.000000000 +0000
++++ nano-7.2/src/files.c	2024-03-01 17:57:09.607314414 +0000
+@@ -33,7 +33,7 @@
+ 
+ #define RW_FOR_ALL  (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH)
+ 
+-#ifndef HAVE_FSYNC
++#ifdef HAVE_FSYNC
+ # define fsync(...)  0
+ #endif
+ 
