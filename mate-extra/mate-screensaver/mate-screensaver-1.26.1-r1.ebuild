@@ -37,7 +37,6 @@ COMMON_DEPEND="
 	libnotify? ( >=x11-libs/libnotify-0.7:0 )
 	opengl? ( virtual/opengl )
 	pam? ( gnome-base/gnome-keyring sys-libs/pam )
-	!pam? ( kernel_linux? ( sys-apps/shadow ) )
 	elogind? ( sys-auth/elogind )
 	systemd? ( sys-apps/systemd:= )
 "
