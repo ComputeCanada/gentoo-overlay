@@ -4,7 +4,7 @@
 EAPI=8
 
 JAVA_PKG_OPT_USE=viewer
-inherit cmake desktop java-pkg-opt-2 verify-sig
+inherit cmake desktop java-pkg-opt-2 verify-sig prefix
 
 DESCRIPTION="A fast replacement for TigerVNC"
 HOMEPAGE="https://www.turbovnc.org/"
@@ -145,6 +145,8 @@ src_install() {
 	sed -i "s!/usr/share/xsessions!${EPREFIX}/usr/share/xsessions!" "${ED}"/usr/bin/xstartup.turbovnc || die
 	sed -i "s!/usr/bin/env!${EPREFIX}/usr/bin/env!" "${ED}"/usr/bin/vncserver || die
 	sed -i 's!"gnome"!"mate"!' "${ED}"/usr/bin/xstartup.turbovnc || die
+
+	hprefixify "${ED}"/usr/bin/vncserver
 
 	einstalldocs
 }
