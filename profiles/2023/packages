@@ -121,6 +121,8 @@ dev-vcs/subversion
 
 mail-filter/procmail
 
+mail-mta/msmtp
+
 mate-base/mate
 
 media-fonts/dejavu
