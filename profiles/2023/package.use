@@ -45,6 +45,8 @@ sys-devel/binutils gprofng
 sys-devel/gcc -pie -ssp graphite jit
 sys-devel/gettext openmp
 
+sys-fs/e2fsprogs fuse
+
 sys-libs/glibc gd
 sys-libs/zlib minizip
 
