@@ -172,6 +172,7 @@ net-misc/turbovnc
 sci-libs/szip
 sci-mathematics/z3
 
+sys-apps/bat
 sys-apps/bubblewrap
 sys-apps/dstat
 sys-apps/duc
@@ -181,6 +182,7 @@ sys-apps/man-pages
 sys-apps/mawk
 sys-apps/moreutils
 sys-apps/proot
+sys-apps/ripgrep
 
 sys-auth/munge
 sys-auth/nss-pam-ldapd
