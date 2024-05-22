@@ -196,6 +196,7 @@ sys-cluster/rdma-core
 sys-devel/bmake
 sys-devel/crossdev
 sys-devel/gcc:11
+sys-devel/gcc:13
 sys-devel/gdb
 sys-devel/mold
 
