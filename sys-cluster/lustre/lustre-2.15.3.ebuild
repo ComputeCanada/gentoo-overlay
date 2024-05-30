@@ -104,7 +104,7 @@ src_configure() {
 }
 
 src_compile() {
-	emake CPPFLAGS="-I$PWD/lnet/include/uapi -I$PWD/libcfs/include -I$PWD/lustre/include/uapi -I$PWD/lustre/include -DLUSTRE_VERSION_STRING=\\\"2.15.3\\\" -DHAVE_COPY_FILE_RANGE=1" CFLAGS='-Wno-error'
+	emake CPPFLAGS="-I$PWD/lnet/include/uapi -I$PWD/libcfs/include -I$PWD/lustre/include/uapi -I$PWD/lustre/include -I$PWD/lnet/utils -DLUSTRE_VERSION_STRING=\\\"2.15.3\\\" -DHAVE_COPY_FILE_RANGE=1" CFLAGS='-Wno-error'
 }
 
 src_install() {
