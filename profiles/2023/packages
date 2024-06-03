@@ -13,6 +13,7 @@ app-backup/rdiff-backup
 app-benchmarks/i7z
 
 app-containers/crun
+app-containers/netavark
 app-containers/slirp4netns
 
 app-crypt/mit-krb5
@@ -160,6 +161,7 @@ net-analyzer/traceroute
 net-fs/sshfs
 net-ftp/lftp
 net-libs/mbedtls
+net-libs/rpcsvc-proto
 net-libs/zeromq
 net-misc/bridge-utils
 net-misc/netkit-fingerd
