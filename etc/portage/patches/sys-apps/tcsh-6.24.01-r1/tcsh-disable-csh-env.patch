@@ -1,0 +1,29 @@
+Since we set env vars via the gentoo module, don't let csh overwrite them in `csh -l`
+Bart Oldeman <bart.oldeman@calculquebec.ca>
+diff -ur tcsh-gentoo-patches-r1.10.orig/csh.login tcsh-gentoo-patches-r1.10/csh.login
+--- tcsh-gentoo-patches-r1.10.orig/csh.login	2022-10-02 17:00:45.000000000 +0000
++++ tcsh-gentoo-patches-r1.10/csh.login	2024-08-16 19:49:20.882616688 +0000
+@@ -6,9 +6,9 @@
+ 
+ # Load environment settings from csh.env, which is created by
+ # env-update from the files in /etc/env.d
+-if ( -r "@GENTOO_PORTAGE_EPREFIX@/etc/csh.env" ) then
+-	source "@GENTOO_PORTAGE_EPREFIX@/etc/csh.env"
+-endif
++#if ( -r "@GENTOO_PORTAGE_EPREFIX@/etc/csh.env" ) then
++#	source "@GENTOO_PORTAGE_EPREFIX@/etc/csh.env"
++#endif
+ 
+ # 077 would be more secure, but 022 is generally quite realistic
+ umask 022
+@@ -24,8 +24,8 @@
+ #MAIN	setenv PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${ROOTPATH}"
+ #PREFIX	setenv PATH "@GENTOO_PORTAGE_EPREFIX@/usr/sbin:@GENTOO_PORTAGE_EPREFIX@/usr/bin:@GENTOO_PORTAGE_EPREFIX@/sbin:@GENTOO_PORTAGE_EPREFIX@/bin:${ROOTPATH}:/usr/sbin:/usr/bin:/sbin:/bin"
+ else
+-#MAIN	setenv PATH "/usr/local/bin:/usr/bin:/bin:${PATH}"
+-#PREFIX	setenv PATH "@GENTOO_PORTAGE_EPREFIX@/usr/bin:@GENTOO_PORTAGE_EPREFIX@/bin:${PATH}:/usr/bin:/bin"
++##MAIN	setenv PATH "/usr/local/bin:/usr/bin:/bin:${PATH}"
++##PREFIX	setenv PATH "@GENTOO_PORTAGE_EPREFIX@/usr/bin:@GENTOO_PORTAGE_EPREFIX@/bin:${PATH}:/usr/bin:/bin"
+ endif
+ unsetenv ROOTPATH
+ 
