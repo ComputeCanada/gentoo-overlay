@@ -1,8 +1,8 @@
 Since we set env vars via the gentoo module, don't let csh overwrite them in `csh -l`
 Bart Oldeman <bart.oldeman@calculquebec.ca>
 diff -ur tcsh-gentoo-patches-r1.10.orig/csh.login tcsh-gentoo-patches-r1.10/csh.login
---- a/../tcsh-gentoo-patches-r1.10/csh.login	2022-10-02 17:00:45.000000000 +0000
-+++ b/../tcsh-gentoo-patches-r1.10/csh.login	2024-08-16 19:49:20.882616688 +0000
+--- a/tcsh-gentoo-patches-r1.10/csh.login	2022-10-02 17:00:45.000000000 +0000
++++ b/tcsh-gentoo-patches-r1.10/csh.login	2024-08-16 19:49:20.882616688 +0000
 @@ -6,9 +6,9 @@
  
  # Load environment settings from csh.env, which is created by
