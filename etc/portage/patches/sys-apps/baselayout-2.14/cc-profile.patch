@@ -1,0 +1,40 @@
+Don't source profile.env (overwrites env) and source CC env.
+
+This causes Gentoo "bash -l" to work properly.
+
+Bart Oldeman <bart.oldeman@calculquebec.ca>
+
+diff --git a/etc/profile b/etc/profile
+index 98d8b85b..4326a98a 100644
+--- a/etc/profile
++++ b/etc/profile
+@@ -6,9 +6,10 @@
+ 
+ # Load environment settings from profile.env, which is created by
+ # env-update from the files in /etc/env.d
+-if [ -e /etc/profile.env ] ; then
+-	. /etc/profile.env
+-fi
++# We use a module for Gentoo so skip this
++#if [ -e /etc/profile.env ] ; then
++#	. /etc/profile.env
++#fi
+ 
+ # You should override these in your ~/.bashrc (or equivalent) for per-user
+ # settings.  For system defaults, you can add a new file in /etc/profile.d/.
+diff --git a/etc/profile.d/z-00-computecanada.csh b/etc/profile.d/z-00-computecanada.csh
+new file mode 120000
+index 00000000..854ed226
+--- /dev/null
++++ b/etc/profile.d/z-00-computecanada.csh
+@@ -0,0 +1 @@
++/cvmfs/soft.computecanada.ca/config/profile/csh.csh
+\ No newline at end of file
+diff --git a/etc/profile.d/z-00-computecanada.sh b/etc/profile.d/z-00-computecanada.sh
+new file mode 120000
+index 00000000..6bab5aca
+--- /dev/null
++++ b/etc/profile.d/z-00-computecanada.sh
+@@ -0,0 +1 @@
++/cvmfs/soft.computecanada.ca/config/profile/bash.sh
+\ No newline at end of file
