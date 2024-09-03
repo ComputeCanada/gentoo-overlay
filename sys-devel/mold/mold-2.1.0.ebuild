@@ -78,7 +78,8 @@ src_install() {
 	dodoc docs/{design,execstack}.md
 	doman docs/${PN}.1
 
-	dosym ${PN} /usr/bin/ld.${PN}
-	dosym ${PN} /usr/bin/ld64.${PN}
-	dosym ../../../usr/bin/${PN} /usr/libexec/${PN}/ld
+	# handled via binutils-config wrapper script
+	#dosym ${PN} /usr/bin/ld.${PN}
+	dosym ld.${PN} /usr/bin/ld64.${PN}
+	dosym ../../../usr/bin/ld.${PN} /usr/libexec/${PN}/ld
 }

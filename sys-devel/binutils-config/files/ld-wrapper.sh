@@ -47,7 +47,10 @@ PATH="${EPREFIX}/usr/bin:${EPREFIX}/bin"
 MACHINE=$(gcc -dumpmachine)
 source "${EPREFIX}"/etc/env.d/binutils/config-$MACHINE
 source "${EPREFIX}"/etc/env.d/binutils/$MACHINE-$CURRENT
-LD="${EPREFIX}"/usr/${TARGET}/binutils-bin/${VER}/ld${0#*ld}
+LD=${0#ld*.}
+if [[ "$LD" != "lld" && "$LD" != "mold" ]]; then
+    LD="${EPREFIX}"/usr/${TARGET}/binutils-bin/${VER}/ld${0#*ld}
+fi
 
 expandResponseParams "$@"
 extra=($RSNT_LDFLAGS)
