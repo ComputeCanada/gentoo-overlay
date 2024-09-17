@@ -18,6 +18,8 @@ dev-util/cmake -emacs
 dev-util/desktop-file-utils -emacs
 dev-util/perf slang
 
+media-gfx/graphviz gts
+
 media-libs/leptonica utils
 media-libs/libsdl2 haptic
 media-libs/sdl2-ttf -harfbuzz
