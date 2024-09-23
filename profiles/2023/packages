@@ -202,6 +202,8 @@ sys-devel/gcc:13
 sys-devel/gdb
 sys-devel/mold
 
+sys-fabric/opensm
+
 sys-fs/cryptsetup
 sys-fs/fuse
 sys-fs/fuse-overlayfs
