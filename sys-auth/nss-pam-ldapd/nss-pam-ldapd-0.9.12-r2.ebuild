@@ -23,7 +23,7 @@ RESTRICT="!test? ( test )"
 RDEPEND="
 	nslcd? ( acct-group/nslcd )
 	nslcd? ( acct-user/nslcd )
-	net-nds/openldap:=[${MULTILIB_USEDEP}]
+	nslcd? ( net-nds/openldap:=[${MULTILIB_USEDEP}] )
 	sasl? ( dev-libs/cyrus-sasl[${MULTILIB_USEDEP}] )
 	kerberos? ( virtual/krb5[${MULTILIB_USEDEP}] )
 	pam? ( sys-libs/pam[${MULTILIB_USEDEP}] )
