@@ -27,5 +27,6 @@ PORTAGE_UID="1012"
 PORTAGE_GID="1012"
 PORTAGE_INST_GID="1012"
 PORTAGE_INST_UID="1012"
+PORTAGE_TMPDIR=/var/tmp
 # Safety: Force asking user to confirm with --ask
 EMERGE_DEFAULT_OPTS="--ask"
