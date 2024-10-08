@@ -1,6 +1,7 @@
 app-containers/netavark ~amd64
 dev-libs/isa-l ~amd64
 dev-python/fastbencode ~amd64
+dev-python/merge3 ~amd64
 dev-python/patiencediff ~amd64
 dev-ruby/gist ~amd64
 dev-vcs/breezy ~amd64
