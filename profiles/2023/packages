@@ -114,6 +114,7 @@ dev-util/strace
 dev-util/systemtap
 dev-util/vulkan-tools
 
+dev-vcs/breezy
 dev-vcs/cvs
 dev-vcs/darcs
 dev-vcs/mercurial
