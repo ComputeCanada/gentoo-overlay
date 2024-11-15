@@ -133,7 +133,7 @@ index 43b450b3d..3e9c56762 100644
  
  
  TC_CONSTANT_FLEXIBLAS = 'FlexiBLAS'
-@@ -78,6 +79,12 @@ class FlexiBLAS(LinAlg):
+@@ -78,6 +79,13 @@ class FlexiBLAS(LinAlg):
      LAPACK_INCLUDE_DIR = [os.path.join('include', 'flexiblas')]
      LAPACK_FAMILY = TC_CONSTANT_FLEXIBLAS
  
@@ -141,6 +141,7 @@ index 43b450b3d..3e9c56762 100644
 +        """Fix the BLAS_LIB for Intel"""
 +        if self.COMPILER_FAMILY == TC_CONSTANT_INTELCOMP:
 +            self.BLAS_LIB = ['flexiblas_intel']
++            self.BLAS_LIB_MT = ['flexiblas_intel']
 +        super(FlexiBLAS, self)._set_blas_variables()
 +
      def banned_linked_shared_libs(self):
