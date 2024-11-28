@@ -15,3 +15,4 @@ sys-devel/mold ~amd64
 sys-devel/binutils ~amd64
 sys-devel/nvptx-tools ~amd64
 sys-libs/binutils-libs ~amd64
+sci-visualization/grace ~amd64
