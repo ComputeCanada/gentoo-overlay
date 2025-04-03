@@ -66,7 +66,7 @@ index c85104d68..f4e60cdc8 100644
          # not all parts of all steps need to be rerun (see e.g., ready, prepare)
 -        steps_part2 = [
 -            ready_step_spec(False),
--            source_step_spec(False),
+-            extract_step_spec,
 -            patch_step_spec,
 -            prepare_step_spec,
 -            configure_step_spec,
@@ -84,7 +84,7 @@ index c85104d68..f4e60cdc8 100644
 +        else:
 +            steps_part2 = [
 +                ready_step_spec(False),
-+                source_step_spec(False),
++                extract_step_spec,
 +                patch_step_spec,
 +                prepare_step_spec,
 +                configure_step_spec,
@@ -174,13 +174,13 @@ index aaf97d319..70ee2ff7d 100644
 +++ b/easybuild/tools/module_generator.py
 @@ -1190,6 +1190,8 @@ class ModuleGeneratorLua(ModuleGenerator):
  
-             error_msg = 'LmodError("' + error_msg + '")'
-             res = self.conditional_statement('userInGroup("%s")' % group, error_msg, negative=True)
-+            if 'EASYBUILD_CONFIGFILES' in os.environ:
-+                res = '' # disable for Compute Canada:
-         else:
-             warn_msg = "Can't generate robust check in Lua modules for users belonging to group %s. "
-             warn_msg += "Lmod version not recent enough (%s), should be >= %s"
+         error_msg = 'LmodError("' + error_msg + '")'
+         res = self.conditional_statement('userInGroup("%s")' % group, error_msg, negative=True)
++        if 'EASYBUILD_CONFIGFILES' in os.environ:
++            res = '' # disable for Compute Canada:
+
+         return res
+ 
 diff --git a/easybuild/tools/options.py b/easybuild/tools/options.py
 index 761cdc262..85a325ae9 100644
 --- a/easybuild/tools/options.py
