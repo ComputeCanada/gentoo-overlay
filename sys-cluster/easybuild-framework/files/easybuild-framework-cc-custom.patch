@@ -1,10 +1,10 @@
 # Grab bag of accumulated framework patches, hopefully upstreamed
 # in the future
 diff --git a/easybuild/framework/easyblock.py b/easybuild/framework/easyblock.py
-index c85104d68..f4e60cdc8 100644
+index 4d9b4fbdd..46f174972 100644
 --- a/easybuild/framework/easyblock.py
 +++ b/easybuild/framework/easyblock.py
-@@ -1294,6 +1294,10 @@ class EasyBlock(object):
+@@ -1372,6 +1372,10 @@ class EasyBlock(object):
          if tc_mod in excluded_deps and tc_dep_mods:
              excluded_deps.extend(tc_dep_mods)
  
@@ -15,7 +15,7 @@ index c85104d68..f4e60cdc8 100644
          self.log.debug("List of excluded deps: %s", excluded_deps)
  
          # expand toolchain into toolchain components if desired
-@@ -2928,7 +2928,7 @@ class EasyBlock(object):
+@@ -3169,7 +3173,7 @@ class EasyBlock(object):
              raise EasyBuildError("Path to 'env' command to use in shebang lines does not exist: %s", env_for_shebang)
  
          for lang in ['bash', 'perl', 'python']:
@@ -23,8 +23,8 @@ index c85104d68..f4e60cdc8 100644
 +            shebang_regex = re.compile(r'^#![ ]*.*[/ ]%s' % lang)
              fix_shebang_for = self.cfg['fix_%s_shebang_for' % lang]
              if fix_shebang_for:
-                 if isinstance(fix_shebang_for, string_type):
-@@ -3961,7 +3964,7 @@ class EasyBlock(object):
+                 if isinstance(fix_shebang_for, str):
+@@ -4278,7 +4282,7 @@ class EasyBlock(object):
              raise StopException(step)
  
      @staticmethod
@@ -33,7 +33,7 @@ index c85104d68..f4e60cdc8 100644
          """Return a list of all steps to be performed."""
  
          def get_step(tag, descr, substeps, skippable, initial=True):
-@@ -3976,11 +3979,24 @@ class EasyBlock(object):
+@@ -4293,11 +4297,24 @@ class EasyBlock(object):
              (True, lambda x: x.reset_env),
              (True, lambda x: x.handle_iterate_opts),
          ]
@@ -58,9 +58,9 @@ index c85104d68..f4e60cdc8 100644
 +                return get_step(READY_STEP, "creating build dir, resetting environment",
 +                                ready_substeps_iterates, False, initial=initial)
  
-         source_substeps = [
-             (False, lambda x: x.checksum_step),
-@@ -4027,17 +4043,24 @@ class EasyBlock(object):
+         install_substeps = [
+             (False, lambda x: x.stage_install_step),
+@@ -4337,17 +4354,24 @@ class EasyBlock(object):
          # part 2: iterated part, from 2nd iteration onwards
          # repeat core procedure again depending on specified iteration count
          # not all parts of all steps need to be rerun (see e.g., ready, prepare)
@@ -96,8 +96,8 @@ index c85104d68..f4e60cdc8 100644
          # part 3: post-iteration part
          steps_part3 = [
              (POSTITER_STEP, 'restore after iterating', [lambda x: x.post_iter_step], False),
-@@ -4068,7 +4091,8 @@ class EasyBlock(object):
-         if self.cfg['stop'] and self.cfg['stop'] == 'cfg':
+@@ -4378,7 +4402,8 @@ class EasyBlock(object):
+         if self.cfg['stop'] == 'cfg':
              return True
  
 -        steps = self.get_steps(run_test_cases=run_test_cases, iteration_count=self.det_iter_cnt())
@@ -107,7 +107,7 @@ index c85104d68..f4e60cdc8 100644
          # figure out how many steps will actually be run (not be skipped)
          step_cnt = 0
 diff --git a/easybuild/framework/easyconfig/default.py b/easybuild/framework/easyconfig/default.py
-index b37c3660f..572090623 100644
+index 66ed417b6..0531735f4 100644
 --- a/easybuild/framework/easyconfig/default.py
 +++ b/easybuild/framework/easyconfig/default.py
 @@ -167,6 +167,7 @@ DEFAULT_CONFIG = {
@@ -119,10 +119,10 @@ index b37c3660f..572090623 100644
      'moddependpaths': [None, "Absolute path(s) to prepend to MODULEPATH before loading dependencies", DEPENDENCIES],
  
 diff --git a/easybuild/framework/easyconfig/tweak.py b/easybuild/framework/easyconfig/tweak.py
-index 41c688355..ba30f1f19 100644
+index 2c34c83a7..3b4fd6b0e 100644
 --- a/easybuild/framework/easyconfig/tweak.py
 +++ b/easybuild/framework/easyconfig/tweak.py
-@@ -385,6 +385,7 @@ def tweak_one(orig_ec, tweaked_ec, tweaks, targetdir=None):
+@@ -394,6 +394,7 @@ def tweak_one(orig_ec, tweaked_ec, tweaks, targetdir=None):
          try:
              # obtain temporary filename
              fd, tmpfn = tempfile.mkstemp()
@@ -131,18 +131,18 @@ index 41c688355..ba30f1f19 100644
  
              # write easyconfig to temporary file
 diff --git a/easybuild/toolchains/linalg/flexiblas.py b/easybuild/toolchains/linalg/flexiblas.py
-index 43b450b3d..3e9c56762 100644
+index 8b874cc76..02709a805 100644
 --- a/easybuild/toolchains/linalg/flexiblas.py
 +++ b/easybuild/toolchains/linalg/flexiblas.py
 @@ -36,6 +36,7 @@ from easybuild.tools.toolchain.linalg import LinAlg
  
- from easybuild.tools.run import run_cmd
+ from easybuild.tools.run import run_shell_cmd
  from easybuild.tools.systemtools import get_shared_lib_ext
 +from easybuild.toolchains.compiler.inteliccifort import TC_CONSTANT_INTELCOMP
  
  
  TC_CONSTANT_FLEXIBLAS = 'FlexiBLAS'
-@@ -78,6 +79,13 @@ class FlexiBLAS(LinAlg):
+@@ -79,6 +80,18 @@ class FlexiBLAS(LinAlg):
      LAPACK_INCLUDE_DIR = [os.path.join('include', 'flexiblas')]
      LAPACK_FAMILY = TC_CONSTANT_FLEXIBLAS
  
@@ -151,16 +151,36 @@ index 43b450b3d..3e9c56762 100644
 +        if self.COMPILER_FAMILY == TC_CONSTANT_INTELCOMP:
 +            self.BLAS_LIB = ['flexiblas_intel']
 +            self.BLAS_LIB_MT = ['flexiblas_intel']
++        # and for ILP64
++        if self.options.get('i8', None):
++            # ilp64/i8
++            self.BLAS_LIB = [s.replace('flexiblas', 'flexiblas64') for s in self.BLAS_LIB]
++            self.BLAS_LIB_MT = [s.replace('flexiblas', 'flexiblas64') for s in self.BLAS_LIB_MT]
 +        super(FlexiBLAS, self)._set_blas_variables()
 +
      def banned_linked_shared_libs(self):
          """
          List of shared libraries (names, file names, paths) which are
+diff --git a/easybuild/toolchains/linalg/scalapack.py b/easybuild/toolchains/linalg/scalapack.py
+index b4c12e696..666a11c95 100644
+--- a/easybuild/toolchains/linalg/scalapack.py
++++ b/easybuild/toolchains/linalg/scalapack.py
+@@ -48,3 +48,10 @@ class ScaLAPACK(Blacs):
+             return LooseVersion(self.get_software_version(self.SCALAPACK_MODULE_NAME)[0]) < LooseVersion("2.0")
+         else:
+             return super(ScaLAPACK, self).is_required(name)
++
++    def _set_scalapack_variables(self):
++        """Fix the SCALAPACK_LIB for ILP64"""
++        if self.options.get('i8', None):
++            # ilp64/i8
++            self.SCALAPACK_LIB = ['scalapack64']
++        super(ScaLAPACK, self)._set_scalapack_variables()
 diff --git a/easybuild/tools/build_log.py b/easybuild/tools/build_log.py
-index 215b8d38a..9fa15fa86 100644
+index 044f53faa..9795df90a 100644
 --- a/easybuild/tools/build_log.py
 +++ b/easybuild/tools/build_log.py
-@@ -214,6 +214,7 @@ def init_logging(logfile, logtostdout=False, silent=False, colorize=fancylogger.
+@@ -269,6 +269,7 @@ def init_logging(logfile, logtostdout=False, silent=False, colorize=fancylogger.
  
              # mkstemp returns (fd,filename), fd is from os.open, not regular open!
              fd, logfile = tempfile.mkstemp(suffix='.log', prefix='easybuild-', dir=tmp_logdir)
@@ -169,63 +189,10 @@ index 215b8d38a..9fa15fa86 100644
  
          fancylogger.logToFile(logfile, max_bytes=0)
 diff --git a/easybuild/tools/module_generator.py b/easybuild/tools/module_generator.py
-index aaf97d319..70ee2ff7d 100644
+index eebafb3c4..7bd3c815c 100644
 --- a/easybuild/tools/module_generator.py
 +++ b/easybuild/tools/module_generator.py
-@@ -1190,6 +1190,8 @@ class ModuleGeneratorLua(ModuleGenerator):
- 
-         error_msg = 'LmodError("' + error_msg + '")'
-         res = self.conditional_statement('userInGroup("%s")' % group, error_msg, negative=True)
-+        if 'EASYBUILD_CONFIGFILES' in os.environ:
-+            res = '' # disable for Compute Canada:
-
-         return res
- 
-diff --git a/easybuild/tools/options.py b/easybuild/tools/options.py
-index 761cdc262..85a325ae9 100644
---- a/easybuild/tools/options.py
-+++ b/easybuild/tools/options.py
-@@ -1874,6 +1874,7 @@ def set_tmpdir(tmpdir=None, raise_error=False):
-             raise EasyBuildError("Failed to create path to temporary directory %s: %s", current_tmpdir, err)
- 
-     _log.info("Temporary directory used in this EasyBuild run: %s" % current_tmpdir)
-+    os.chmod(current_tmpdir, 0o755)
- 
-     for var in ['TMPDIR', 'TEMP', 'TMP']:
-         env.setvar(var, current_tmpdir, verbose=False)
-diff --git a/easybuild/tools/robot.py b/easybuild/tools/robot.py
-index 68a4c9028..50b9c4483 100644
---- a/easybuild/tools/robot.py
-+++ b/easybuild/tools/robot.py
-@@ -439,7 +439,7 @@ def resolve_dependencies(easyconfigs, modtool, retain_all_deps=False, raise_erro
-                         processed_ecs = process_easyconfig(path, validate=not retain_all_deps, hidden=hidden)
- 
-                         # ensure that selected easyconfig provides required dependency
--                        verify_easyconfig_filename(path, cand_dep, parsed_ec=processed_ecs)
-+                        #verify_easyconfig_filename(path, cand_dep, parsed_ec=processed_ecs)
- 
-                         for ec in processed_ecs:
-                             if ec not in easyconfigs + additional:
-
- 
-diff --git a/easybuild/tools/toolchain/linalg.py b/easybuild/tools/toolchain/linalg.py
-index b7ce694ff..4b1075a4d 100644
---- a/easybuild/tools/toolchain/linalg.py
-+++ b/easybuild/tools/toolchain/linalg.py
-@@ -92,7 +92,7 @@ class LinAlg(Toolchain):
-         # TODO is link order fully preserved with this order ?
-         self._set_blas_variables()
-         self._set_lapack_variables()
--        if getattr(self, 'MPI_MODULE_NAME', None):
-+        if getattr(self, 'MPI_MODULE_NAME', None) and self.SCALAPACK_LIB is not None:
-             self._set_blacs_variables()
-             self._set_scalapack_variables()
- 
-diff --git a/easybuild/tools/module_generator.py b/easybuild/tools/module_generator.py
-index 70ee2ff7d..316ff76d0 100644
---- a/easybuild/tools/module_generator.py
-+++ b/easybuild/tools/module_generator.py
-@@ -514,6 +514,12 @@ class ModuleGenerator(object):
+@@ -527,6 +527,12 @@ class ModuleGenerator(object):
          """
          raise NotImplementedError
  
@@ -238,7 +205,7 @@ index 70ee2ff7d..316ff76d0 100644
      def set_as_default(self, module_dir_path, module_version, mod_symlink_paths=None):
          """
          Set generated module as default module
-@@ -1005,6 +1011,12 @@ class ModuleGeneratorTcl(ModuleGenerator):
+@@ -1013,6 +1019,12 @@ class ModuleGeneratorTcl(ModuleGenerator):
          # quotes are needed, to ensure smooth working of EBDEVEL* modulefiles
          return 'set-alias\t%s\t\t%s\n' % (key, quote_str(value, tcl=True))
  
@@ -250,8 +217,17 @@ index 70ee2ff7d..316ff76d0 100644
 +
      def set_as_default(self, module_dir_path, module_version, mod_symlink_paths=None):
          """
-         Create a .version file inside the package module folder in order to set the default version for TMod
-@@ -1480,6 +1492,13 @@ class ModuleGeneratorLua(ModuleGenerator):
+         Create a .version file inside the package module folder in order to set the default version
+@@ -1195,6 +1207,8 @@ class ModuleGeneratorLua(ModuleGenerator):
+ 
+         error_msg = 'LmodError("' + error_msg + '")'
+         res = self.conditional_statement('userInGroup("%s")' % group, error_msg, negative=True)
++        if 'EASYBUILD_CONFIGFILES' in os.environ:
++            res = '' # disable for Compute Canada:
+ 
+         return res
+ 
+@@ -1469,6 +1483,13 @@ class ModuleGeneratorLua(ModuleGenerator):
          # quotes are needed, to ensure smooth working of EBDEVEL* modulefiles
          return 'set_alias("%s", %s)\n' % (key, quote_str(value))
  
@@ -265,3 +241,41 @@ index 70ee2ff7d..316ff76d0 100644
      def set_as_default(self, module_dir_path, module_version, mod_symlink_paths=None):
          """
          Create a symlink named 'default' inside the package's module folder in order to set the default module version
+diff --git a/easybuild/tools/options.py b/easybuild/tools/options.py
+index 4068aa1ad..b2b33c562 100644
+--- a/easybuild/tools/options.py
++++ b/easybuild/tools/options.py
+@@ -2075,6 +2075,7 @@ def set_tmpdir(tmpdir=None, raise_error=False):
+             raise EasyBuildError("Failed to create path to temporary directory %s: %s", current_tmpdir, err)
+ 
+     _log.info("Temporary directory used in this EasyBuild run: %s" % current_tmpdir)
++    os.chmod(current_tmpdir, 0o755)
+ 
+     for var in ['TMPDIR', 'TEMP', 'TMP']:
+         env.setvar(var, current_tmpdir, verbose=False)
+diff --git a/easybuild/tools/robot.py b/easybuild/tools/robot.py
+index 1d0546de8..52b19607d 100644
+--- a/easybuild/tools/robot.py
++++ b/easybuild/tools/robot.py
+@@ -441,7 +441,7 @@ def resolve_dependencies(easyconfigs, modtool, retain_all_deps=False, raise_erro
+                         processed_ecs = process_easyconfig(path, validate=not retain_all_deps, hidden=hidden)
+ 
+                         # ensure that selected easyconfig provides required dependency
+-                        verify_easyconfig_filename(path, cand_dep, parsed_ec=processed_ecs)
++                        #verify_easyconfig_filename(path, cand_dep, parsed_ec=processed_ecs)
+ 
+                         for ec in processed_ecs:
+                             if ec not in easyconfigs + additional:
+diff --git a/easybuild/tools/toolchain/linalg.py b/easybuild/tools/toolchain/linalg.py
+index bbf158d9e..3ff98576e 100644
+--- a/easybuild/tools/toolchain/linalg.py
++++ b/easybuild/tools/toolchain/linalg.py
+@@ -92,7 +92,7 @@ class LinAlg(Toolchain):
+         # TODO is link order fully preserved with this order ?
+         self._set_blas_variables()
+         self._set_lapack_variables()
+-        if getattr(self, 'MPI_MODULE_NAME', None):
++        if getattr(self, 'MPI_MODULE_NAME', None) and self.SCALAPACK_LIB is not None:
+             self._set_blacs_variables()
+             self._set_scalapack_variables()
+ 
