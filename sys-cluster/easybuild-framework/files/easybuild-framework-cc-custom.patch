@@ -1,10 +1,10 @@
 # Grab bag of accumulated framework patches, hopefully upstreamed
 # in the future
 diff --git a/easybuild/framework/easyblock.py b/easybuild/framework/easyblock.py
-index 4d9b4fbdd..46f174972 100644
+index df88ad9ff..53a3e3985 100644
 --- a/easybuild/framework/easyblock.py
 +++ b/easybuild/framework/easyblock.py
-@@ -1372,6 +1372,10 @@ class EasyBlock(object):
+@@ -1398,6 +1398,10 @@ class EasyBlock:
          if tc_mod in excluded_deps and tc_dep_mods:
              excluded_deps.extend(tc_dep_mods)
  
@@ -15,7 +15,7 @@ index 4d9b4fbdd..46f174972 100644
          self.log.debug("List of excluded deps: %s", excluded_deps)
  
          # expand toolchain into toolchain components if desired
-@@ -3169,7 +3173,7 @@ class EasyBlock(object):
+@@ -3184,7 +3188,7 @@ class EasyBlock:
              raise EasyBuildError("Path to 'env' command to use in shebang lines does not exist: %s", env_for_shebang)
  
          for lang in ['bash', 'perl', 'python']:
@@ -24,7 +24,7 @@ index 4d9b4fbdd..46f174972 100644
              fix_shebang_for = self.cfg['fix_%s_shebang_for' % lang]
              if fix_shebang_for:
                  if isinstance(fix_shebang_for, str):
-@@ -4278,7 +4282,7 @@ class EasyBlock(object):
+@@ -4694,7 +4698,7 @@ class EasyBlock:
              raise StopException(step)
  
      @staticmethod
@@ -33,7 +33,7 @@ index 4d9b4fbdd..46f174972 100644
          """Return a list of all steps to be performed."""
  
          def get_step(tag, descr, substeps, skippable, initial=True):
-@@ -4293,11 +4297,24 @@ class EasyBlock(object):
+@@ -4709,11 +4713,24 @@ class EasyBlock:
              (True, lambda x: x.reset_env),
              (True, lambda x: x.handle_iterate_opts),
          ]
@@ -60,7 +60,7 @@ index 4d9b4fbdd..46f174972 100644
  
          install_substeps = [
              (False, lambda x: x.stage_install_step),
-@@ -4337,17 +4354,24 @@ class EasyBlock(object):
+@@ -4753,17 +4770,24 @@ class EasyBlock:
          # part 2: iterated part, from 2nd iteration onwards
          # repeat core procedure again depending on specified iteration count
          # not all parts of all steps need to be rerun (see e.g., ready, prepare)
@@ -96,7 +96,7 @@ index 4d9b4fbdd..46f174972 100644
          # part 3: post-iteration part
          steps_part3 = [
              (POSTITER_STEP, 'restore after iterating', [lambda x: x.post_iter_step], False),
-@@ -4378,7 +4402,8 @@ class EasyBlock(object):
+@@ -4794,7 +4818,8 @@ class EasyBlock:
          if self.cfg['stop'] == 'cfg':
              return True
  
@@ -107,10 +107,10 @@ index 4d9b4fbdd..46f174972 100644
          # figure out how many steps will actually be run (not be skipped)
          step_cnt = 0
 diff --git a/easybuild/framework/easyconfig/default.py b/easybuild/framework/easyconfig/default.py
-index 66ed417b6..0531735f4 100644
+index 272e9b87b..6f2b9ce9b 100644
 --- a/easybuild/framework/easyconfig/default.py
 +++ b/easybuild/framework/easyconfig/default.py
-@@ -167,6 +167,7 @@ DEFAULT_CONFIG = {
+@@ -173,6 +173,7 @@ DEFAULT_CONFIG = {
      'hiddendependencies': [[], "List of dependencies available as hidden modules", DEPENDENCIES],
      'multi_deps': [{}, "Dict of lists of dependency versions over which to iterate", DEPENDENCIES],
      'multi_deps_load_default': [True, "Load module for first version listed in multi_deps by default", DEPENDENCIES],
@@ -131,7 +131,7 @@ index 2c34c83a7..3b4fd6b0e 100644
  
              # write easyconfig to temporary file
 diff --git a/easybuild/toolchains/linalg/flexiblas.py b/easybuild/toolchains/linalg/flexiblas.py
-index 8b874cc76..02709a805 100644
+index 73cb3ffe0..ed71cacb5 100644
 --- a/easybuild/toolchains/linalg/flexiblas.py
 +++ b/easybuild/toolchains/linalg/flexiblas.py
 @@ -36,6 +36,7 @@ from easybuild.tools.toolchain.linalg import LinAlg
@@ -162,13 +162,13 @@ index 8b874cc76..02709a805 100644
          """
          List of shared libraries (names, file names, paths) which are
 diff --git a/easybuild/toolchains/linalg/scalapack.py b/easybuild/toolchains/linalg/scalapack.py
-index b4c12e696..666a11c95 100644
+index c8f0265b4..e5e7ac8c4 100644
 --- a/easybuild/toolchains/linalg/scalapack.py
 +++ b/easybuild/toolchains/linalg/scalapack.py
 @@ -48,3 +48,10 @@ class ScaLAPACK(Blacs):
              return LooseVersion(self.get_software_version(self.SCALAPACK_MODULE_NAME)[0]) < LooseVersion("2.0")
          else:
-             return super(ScaLAPACK, self).is_required(name)
+             return super().is_required(name)
 +
 +    def _set_scalapack_variables(self):
 +        """Fix the SCALAPACK_LIB for ILP64"""
@@ -189,10 +189,10 @@ index 044f53faa..9795df90a 100644
  
          fancylogger.logToFile(logfile, max_bytes=0)
 diff --git a/easybuild/tools/module_generator.py b/easybuild/tools/module_generator.py
-index eebafb3c4..7bd3c815c 100644
+index 4f4b5aefb..22a010cee 100644
 --- a/easybuild/tools/module_generator.py
 +++ b/easybuild/tools/module_generator.py
-@@ -527,6 +527,12 @@ class ModuleGenerator(object):
+@@ -545,6 +545,12 @@ class ModuleGenerator:
          """
          raise NotImplementedError
  
@@ -205,7 +205,7 @@ index eebafb3c4..7bd3c815c 100644
      def set_as_default(self, module_dir_path, module_version, mod_symlink_paths=None):
          """
          Set generated module as default module
-@@ -1013,6 +1019,12 @@ class ModuleGeneratorTcl(ModuleGenerator):
+@@ -1031,6 +1037,12 @@ class ModuleGeneratorTcl(ModuleGenerator):
          # quotes are needed, to ensure smooth working of EBDEVEL* modulefiles
          return 'set-alias\t%s\t\t%s\n' % (key, quote_str(value, tcl=True))
  
@@ -218,7 +218,7 @@ index eebafb3c4..7bd3c815c 100644
      def set_as_default(self, module_dir_path, module_version, mod_symlink_paths=None):
          """
          Create a .version file inside the package module folder in order to set the default version
-@@ -1195,6 +1207,8 @@ class ModuleGeneratorLua(ModuleGenerator):
+@@ -1229,6 +1241,8 @@ class ModuleGeneratorLua(ModuleGenerator):
  
          error_msg = 'LmodError("' + error_msg + '")'
          res = self.conditional_statement('userInGroup("%s")' % group, error_msg, negative=True)
@@ -227,7 +227,7 @@ index eebafb3c4..7bd3c815c 100644
  
          return res
  
-@@ -1469,6 +1483,13 @@ class ModuleGeneratorLua(ModuleGenerator):
+@@ -1501,6 +1515,13 @@ class ModuleGeneratorLua(ModuleGenerator):
          # quotes are needed, to ensure smooth working of EBDEVEL* modulefiles
          return 'set_alias("%s", %s)\n' % (key, quote_str(value))
  
@@ -242,10 +242,10 @@ index eebafb3c4..7bd3c815c 100644
          """
          Create a symlink named 'default' inside the package's module folder in order to set the default module version
 diff --git a/easybuild/tools/options.py b/easybuild/tools/options.py
-index 4068aa1ad..b2b33c562 100644
+index 59da394df..f5076d7bd 100644
 --- a/easybuild/tools/options.py
 +++ b/easybuild/tools/options.py
-@@ -2075,6 +2075,7 @@ def set_tmpdir(tmpdir=None, raise_error=False):
+@@ -2116,6 +2116,7 @@ def set_tmpdir(tmpdir=None, raise_error=False):
              raise EasyBuildError("Failed to create path to temporary directory %s: %s", current_tmpdir, err)
  
      _log.info("Temporary directory used in this EasyBuild run: %s" % current_tmpdir)
@@ -267,7 +267,7 @@ index 1d0546de8..52b19607d 100644
                          for ec in processed_ecs:
                              if ec not in easyconfigs + additional:
 diff --git a/easybuild/tools/toolchain/linalg.py b/easybuild/tools/toolchain/linalg.py
-index bbf158d9e..3ff98576e 100644
+index a9f3c0315..f37a58692 100644
 --- a/easybuild/tools/toolchain/linalg.py
 +++ b/easybuild/tools/toolchain/linalg.py
 @@ -92,7 +92,7 @@ class LinAlg(Toolchain):
