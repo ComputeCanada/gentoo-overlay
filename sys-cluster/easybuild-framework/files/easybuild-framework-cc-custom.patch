@@ -1,10 +1,10 @@
 # Grab bag of accumulated framework patches, hopefully upstreamed
 # in the future
 diff --git a/easybuild/framework/easyblock.py b/easybuild/framework/easyblock.py
-index df88ad9ff..53a3e3985 100644
+index 21528abfd..d54da6662 100644
 --- a/easybuild/framework/easyblock.py
 +++ b/easybuild/framework/easyblock.py
-@@ -1398,6 +1398,10 @@ class EasyBlock:
+@@ -1401,6 +1401,10 @@ class EasyBlock:
          if tc_mod in excluded_deps and tc_dep_mods:
              excluded_deps.extend(tc_dep_mods)
  
@@ -24,7 +24,7 @@ index df88ad9ff..53a3e3985 100644
              fix_shebang_for = self.cfg['fix_%s_shebang_for' % lang]
              if fix_shebang_for:
                  if isinstance(fix_shebang_for, str):
-@@ -4694,7 +4698,7 @@ class EasyBlock:
+@@ -4693,7 +4697,7 @@ class EasyBlock:
              raise StopException(step)
  
      @staticmethod
@@ -33,7 +33,7 @@ index df88ad9ff..53a3e3985 100644
          """Return a list of all steps to be performed."""
  
          def get_step(tag, descr, substeps, skippable, initial=True):
-@@ -4709,11 +4713,24 @@ class EasyBlock:
+@@ -4708,11 +4712,24 @@ class EasyBlock:
              (True, lambda x: x.reset_env),
              (True, lambda x: x.handle_iterate_opts),
          ]
@@ -60,7 +60,7 @@ index df88ad9ff..53a3e3985 100644
  
          install_substeps = [
              (False, lambda x: x.stage_install_step),
-@@ -4753,17 +4770,24 @@ class EasyBlock:
+@@ -4752,17 +4769,24 @@ class EasyBlock:
          # part 2: iterated part, from 2nd iteration onwards
          # repeat core procedure again depending on specified iteration count
          # not all parts of all steps need to be rerun (see e.g., ready, prepare)
@@ -97,11 +97,11 @@ index df88ad9ff..53a3e3985 100644
          steps_part3 = [
              (POSTITER_STEP, 'restore after iterating', [lambda x: x.post_iter_step], False),
 @@ -4794,7 +4818,8 @@ class EasyBlock:
-         if self.cfg['stop'] == 'cfg':
              return True
  
--        steps = self.get_steps(run_test_cases=run_test_cases, iteration_count=self.det_iter_cnt())
-+        steps = self.get_steps(run_test_cases=run_test_cases, iteration_count=self.det_iter_cnt(),
+         self.iter_cnt = self.det_iter_cnt()
+-        steps = self.get_steps(run_test_cases=run_test_cases, iteration_count=self.iter_cnt)
++        steps = self.get_steps(run_test_cases=run_test_cases, iteration_count=self.iter_cnt,
 +                               multi_deps_extensions_only=self.cfg["multi_deps_extensions_only"])
  
          # figure out how many steps will actually be run (not be skipped)
@@ -242,10 +242,10 @@ index 4f4b5aefb..22a010cee 100644
          """
          Create a symlink named 'default' inside the package's module folder in order to set the default module version
 diff --git a/easybuild/tools/options.py b/easybuild/tools/options.py
-index 59da394df..f5076d7bd 100644
+index cd539cf54..ed53eedef 100644
 --- a/easybuild/tools/options.py
 +++ b/easybuild/tools/options.py
-@@ -2116,6 +2116,7 @@ def set_tmpdir(tmpdir=None, raise_error=False):
+@@ -2118,6 +2118,7 @@ def set_tmpdir(tmpdir=None, raise_error=False):
              raise EasyBuildError("Failed to create path to temporary directory %s: %s", current_tmpdir, err)
  
      _log.info("Temporary directory used in this EasyBuild run: %s" % current_tmpdir)
