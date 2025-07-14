@@ -24,6 +24,8 @@ media-libs/leptonica utils
 media-libs/libsdl2 haptic
 media-libs/sdl2-ttf -harfbuzz
 
+media-video/ffmpeg nvenc
+
 net-analyzer/nmap ncat ndiff nping
 
 net-libs/glib-networking -libproxy
