@@ -33,6 +33,7 @@ app-misc/colordiff
 app-misc/fdupes
 app-misc/jq
 app-misc/mc
+app-misc/ranger
 app-misc/screen
 app-misc/tmux
 app-misc/vifm
@@ -41,7 +42,9 @@ app-portage/gentoolkit
 app-portage/pfl
 app-portage/prefix-toolkit
 
+app-shells/autojump
 app-shells/bash-completion
+app-shells/fzf
 app-shells/ksh
 app-shells/pdsh
 app-shells/tcsh
@@ -75,6 +78,7 @@ dev-libs/check
 dev-libs/double-conversion
 dev-libs/isa-l
 dev-libs/level-zero
+dev-libs/libaio
 dev-libs/libdwarf
 dev-libs/libedit
 dev-libs/libffi-compat
@@ -134,6 +138,7 @@ media-fonts/liberation-fonts
 
 media-gfx/exiv2
 media-gfx/feh
+media-gfx/gimp
 media-gfx/graphicsmagick
 media-gfx/transfig
 
@@ -143,6 +148,7 @@ media-libs/glm
 media-libs/harfbuzz
 media-libs/libglvnd
 media-libs/libpng-compat
+media-libs/libpulse
 media-libs/netpbm
 media-libs/openal
 media-libs/portmidi
@@ -174,12 +180,14 @@ net-misc/turbovnc
 
 sci-libs/szip
 sci-mathematics/z3
+sci-visualization/grace
 
 sys-apps/bat
 sys-apps/bubblewrap
 sys-apps/dstat
 sys-apps/duc
 sys-apps/fakeroot
+sys-apps/fd
 sys-apps/lsb-release
 sys-apps/man-pages
 sys-apps/mawk
