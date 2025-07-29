@@ -49,6 +49,7 @@ app-shells/ksh
 app-shells/pdsh
 app-shells/tcsh
 app-shells/zsh
+app-shells/zsh-syntax-highlighting
 
 app-text/dos2unix
 app-text/lesspipe
@@ -203,6 +204,7 @@ sys-cluster/easybuild
 sys-cluster/knem
 sys-cluster/lustre
 sys-cluster/rdma-core
+sys-cluster/slurm-pmi
 
 sys-devel/bmake
 sys-devel/crossdev
