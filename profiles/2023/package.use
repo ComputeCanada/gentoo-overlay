@@ -1,5 +1,7 @@
 app-arch/brotli static-libs
 
+app-editors/vim -X cscope gpm lua perl python ruby
+
 app-portage/portage-utils openmp
 
 app-text/texlive cjk context extra games humanities music tex4ht xetex
