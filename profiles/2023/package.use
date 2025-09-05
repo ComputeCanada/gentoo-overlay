@@ -24,6 +24,7 @@ media-gfx/graphviz gts
 
 media-libs/imlib2 heif
 media-libs/leptonica utils
+media-libs/libheif gdk-pixbuf
 media-libs/libsdl2 haptic
 media-libs/sdl2-ttf -harfbuzz
 
