@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,11} )
+PYTHON_COMPAT=( python3_{6,7} )
 
 inherit cmake-utils python-single-r1 udev systemd
 
@@ -33,7 +33,7 @@ COMMON_DEPEND="
 DEPEND="${COMMON_DEPEND}
 	python? (
 		$(python_gen_cond_dep '
-			dev-python/cython[${PYTHON_USEDEP}]
+			dev-python/cython[${PYTHON_MULTI_USEDEP}]
 		')
 	)"
 
