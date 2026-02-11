@@ -82,7 +82,3 @@ src_install() {
 		find "${ED}" -name '*.la' -delete || die
 	fi
 }
-
-pkg_postinst() {
-	tmpfiles_process munged.conf
-}
