@@ -66,7 +66,7 @@ src_install() {
 	fi
 
 	dodir /etc/munge
-	rm -rf "${D}"/var
+	rm -rf "${D}"/var "${ED}"/usr/sbin
 
 	local d
 	for d in "init.d" "default" "sysconfig"; do
