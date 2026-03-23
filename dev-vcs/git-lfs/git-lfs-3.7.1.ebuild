@@ -64,7 +64,7 @@ src_compile() {
 		-trimpath
 		-v -work -x
 	)
-	ego build "${mygobuildargs[@]}" -o git-lfs git-lfs.go
+	go build "${mygobuildargs[@]}" -o git-lfs git-lfs.go
 
 	if use doc; then
 		for doc in docs/man/*adoc;
@@ -97,7 +97,7 @@ src_test() {
 	local mygotestargs=(
 		-ldflags="-X ${EGO_PN}/config.GitCommit=${COMMIT_ID}"
 	)
-	ego test "${mygotestargs[@]}" ./...
+	go test "${mygotestargs[@]}" ./...
 }
 
 pkg_postinst () {
