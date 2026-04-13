@@ -30,4 +30,5 @@ BDEPEND="${RDEPEND}"
 PATCHES=(
 	"${FILESDIR}"/${PN}-4.6.2-test.patch
 	"${FILESDIR}"/${PN}-cc-custom.patch
+	"${FILESDIR}"/${PN}-5.3.0-bwrap.patch
 )

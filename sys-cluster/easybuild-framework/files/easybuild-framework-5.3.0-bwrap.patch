@@ -1,0 +1,87 @@
+From bc88860ad19fe327cef448c9ee680b219e106544 Mon Sep 17 00:00:00 2001
+From: Bart Oldeman <bart.oldeman@calculquebec.ca>
+Date: Mon, 13 Apr 2026 15:19:27 +0000
+Subject: [PATCH 1/2] Use subdir_software/subdir_modules for --bwrap
+
+Using those instead of hardcoded 'software' and 'modules' makes
+the path inside the bwrap installdir more similar to the external
+paths, if --subdir-software or --subdir-modules are used.
+---
+ easybuild/tools/bwrap.py | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/easybuild/tools/bwrap.py b/easybuild/tools/bwrap.py
+index 8cfd8c8cd2..b70cdc21cd 100644
+--- a/easybuild/tools/bwrap.py
++++ b/easybuild/tools/bwrap.py
+@@ -35,7 +35,7 @@
+ 
+ from easybuild.base import fancylogger
+ from easybuild.tools.build_log import EasyBuildError, print_msg
+-from easybuild.tools.config import install_path
++from easybuild.tools.config import install_path, ConfigurationVariables
+ from easybuild.tools.filetools import mkdir, write_file
+ from easybuild.tools.utilities import trace_msg
+ 
+@@ -107,14 +107,15 @@ def prepare_bwrap(bwrap_installpath):
+ 
+     set_bwrap_info('installpath_modules', install_path(typ='modules'))
+ 
+-    bwrap_modules_installpath = os.path.join(bwrap_installpath, 'modules')
++    variables = ConfigurationVariables()
++    bwrap_modules_installpath = os.path.join(bwrap_installpath, variables['subdir_modules'])
+ 
+     bwrap_cmd = ['bwrap', '--dev-bind', '/', '/']
+ 
+     # bind mount all software directories
+     for mod in sorted(get_bwrap_info('modules_to_install')):
+         installdir = os.path.join(os.path.realpath(installpath_software), mod)
+-        bwrap_installdir = os.path.join(bwrap_installpath, 'software', mod)
++        bwrap_installdir = os.path.join(bwrap_installpath, variables['subdir_software'], mod)
+         mkdir(installdir, parents=True)
+         mkdir(bwrap_installdir, parents=True)
+         bwrap_cmd.extend(['--bind', bwrap_installdir, installdir])
+
+From 4d8e6a4f4ec8d8bd39ffbc5cb43c4393ede0aba8 Mon Sep 17 00:00:00 2001
+From: Bart Oldeman <bart.oldeman@calculquebec.ca>
+Date: Mon, 13 Apr 2026 15:52:31 +0000
+Subject: [PATCH 2/2] Use overlayfs with bwrap if we cannot create installdir
+
+In that case we go up the directory tree until we find a
+directory that exists, and use overlayfs to avoid hiding
+the other directories (that could have dependent software!)
+---
+ easybuild/tools/bwrap.py | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
+
+diff --git a/easybuild/tools/bwrap.py b/easybuild/tools/bwrap.py
+index b70cdc21cd..83ee257435 100644
+--- a/easybuild/tools/bwrap.py
++++ b/easybuild/tools/bwrap.py
+@@ -116,9 +116,24 @@ def prepare_bwrap(bwrap_installpath):
+     for mod in sorted(get_bwrap_info('modules_to_install')):
+         installdir = os.path.join(os.path.realpath(installpath_software), mod)
+         bwrap_installdir = os.path.join(bwrap_installpath, variables['subdir_software'], mod)
+-        mkdir(installdir, parents=True)
++        use_overlayfs = False
++        try:
++            mkdir(installdir, parents=True)
++        except EasyBuildError:
++            # if we can't create the external installation directory, try to use overlayfs
++            use_overlayfs = True
+         mkdir(bwrap_installdir, parents=True)
+-        bwrap_cmd.extend(['--bind', bwrap_installdir, installdir])
++        if use_overlayfs:
++            bwrap_workdir = os.path.join(bwrap_installpath, 'workdir', mod)
++            mkdir(bwrap_workdir, parents=True)
++            # go up the tree until we find a directory that exists
++            while not os.path.exists(installdir):
++                installdir = os.path.dirname(installdir)
++                bwrap_installdir = os.path.dirname(bwrap_installdir)
++            opts = ['--overlay-src', installdir, '--overlay', bwrap_installdir, bwrap_workdir, installdir]
++        else:
++            opts = ['--bind', bwrap_installdir, installdir]
++        bwrap_cmd.extend(opts)
+ 
+     set_bwrap_info('bwrap_cmd', bwrap_cmd)
+     bwrap_cmd_str = ' '.join(bwrap_cmd)
