@@ -85,3 +85,16 @@ index b70cdc21cd..83ee257435 100644
  
      set_bwrap_info('bwrap_cmd', bwrap_cmd)
      bwrap_cmd_str = ' '.join(bwrap_cmd)
+diff --git a/easybuild/tools/robot.py b/easybuild/tools/robot.py
+index ab744d32f..224f410cd 100644
+--- a/easybuild/tools/robot.py
++++ b/easybuild/tools/robot.py
+@@ -284,7 +284,7 @@ def dry_run(easyconfigs, modtool, short=False, return_modules_to_install=False):
+             ans = 'x'
+ 
+         if return_modules_to_install and ans != 'x':
+-            modules_to_install.append(spec['full_mod_name'])
++            modules_to_install.append(ActiveMNS().det_install_subdir(spec['ec']))
+             continue
+ 
+         if spec['ec'] is not None and spec['ec'].short_mod_name != spec['ec'].full_mod_name:
