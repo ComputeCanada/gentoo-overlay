@@ -118,6 +118,7 @@ dev-haskell/pandoc-lua-marshal ~amd64
 dev-haskell/pandoc-types ~amd64
 dev-haskell/parsec ~amd64
 dev-haskell/pem ~amd64
+dev-haskell/prettyprinter ~amd64
 dev-haskell/pretty-show ~amd64
 dev-haskell/primitive ~amd64
 dev-haskell/quickcheck ~amd64
