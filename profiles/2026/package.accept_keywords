@@ -124,6 +124,7 @@ dev-haskell/old-locale ~amd64
 dev-haskell/old-time ~amd64
 dev-haskell/onetuple ~amd64
 dev-haskell/optparse-applicative ~amd64
+dev-haskell/os-string ~amd64
 dev-haskell/pandoc-lua-marshal ~amd64
 dev-haskell/pandoc-types ~amd64
 dev-haskell/parsec ~amd64
