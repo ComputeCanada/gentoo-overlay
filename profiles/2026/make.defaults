@@ -1,0 +1,32 @@
+# use flags from desktop profile without qt5 and udev, upower
+USE="a52 aac acpi alsa bluetooth branding cairo cdda cdr cups dbus dri dts dvd dvdr elogind encode exif flac gif gpm gtk gui icu jpeg lcms libnotify mad mng mp3 mp4 mpeg ogg opengl pango pdf png policykit ppds sdl sndfile sound spell startup-notification svg tiff truetype vorbis udisks unicode usb vulkan wxwidgets X xcb xft x264 xml xv xvid"
+# other global use flags needed
+USE="${USE} emacs fontconfig sqlite x265 pgo lto xattr brotli zlib osmesa"
+PYTHON_TARGETS="-* python3_14"
+PYTHON_SINGLE_TARGET="-* python3_14"
+FEATURES="-sfperms suidctl preserve-libs"
+CPU_FLAGS_X86="aes avx avx2 f16c fma3 mmx mmxext pclmul popcnt rdrand sse sse2 sse3 sse4_1 sse4_2 ssse3"
+COMMON_FLAGS="-march=x86-64-v3 -O2 -ftree-vectorize -fno-math-errno -pipe"
+CFLAGS="${CFLAGS} ${COMMON_FLAGS}"
+CXXFLAGS="${CXXFLAGS} ${COMMON_FLAGS}"
+MAKEOPTS="-j8"
+CONFIG_SHELL="/cvmfs/soft.computecanada.ca/gentoo/2026/x86-64-v3/bin/bash"
+DISTDIR="/cvmfs/soft.computecanada.ca/gentoo/2026/x86-64-v3/var/cache/distfiles"
+# sandbox does not work well on Prefix, bug #490246
+FEATURES="${FEATURES} -usersandbox -sandbox"
+ACCEPT_KEYWORDS="${ARCH} -~${ARCH}"
+INPUT_DEVICES="-*"
+VIDEO_CARDS="-* virgl amdgpu"
+L10N="en fr"
+ACCEPT_LICENSE="-* @FREE szip curl BSD-3"
+PORTAGE_USER="gentoouser"
+PORTAGE_USERNAME="gentoouser"
+PORTAGE_GROUP="gentoouser"
+PORTAGE_GRPNAME="gentoouser"
+PORTAGE_UID="1012"
+PORTAGE_GID="1012"
+PORTAGE_INST_GID="1012"
+PORTAGE_INST_UID="1012"
+PORTAGE_TMPDIR=/var/tmp
+# Safety: Force asking user to confirm with --ask
+EMERGE_DEFAULT_OPTS="--ask"

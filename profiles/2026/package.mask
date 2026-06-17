@@ -1,0 +1,4 @@
+# mask dev-lang/rust so rust-bin is used instead (temporarily)
+dev-lang/rust
+# mask buggy newer patchelf
+=dev-util/patchelf-0.18.0
