@@ -45,6 +45,7 @@ dev-haskell/cookie ~amd64
 dev-haskell/cryptohash-sha256 ~amd64
 dev-haskell/crypton ~amd64
 dev-haskell/crypton-connection ~amd64
+dev-haskell/crypton-x509 ~amd64
 dev-haskell/cryptonite ~amd64
 dev-haskell/data-default ~amd64
 dev-haskell/data-default-class ~amd64
