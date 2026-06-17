@@ -145,6 +145,7 @@ dev-haskell/syb ~amd64
 dev-haskell/tagged ~amd64
 dev-haskell/tagsoup ~amd64
 dev-haskell/tar ~amd64
+dev-haskell/tasty ~amd64
 dev-haskell/temporary ~amd64
 dev-haskell/terminfo ~amd64
 dev-haskell/texmath ~amd64
