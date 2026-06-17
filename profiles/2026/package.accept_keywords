@@ -1,4 +1,6 @@
 app-text/pandoc ~amd64
+dev-haskell/* ~amd64
+dev-lang/ghc ~amd64
 dev-python/cppheaderparser ~amd64
 dev-python/patiencediff ~amd64
 dev-python/setuptools-gettext ~amd64
