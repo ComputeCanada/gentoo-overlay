@@ -71,6 +71,7 @@ dev-haskell/exceptions ~amd64
 dev-haskell/fail ~amd64
 dev-haskell/fgl ~amd64
 dev-haskell/file-embed ~amd64
+dev-haskell/generically ~amd64
 dev-haskell/glob ~amd64
 dev-haskell/hackage-security ~amd64
 dev-haskell/haddock-library ~amd64
