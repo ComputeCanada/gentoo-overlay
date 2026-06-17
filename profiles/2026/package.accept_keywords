@@ -180,6 +180,7 @@ dev-haskell/unicode-data ~amd64
 dev-haskell/unicode-transforms ~amd64
 dev-haskell/uniplate ~amd64
 dev-haskell/unix-compat ~amd64
+dev-haskell/unix-time ~amd64
 dev-haskell/unliftio-core ~amd64
 dev-haskell/unordered-containers ~amd64
 dev-haskell/utf8-string ~amd64
