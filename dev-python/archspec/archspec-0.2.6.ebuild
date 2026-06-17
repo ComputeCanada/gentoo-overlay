@@ -24,7 +24,7 @@ SRC_URI+=" https://github.com/${PN}/cpuid/archive/${ARCHSPEC_CPUID_VERSION}.tar.
 
 LICENSE="|| ( Apache-2.0 MIT )"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
+KEYWORDS="amd64 ~arm64 ~ppc ~ppc64 ~riscv ~sparc ~x86 ~x64-macos"
 
 BDEPEND="test? (
 		dev-python/jsonschema[${PYTHON_USEDEP}]
