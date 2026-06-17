@@ -209,6 +209,7 @@ dev-haskell/zip-archive ~amd64
 dev-haskell/zlib ~amd64
 dev-lang/ghc ~amd64
 dev-python/cppheaderparser ~amd64
+dev-python/fastbencode ~amd64
 dev-python/patiencediff ~amd64
 dev-python/setuptools-gettext ~amd64
 dev-ruby/gist ~amd64
