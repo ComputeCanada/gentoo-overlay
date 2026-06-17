@@ -18,8 +18,6 @@ app-containers/slirp4netns
 
 app-crypt/mit-krb5
 
-app-doc/doxygen
-
 app-editors/gedit
 app-editors/gvim
 app-editors/joe
@@ -52,6 +50,7 @@ app-shells/zsh
 app-shells/zsh-syntax-highlighting
 
 app-text/dos2unix
+app-text/doxygen
 app-text/lesspipe
 app-text/mupdf
 app-text/pandoc
@@ -67,7 +66,13 @@ dev-cpp/libxmlpp
 dev-cpp/nlohmann_json
 dev-cpp/yaml-cpp
 
+dev-build/bmake
+
 dev-db/libiodbc
+
+dev-debug/gdb
+dev-debug/strace
+dev-debug/systemtap
 
 dev-haskell/cabal-install
 
@@ -115,8 +120,6 @@ dev-util/gtk-builder-convert
 dev-util/numdiff
 dev-util/perf
 dev-util/spirv-tools
-dev-util/strace
-dev-util/systemtap
 dev-util/vulkan-tools
 
 dev-vcs/breezy
@@ -139,9 +142,9 @@ media-fonts/liberation-fonts
 
 media-gfx/exiv2
 media-gfx/feh
+media-gfx/fig2dev
 media-gfx/gimp
 media-gfx/graphicsmagick
-media-gfx/transfig
 
 media-libs/freeimage
 media-libs/glew
@@ -206,9 +209,7 @@ sys-cluster/lustre
 sys-cluster/rdma-core
 sys-cluster/slurm-pmi
 
-sys-devel/bmake
 sys-devel/crossdev
-sys-devel/gdb
 sys-devel/mold
 
 sys-fabric/opensm
