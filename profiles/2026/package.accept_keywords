@@ -198,3 +198,4 @@ sys-apps/duc ~amd64
 sys-cluster/knem ~amd64
 sys-devel/gcc:15 ~amd64
 sys-devel/nvptx-tools ~amd64
+x11-wm/xpra ~amd64
