@@ -179,6 +179,7 @@ dev-haskell/vector ~amd64
 dev-haskell/vector-algorithms ~amd64
 dev-haskell/vector-stream ~amd64
 dev-haskell/void ~amd64
+dev-haskell/wcwidth ~amd64
 dev-haskell/witherable ~amd64
 dev-haskell/x509 ~amd64
 dev-haskell/x509-store ~amd64
