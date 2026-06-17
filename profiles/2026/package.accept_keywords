@@ -18,6 +18,7 @@ dev-haskell/base16-bytestring ~amd64
 dev-haskell/base64-bytestring ~amd64
 dev-haskell/basement ~amd64
 dev-haskell/bifunctors ~amd64
+dev-haskell/bitvec ~amd64
 dev-haskell/blaze-builder ~amd64
 dev-haskell/blaze-html ~amd64
 dev-haskell/blaze-markup ~amd64
