@@ -22,6 +22,7 @@ dev-util/perf slang
 
 media-gfx/graphviz gts
 
+media-libs/freetype harfbuzz
 media-libs/imlib2 heif
 media-libs/leptonica utils
 media-libs/libheif gdk-pixbuf
