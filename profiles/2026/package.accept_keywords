@@ -175,6 +175,7 @@ dev-haskell/utf8-string ~amd64
 dev-haskell/uuid-types ~amd64
 dev-haskell/vector ~amd64
 dev-haskell/vector-algorithms ~amd64
+dev-haskell/vector-stream ~amd64
 dev-haskell/void ~amd64
 dev-haskell/witherable ~amd64
 dev-haskell/x509 ~amd64
