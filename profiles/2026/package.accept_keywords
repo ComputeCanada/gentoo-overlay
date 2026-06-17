@@ -47,6 +47,7 @@ dev-haskell/crypton ~amd64
 dev-haskell/crypton-connection ~amd64
 dev-haskell/crypton-x509 ~amd64
 dev-haskell/crypton-x509-store ~amd64
+dev-haskell/crypton-x509-system ~amd64
 dev-haskell/crypton-x509-validation ~amd64
 dev-haskell/cryptonite ~amd64
 dev-haskell/data-default ~amd64
