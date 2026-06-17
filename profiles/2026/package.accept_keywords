@@ -165,6 +165,7 @@ dev-haskell/transformers ~amd64
 dev-haskell/transformers-compat ~amd64
 dev-haskell/type-equality ~amd64
 dev-haskell/typed-process ~amd64
+dev-haskell/unbounded-delays ~amd64
 dev-haskell/unicode-collation ~amd64
 dev-haskell/unicode-data ~amd64
 dev-haskell/unicode-transforms ~amd64
