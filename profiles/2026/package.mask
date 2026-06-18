@@ -9,5 +9,6 @@ dev-lang/rust
 =dev-haskell/hslua-2.3.0
 =dev-haskell/hslua-aeson-2.3.0.1
 =dev-haskell/aeson-2.1.2.1
+=dev-haskell/tls-1.8.0
 # dependency conflicts
 =app-text/pandoc-3
