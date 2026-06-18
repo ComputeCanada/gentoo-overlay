@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{11..14)
+PYTHON_COMPAT=( python3_{11..14} )
 inherit flag-o-matic meson-multilib toolchain-funcs udev python-any-r1
 
 DESCRIPTION="An interface for filesystems implemented in userspace"
