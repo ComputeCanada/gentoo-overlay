@@ -6,5 +6,6 @@ dev-lang/rust
 =dev-haskell/indexed-traversable-instances-0.1.2
 # conflict for dev-haskell/crypton-connection
 =dev-haskell/http-client-tls-0.3.6.3
+=dev-haskell/hslua-2.3.0
 # dependency conflicts
 =app-text/pandoc-3
