@@ -86,6 +86,8 @@ sys-libs/binutils-libs static-libs
 sys-libs/zlib static-libs
 net-libs/mbedtls static-libs
 
+virtual/imagemagick-tools postscript
+
 x11-base/xorg-server xvfb
 
 x11-wm/xpra -crypt
