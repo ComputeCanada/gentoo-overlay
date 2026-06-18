@@ -3,4 +3,4 @@ dev-lang/rust
 # mask buggy newer patchelf
 =dev-util/patchelf-0.18.0
 # conflict for dev-haskell/vector
-=indexed-traversable-instances/indexed-traversable-instances-0.1.2
+=dev-haskell/indexed-traversable-instances-0.1.2
