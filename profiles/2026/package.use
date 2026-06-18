@@ -20,7 +20,7 @@ dev-python/pillow -truetype
 
 dev-util/cmake -emacs
 dev-util/desktop-file-utils -emacs
-dev-util/perf slang
+dev-util/perf -libtracefs slang
 
 media-gfx/graphviz gts
 media-gfx/imagemagick postscript
