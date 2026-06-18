@@ -16,6 +16,8 @@ dev-libs/libnl utils
 dev-libs/libpcre2 pcre32
 dev-libs/nss utils
 
+dev-python/pillow -truetype
+
 dev-util/cmake -emacs
 dev-util/desktop-file-utils -emacs
 dev-util/perf slang
