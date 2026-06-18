@@ -7,5 +7,6 @@ dev-lang/rust
 # conflict for dev-haskell/crypton-connection
 =dev-haskell/http-client-tls-0.3.6.3
 =dev-haskell/hslua-2.3.0
+=dev-haskell/hslua-aeson-2.3.0.1
 # dependency conflicts
 =app-text/pandoc-3
