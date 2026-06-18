@@ -17,7 +17,7 @@ fi
 SUPPORTED_KV_MAJOR=4
 SUPPORTED_KV_MINOR=19
 
-inherit ${scm} autotools linux-info toolchain-funcs udev flag-o-matic
+inherit ${scm} autotools toolchain-funcs udev flag-o-matic
 
 DESCRIPTION="Lustre is a parallel distributed file system"
 HOMEPAGE="http://wiki.whamcloud.com/"
@@ -43,14 +43,6 @@ REQUIRED_USE="
 	client? ( modules )
 	server? ( modules )"
 
-pkg_pretend() {
-	KVSUPP=${SUPPORTED_KV_MAJOR}.${SUPPORTED_KV_MINOR}.x
-	if kernel_is gt ${SUPPORTED_KV_MAJOR} ${SUPPORTED_KV_MINOR}; then
-		eerror "Unsupported kernel version! Latest supported one is ${KVSUPP}"
-		die
-	fi
-}
-
 pkg_setup() {
 	filter-mfpmath sse
 	filter-mfpmath i386
@@ -58,7 +50,6 @@ pkg_setup() {
 
 	#linux-mod_pkg_setup
 	ARCH="$(tc-arch-kernel)"
-	ABI="${KERNEL_ABI}"
 }
 
 src_prepare() {
@@ -93,7 +84,6 @@ src_configure() {
 	econf \
 		${myconf} \
 		--without-ldiskfs \
-		--with-linux="${KERNEL_DIR}" \
 		$(use_enable client) \
 		$(use_enable utils) \
 		$(use_enable modules) \
