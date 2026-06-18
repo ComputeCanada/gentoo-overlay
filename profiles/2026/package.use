@@ -21,6 +21,7 @@ dev-util/desktop-file-utils -emacs
 dev-util/perf slang
 
 media-gfx/graphviz gts
+media-gfx/imagemagick postscript
 
 media-libs/freetype harfbuzz
 media-libs/imlib2 heif
