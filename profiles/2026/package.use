@@ -30,6 +30,7 @@ media-libs/libheif gdk-pixbuf
 media-libs/libsdl2 haptic
 media-libs/sdl2-ttf -harfbuzz
 
+media-sound/lame -sndfile
 media-sound/pulseaudio-daemon -alsa-plugin
 
 media-video/ffmpeg nvenc
