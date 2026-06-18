@@ -4,5 +4,7 @@ dev-lang/rust
 =dev-util/patchelf-0.18.0
 # conflict for dev-haskell/vector
 =dev-haskell/indexed-traversable-instances-0.1.2
+# conflict for dev-haskell/crypton-connection
+=dev-haskell/http-client-tls-0.3.6.3
 # dependency conflicts
 =app-text/pandoc-3
