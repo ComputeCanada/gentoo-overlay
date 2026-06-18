@@ -5,6 +5,7 @@ dev-lang/rust
 # conflict for dev-haskell/vector
 =dev-haskell/indexed-traversable-instances-0.1.2
 # conflict for dev-haskell/crypton-connection
+=dev-haskell/aeson-pretty-0.8.10
 =dev-haskell/http-client-tls-0.3.6.3
 =dev-haskell/hslua-2.3.0
 =dev-haskell/hslua-aeson-2.3.0.1
