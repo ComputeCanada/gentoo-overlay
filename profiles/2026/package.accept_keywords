@@ -212,6 +212,7 @@ dev-python/cppheaderparser ~amd64
 dev-python/fastbencode ~amd64
 dev-python/patiencediff ~amd64
 dev-python/setuptools-gettext ~amd64
+dev-python/vcsgraph ~amd64
 dev-ruby/gist ~amd64
 dev-util/build2 ~amd64
 dev-vcs/breezy ~amd64
