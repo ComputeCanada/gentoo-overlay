@@ -85,13 +85,13 @@ DEPEND="
 	)"
 RDEPEND="${DEPEND}
 	daemon? ( acct-user/sssd
-		  acct-group/sssd )
+		acct-group/sssd )
 	selinux? ( >=sec-policy/selinux-sssd-2.20120725-r9 )"
 DEPEND+="
 	sys-apps/shadow"
 BDEPEND="
 	daemon? ( acct-user/sssd
-		  acct-group/sssd )
+		acct-group/sssd )
 	sys-libs/libcap
 	virtual/pkgconfig
 	${PYTHON_DEPS}
@@ -119,6 +119,7 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/sssd.asc
 CONFIG_CHECK="~KEYS"
 
 PATCHES=(
+	"${FILESDIR}/${PN}-2.8.2-allow-client-build-without-pam.patch"
 	"${FILESDIR}/${PN}-2.8.2-krb5_pw_locked.patch"
 	"${FILESDIR}/${PN}-2.9.6-conditional-python-install.patch"
 	"${FILESDIR}/${PN}-2.10.0_beta2-fix-systemd-systemconfdir.patch"
