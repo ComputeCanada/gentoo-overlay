@@ -31,7 +31,7 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="+munge"
 
-S="${WORKDIR}/slurm-${MY_P}"
+S="${WORKDIR}/${MY_P}"
 
 COMMON_DEPEND="
 	munge? ( sys-auth/munge )"
