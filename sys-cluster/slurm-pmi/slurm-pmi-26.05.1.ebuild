@@ -34,7 +34,8 @@ IUSE="+munge"
 S="${WORKDIR}/${MY_P}"
 
 COMMON_DEPEND="
-	munge? ( sys-auth/munge )"
+	munge? ( sys-auth/munge )
+	app-arch/lz4:0="
 
 DEPEND="${COMMON_DEPEND}"
 
@@ -48,8 +49,13 @@ src_unpack() {
 	fi
 }
 
+src_prepare() {
+	hprefixify auxdir/{ax_check_zlib,x_ac_{lz4,ofed,munge}}.m4
+	eautoreconf
+}
+
 src_configure() {
-	econf --without-lz4 --without-rpath --with-munge="${EPREFIX}/usr"
+	econf --without-rpath --with-munge="${EPREFIX}/usr"
 }
 
 src_compile() {
