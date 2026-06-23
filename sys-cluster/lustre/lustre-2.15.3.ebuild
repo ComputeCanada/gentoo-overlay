@@ -59,7 +59,7 @@ src_prepare() {
 
 	eapply_user
 	# replace upstream autogen.sh by our src_prepare()
-	local DIRS="libcfs lnet lustre snmp"
+	local DIRS="libcfs lustre snmp"
 	local ACLOCAL_FLAGS
 	for dir in $DIRS ; do
 		ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I $dir/autoconf"
