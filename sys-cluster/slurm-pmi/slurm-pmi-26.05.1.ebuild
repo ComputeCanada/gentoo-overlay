@@ -35,7 +35,8 @@ S="${WORKDIR}/${MY_P}"
 
 COMMON_DEPEND="
 	munge? ( sys-auth/munge )
-	app-arch/lz4:0="
+	app-arch/lz4:0=
+	dev-libs/glib:2="
 
 DEPEND="${COMMON_DEPEND}"
 
