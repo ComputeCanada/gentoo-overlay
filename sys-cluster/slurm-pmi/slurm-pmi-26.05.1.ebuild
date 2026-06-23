@@ -50,7 +50,7 @@ src_unpack() {
 }
 
 src_prepare() {
-	hprefixify auxdir/{x_ac_{lz4,ofed,munge}}.m4
+	hprefixify auxdir/x_ac_{lz4,ofed,munge}.m4
 	eautoreconf
 }
 
