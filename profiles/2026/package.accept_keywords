@@ -1,4 +1,5 @@
 app-admin/haskell-updater ~amd64
+app-shells/pdsh ~amd64
 app-text/pandoc ~amd64
 dev-haskell/aeson ~amd64
 dev-haskell/aeson-pretty ~amd64
