@@ -1,0 +1,38 @@
+From 08eef833edc883dc59eea63b655245580f48bc87 Mon Sep 17 00:00:00 2001
+From: James Simmons <jsimmons@infradead.org>
+Date: Wed, 2 Jul 2025 09:14:20 -0400
+Subject: [PATCH] LU-17000 utils: handle_yaml_no_op() has wrong signature
+
+The liblnetconfig library uses struct lookup_cmd_hdlr_tbl
+as a function lookup table. Those callbacks have a specific
+prototype but handle_yaml_no_op() is not define that way.
+Newer compilers will fail due to this mismatch.
+
+Test-Parameters: trivial
+Change-Id: Ib62664538939fcbedca936afd2edb3e8c68a182f
+Signed-off-by: James Simmons <jsimmons@infradead.org>
+Reviewed-on: https://review.whamcloud.com/c/fs/lustre-release/+/60018
+Tested-by: jenkins <devops@whamcloud.com>
+Tested-by: Maloo <maloo@whamcloud.com>
+Reviewed-by: Timothy Day <timday@amazon.com>
+Reviewed-by: Arshad Hussain <arshad.hussain@aeoncomputing.com>
+Reviewed-by: Shaun Tancheff <shaun.tancheff@hpe.com>
+Reviewed-by: Oleg Drokin <green@whamcloud.com>
+---
+ lnet/utils/lnetconfig/liblnetconfig.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/lnet/utils/lnetconfig/liblnetconfig.c b/lnet/utils/lnetconfig/liblnetconfig.c
+index c6dbbb9502..05dc094af8 100644
+--- a/lnet/utils/lnetconfig/liblnetconfig.c
++++ b/lnet/utils/lnetconfig/liblnetconfig.c
+@@ -6269,7 +6269,8 @@ static int handle_yaml_discover(struct cYAML *tree, struct cYAML **show_rc,
+ 					show_rc, err_rc);
+ }
+ 
+-static int handle_yaml_no_op()
++static int handle_yaml_no_op(struct cYAML *tree, struct cYAML **show_rc,
++			     struct cYAML **err_rc)
+ {
+ 	return LUSTRE_CFG_RC_NO_ERR;
+ }
