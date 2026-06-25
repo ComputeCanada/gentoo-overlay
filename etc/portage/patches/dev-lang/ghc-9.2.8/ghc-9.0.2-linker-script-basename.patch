@@ -1,0 +1,19 @@
+--- ghc-9.0.2/rts/Linker.c.orig	2021-12-25 13:13:59.000000000 +0000
++++ ghc-9.0.2/rts/Linker.c	2023-07-17 14:12:52.563487560 +0000
+@@ -49,6 +49,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <stdio.h>
++#include <libgen.h>
+ #include <fs_rts.h>
+ 
+ #if defined(HAVE_SYS_STAT_H)
+@@ -728,7 +729,7 @@
+             IF_DEBUG(linker, debugBelch("match%s\n",""));
+             line[match[2].rm_eo] = '\0';
+             stgFree((void*)errmsg); // Free old message before creating new one
+-            errmsg = internal_dlopen(line+match[2].rm_so);
++            errmsg = internal_dlopen(basename(line+match[2].rm_so));
+             break;
+          }
+          // if control reaches here, no GROUP or INPUT ( ... ) directive
