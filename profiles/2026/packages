@@ -72,7 +72,6 @@ dev-db/libiodbc
 
 dev-debug/gdb
 dev-debug/strace
-dev-debug/systemtap
 
 dev-haskell/cabal-install
 
