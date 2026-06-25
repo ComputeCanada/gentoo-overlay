@@ -212,15 +212,15 @@ multilib_src_configure() {
 		--localstatedir="${EPREFIX}"/var
 		--runstatedir="${EPREFIX}"/run
 		--sbindir="${EPREFIX}"/usr/sbin
-		--with-pid-path="${EPREFIX}"/run/sssd
+		--with-pid-path="${EPREFIX}"/run
 		--with-plugin-path="${EPREFIX}"/usr/$(get_libdir)/sssd
 		--enable-pammoddir="${EPREFIX}"/$(getpam_mod_dir)
 		--with-ldb-lib-dir="${EPREFIX}"/usr/$(get_libdir)/samba/ldb
 		--with-db-path="${EPREFIX}"/var/lib/sss/db
 		--with-gpo-cache-path="${EPREFIX}"/var/lib/sss/gpo_cache
-		--with-pubconf-path==$(usex daemon "${EPREFIX}"/var/lib/sss/pubconf)
-		--with-pipe-path==$(usex daemon "${EPREFIX}"/var/lib/sss/pipes)
-		--with-mcache-path==$(usex daemon "${EPREFIX}"/var/lib/sss/mc)
+		--with-pubconf-path=$(usex daemon "${EPREFIX}"/var/lib/sss/pubconf /var/lib/sss/pubconf)
+		--with-pipe-path=$(usex daemon "${EPREFIX}"/var/lib/sss/pipes /var/lib/sss/pipes)
+		--with-mcache-path=$(usex daemon "${EPREFIX}"/var/lib/sss/mc /var/lib/sss/mc)
 		--with-secrets-db-path="${EPREFIX}"/var/lib/sss/secrets
 		--with-log-path="${EPREFIX}"/var/log/sssd
 		--with-xml-catalog-path="${EPREFIX}"/etc/xml/catalog
