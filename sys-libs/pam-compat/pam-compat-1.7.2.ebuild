@@ -162,5 +162,5 @@ multilib_src_configure() {
 }
 
 multilib_src_install() {
-	dolib.so libpam/.libs/libpam.so.0*
+	dolib.so libpam/libpam.so.0*
 }
