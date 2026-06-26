@@ -1,0 +1,10 @@
+--- AppStream-1.0.6/meson.build.orig	2026-06-26 01:37:19.616155698 +0000
++++ AppStream-1.0.6/meson.build	2026-06-26 12:02:04.794475457 +0000
+@@ -156,7 +156,6 @@
+ stemmer_inc_dirs = include_directories()
+ if get_option('stemming')
+     stemmer_lib = cc.find_library('stemmer', required: true)
+-    stemmer_inc_dirs = include_directories(['/usr/include'])
+     if not cc.has_header('libstemmer.h')
+         if cc.has_header('libstemmer/libstemmer.h')
+             stemmer_inc_dirs = include_directories('/usr/include/libstemmer')
