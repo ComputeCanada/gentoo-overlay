@@ -1,0 +1,11 @@
+src_configure() {
+	./configure \
+		--libdir="$(ocamlc -where)" \
+		--mandir=${EPREFIX}/usr/share/man \
+		--docdir=${EPREFIX}/usr/share/doc \
+		--etcdir=${EPREFIX}/etc \
+		--datadir=${EPREFIX}/usr/share \
+		--sbindir=${EPREFIX}/usr/sbin \
+		--bindir=${EPREFIX}/usr/bin \
+		|| die
+}
