@@ -1,0 +1,17 @@
+--- src/binutils-config.orig	2025-10-23 17:44:09.000000000 +0000
++++ src/binutils-config	2026-06-29 18:02:05.641327313 +0000
+@@ -204,6 +204,14 @@
+ 		einfo "binutils-config removed errorneous, leftover symlinks in ${EROOT}/usr/libexec/gcc/${HOST}"
+ 	fi
+ 
++	for x in ld* ; do
++		# CC CVMFS custom rpath wrapper for ld*, see comments in ld-wrapper.sh
++		atomic_ln "${EROOT}usr/bin/ld-wrapper.sh" "${ROOT}/${BINPATH_LINKS}" "${x}"
++	done
++	for x in lld mold ; do
++		# CC CVMFS custom rpath wrapper for ld.lld and ld.mold
++		atomic_ln "${EROOT}usr/bin/ld-wrapper.sh" "${EROOT}/usr/bin" "ld.${x}"
++	done
+ 	#
+ 	# Generate library / ldscripts symlinks
+ 	#

@@ -23,7 +23,7 @@ IUSE="+native-symlinks"
 # We also RDEPEND on sys-apps/findutils which is in base @system
 RDEPEND="sys-apps/gentoo-functions"
 
-PATCHES=( "${FILESDIR}"/${PN}-5.5-ld-wrapper.patch )
+PATCHES=( "${FILESDIR}"/${P}-ld-wrapper.patch )
 
 src_compile() {
 	emake PV="${PV}" USE_NATIVE_LINKS="$(usex native-symlinks)"
