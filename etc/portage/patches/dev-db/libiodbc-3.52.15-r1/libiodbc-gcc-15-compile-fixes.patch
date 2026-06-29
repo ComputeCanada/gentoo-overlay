@@ -1,0 +1,37 @@
+--- a/iodbc/dlproc.h
++++ b/iodbc/dlproc.h
+@@ -81,11 +81,7 @@
+ 
+ #include <dlf.h>
+ 
+-#if defined(_MAC) || defined (__cplusplus)
+ typedef SQLRETURN (* HPROC) (...);
+-#else
+-typedef SQLRETURN (* HPROC) ();
+-#endif
+ 
+ #ifdef	DLDAPI_SVR4_DLFCN
+ #include <dlfcn.h>
+--- a/iodbc/connect.c
++++ b/iodbc/connect.c
+@@ -86,0 +87,1 @@
++#include <time.h>
+--- a/include/iodbc.h
++++ b/include/iodbc.h
+@@ -101,7 +101,8 @@
+ 
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <string.h>
++#include <strings.h>
+ #include <sys/types.h>
+ 
+ #define MEM_ALLOC(size)	(malloc((size_t)(size)))
+--- a/include/iodbc.h
++++ b/include/iodbc.h
+@@ -101,0 +102,5 @@
++#ifndef _POSIX_C_SOURCE
++/* POSIX.1-2008 is required for strdup() */
++#define _POSIX_C_SOURCE 200809L
++#endif
++
