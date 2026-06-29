@@ -1,5 +1,5 @@
---- src/binutils-config.orig	2025-10-23 17:44:09.000000000 +0000
-+++ src/binutils-config	2026-06-29 18:02:05.641327313 +0000
+--- a/src/binutils-config	2025-10-23 17:44:09.000000000 +0000
++++ b/src/binutils-config	2026-06-29 18:02:05.641327313 +0000
 @@ -204,6 +204,14 @@
  		einfo "binutils-config removed errorneous, leftover symlinks in ${EROOT}/usr/libexec/gcc/${HOST}"
  	fi
