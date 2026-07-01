@@ -1,0 +1,3 @@
+post_src_prepare() {
+	sed -i "s@/usr/lib/debug@${EPREFIX}/usr/lib/debug@g" "$S/coregrind/m_debuginfo/readelf.c"
+}
