@@ -1,9 +1,9 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{9..11} )
+PYTHON_COMPAT=( python3_{11..14} )
 inherit autotools python-r1 s6 systemd tmpfiles multilib-minimal
 
 DESCRIPTION="NSS module for name lookups using LDAP"
@@ -12,10 +12,12 @@ SRC_URI="https://arthurdejong.org/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 x86"
-IUSE="debug kerberos +nslcd pam pynslcd sasl test +utils"
+KEYWORDS="~alpha amd64 arm ~hppa ~mips ~ppc ppc64 ~sparc x86"
+IUSE="debug kerberos +nslcd pam pynslcd sasl selinux test +utils"
 REQUIRED_USE="
+	${PYTHON_REQUIRED_USE}
 	utils? ( ${PYTHON_REQUIRED_USE} )
+	kerberos? ( sasl )
 	test? ( ${PYTHON_REQUIRED_USE} pynslcd )
 "
 RESTRICT="!test? ( test )"
@@ -32,6 +34,7 @@ RDEPEND="
 		dev-python/python-ldap[${PYTHON_USEDEP}]
 		dev-python/python-daemon[${PYTHON_USEDEP}]
 	)
+	elibc_musl? ( sys-libs/musl-nscd )
 	!sys-auth/nss_ldap
 	!sys-auth/pam_ldap
 "
@@ -40,6 +43,7 @@ BDEPEND="
 	${PYTHON_DEPS}
 	test? ( dev-python/pylint[${PYTHON_USEDEP}] )
 "
+RDEPEND+=" selinux? ( sec-policy/selinux-nslcd )"
 
 PATCHES=(
 	"${FILESDIR}"/nss-pam-ldapd-0.9.4-disable-py3-only-linters.patch
@@ -47,6 +51,9 @@ PATCHES=(
 	"${FILESDIR}"/nss-pam-ldapd-0.9.11-relative-imports.patch
 	"${FILESDIR}"/nss-pam-ldapd-0.9.11-tests.patch
 	"${FILESDIR}"/nss-pam-ldapd-0.9.11-tests-py39.patch
+	"${FILESDIR}"/nss-pam-ldapd-0.9.12-netdb-defines.patch
+	"${FILESDIR}"/nss-pam-ldapd-0.9.12-configure-CFLAGS-decontamination.patch
+	"${FILESDIR}"/nss-pam-ldapd-0.9.13-c23.patch
 )
 
 pkg_setup() {
@@ -58,6 +65,10 @@ src_prepare() {
 
 	touch pynslcd/__init__.py || die "Could not create __init__.py for pynslcd"
 	mv pynslcd/pynslcd.py pynslcd/main.py || die
+
+	find "${S}" -name Makefile.am -exec \
+		sed -e '/^AM_CFLAGS/ s/$/ \$(DEBUG_CFLAGS) \$(EXTRA_CFLAGS)/g' \
+			-i {} \; || die
 
 	eautoreconf
 }
