@@ -209,6 +209,7 @@ dev-haskell/yaml ~amd64
 dev-haskell/zip-archive ~amd64
 dev-haskell/zlib ~amd64
 dev-lang/ghc ~amd64
+dev-libs/libdwarf ~amd64
 dev-python/cppheaderparser ~amd64
 dev-python/fastbencode ~amd64
 dev-python/patiencediff ~amd64
