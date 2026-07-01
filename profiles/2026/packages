@@ -216,7 +216,7 @@ sys-fabric/opensm
 sys-fs/cryptsetup
 sys-fs/fuse
 sys-fs/fuse-overlayfs
-sys-fs/ncdu
+=sys-fs/ncdu-1.22
 sys-fs/squashfs-tools
 sys-fs/squashfuse
 
