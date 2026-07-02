@@ -1,18 +1,18 @@
-# Copyright 1999-2023 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
 inherit autotools flag-o-matic prefix
 
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
 
 SRC_URI="https://www.zsh.org/pub/${P}.tar.xz
 	https://www.zsh.org/pub/old/${P}.tar.xz
-	mirror://sourceforge/${PN}/${P}.tar.xz
+	https://downloads.sourceforge.net/${PN}/${P}.tar.xz
 	doc? (
 		https://www.zsh.org/pub/${P}-doc.tar.xz
-		mirror://sourceforge/${PN}/${P}-doc.tar.xz
+		https://downloads.sourceforge.net/${PN}/${P}-doc.tar.xz
 	)"
 
 DESCRIPTION="UNIX Shell similar to the Korn shell"
@@ -37,7 +37,7 @@ RDEPEND="
 	)
 "
 DEPEND="sys-apps/groff
-	valgrind? ( dev-util/valgrind )
+	valgrind? ( dev-debug/valgrind )
 	${RDEPEND}"
 PDEPEND="
 	examples? ( app-doc/zsh-lovers )
@@ -59,6 +59,9 @@ PATCHES=(
 	# bug #869539
 	"${FILESDIR}"/${PN}-5.9-clang-15-configure.patch
 	"${FILESDIR}"/${PN}-5.9-do-not-use-egrep-in-tests.patch
+	# bug #919001
+	"${FILESDIR}"/${PN}-5.9-c99.patch
+	"${FILESDIR}"/${PN}-5.9-relro.patch
 )
 
 src_prepare() {
@@ -171,7 +174,7 @@ src_install() {
 
 	insinto /etc/zsh
 	export PREFIX_QUOTE_CHAR='"' PREFIX_EXTRA_REGEX="/EUID/s,0,${EUID},"
-	newins "$(prefixify_ro "${FILESDIR}"/zprofile-4)" zprofile
+	newins "$(prefixify_ro "${FILESDIR}"/zprofile-6)" zprofile
 
 	keepdir /usr/share/zsh/site-functions
 	insinto /usr/share/zsh/${PV%_*}/functions/Prompts
