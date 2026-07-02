@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
 inherit autotools flag-o-matic multilib-minimal
 
@@ -11,7 +11,7 @@ SRC_URI="https://www.videolan.org/pub/videolan/${PN}/${PV}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~loong ~mips ppc ppc64 ~riscv sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~mips ppc ppc64 ~riscv ~sparc x86 ~x64-macos"
 IUSE="debug oss"
 
 DOCS=( AUTHORS ChangeLog NEWS README TODO doc/${PN}.txt )
@@ -20,10 +20,15 @@ PATCHES=(
 	"${FILESDIR}"/${PN}-0.0.5-cflags.patch
 	"${FILESDIR}"/${PN}-0.0.5-tests-optional.patch
 	"${FILESDIR}"/${PN}-0.0.7-slibtool.patch
+	"${FILESDIR}"/${PN}-0.0.7-rm_getopt.patch
 )
 
 src_prepare() {
 	default
+
+	# use getopt.h from glibc/musl, bug 945000
+	rm src/getopt.h || die
+
 	eautoreconf
 }
 
