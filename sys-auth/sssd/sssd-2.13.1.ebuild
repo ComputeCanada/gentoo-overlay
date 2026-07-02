@@ -224,7 +224,7 @@ multilib_src_configure() {
 		--with-secrets-db-path="${EPREFIX}"/var/lib/sss/secrets
 		--with-log-path="${EPREFIX}"/var/log/sssd
 		--with-xml-catalog-path="${EPREFIX}"/etc/xml/catalog
-		--with-tmpfilesdir=/usr/lib/tmpfiles.d
+		--with-tmpfilesdir="${EPREFIX}"/usr/lib/tmpfiles.d
 		--with-udevrulesdir="$(get_udevdir)/rules.d"
 		--with-kcm
 		--enable-kcm-renewal
@@ -233,6 +233,8 @@ multilib_src_configure() {
 		--disable-static
 		# Valgrind is only used for tests
 		--disable-valgrind
+		# daemon requires sys-libs/libcap
+		$(use_enable daemon linux-caps)
 		$(use_with samba)
 		--with-smb-idmap-interface-version=6
 		--enable-cifs-idmap-plugin
@@ -254,9 +256,12 @@ multilib_src_configure() {
 		$(multilib_native_use_with python python3-bindings)
 		# Annoyingly configure requires that you pick systemd XOR sysv
 		--with-initscript=$(usex systemd systemd sysv)
-		--with-sssd-user=sssd
 		KRB5_CONFIG="${ESYSROOT}"/usr/bin/krb5-config
 		CPPFLAGS="${CPPFLAGS} -I${ESYSROOT}/usr/include/samba-4.0"
+	)
+
+	use daemon && myconf+=(
+		--with-sssd-user=sssd
 	)
 
 	use systemd && myconf+=(
