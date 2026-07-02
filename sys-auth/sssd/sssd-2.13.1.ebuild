@@ -119,10 +119,10 @@ VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/sssd.asc
 CONFIG_CHECK="~KEYS"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-2.8.2-allow-client-build-without-pam.patch"
 	"${FILESDIR}/${PN}-2.8.2-krb5_pw_locked.patch"
 	"${FILESDIR}/${PN}-2.9.6-conditional-python-install.patch"
 	"${FILESDIR}/${PN}-2.10.0_beta2-fix-systemd-systemconfdir.patch"
+	"${FILESDIR}/${PN}-2.13.1-allow-client-build-without-pam.patch"
 )
 
 MULTILIB_WRAPPED_HEADERS=(

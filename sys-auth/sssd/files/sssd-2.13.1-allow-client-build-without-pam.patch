@@ -1,0 +1,95 @@
+--- sssd-2.13.1/src/external/pam.m4	2026-06-09 12:29:34.581213134 +0000
++++ sssd-2.13.1/src/external/pam.m4	2026-07-02 11:46:39.768567056 +0000
+@@ -4,8 +4,8 @@
+ AC_CHECK_HEADERS([security/pam_appl.h security/pam_modules.h],
+     [AC_CHECK_LIB([pam], [pam_get_item],
+         [PAM_LIBS="-lpam"],
+-        [AC_MSG_ERROR([PAM must support pam_get_item])])],
+-    [AC_MSG_ERROR([PAM development libraries not installed])]
++        [AC_MSG_WARN([PAM must support pam_get_item])])],
++    [AC_MSG_WARN([PAM development libraries not installed])]
+ )
+ 
+ AC_CHECK_HEADERS([security/pam_ext.h security/pam_modutil.h])
+--- sssd-2.13.1/src/krb5_plugin/sssd_krb5_locator_plugin.c	2026-06-09 12:29:34.583770860 +0000
++++ sssd-2.13.1/src/krb5_plugin/sssd_krb5_locator_plugin.c	2026-07-02 11:46:39.770567045 +0000
+@@ -33,10 +33,11 @@
+ #include <fcntl.h>
+ #include <ctype.h>
+ 
+-#include "util/sss_krb5.h"
++#include "util/atomic_io.h"
++#include "util/util_errors.h"
+ #include <krb5/locate_plugin.h>
+ 
+-#include "providers/krb5/krb5_common.h"
++#define TEST_PUBCONF_PATH PUBCONF_PATH
+ 
+ /* The following override of KDCINFO_TMPL and KPASSWDINFO_TMPL is not very
+  * elegant but since they are defined in krb5_common.h with the help of
+--- sssd-2.13.1/src/sss_client/common.c	2026-06-09 12:29:34.688207504 +0000
++++ sssd-2.13.1/src/sss_client/common.c	2026-07-02 12:05:32.356769489 +0000
+@@ -25,7 +25,9 @@
+ #include "config.h"
+ 
+ #include <nss.h>
++#ifdef HAVE_SECURITY_PAM_MODULES_H
+ #include <security/pam_modules.h>
++#endif
+ #include <errno.h>
+ #include <stdatomic.h>
+ #include <sys/types.h>
+@@ -1104,6 +1106,7 @@
+     return ESSS_SERVER_NOT_TRUSTED;
+ }
+ 
++#ifdef HAVE_SECURITY_PAM_MODULES_H
+ int sss_pam_make_request(enum sss_cli_command cmd,
+                       struct sss_cli_req_data *rd,
+                       uint8_t **repbuf, size_t *replen,
+@@ -1150,6 +1153,7 @@
+     sss_pam_unlock();
+     return ret;
+ }
++#endif
+ 
+ enum sss_status
+ sss_cli_make_request_with_checks(enum sss_cli_command cmd,
+--- sssd-2.13.1/src/sss_client/pam_sss.c	2026-06-09 12:29:34.689825167 +0000
++++ sssd-2.13.1/src/sss_client/pam_sss.c	2026-07-02 11:46:39.772567034 +0000
+@@ -73,6 +73,7 @@
+ #include "sss_cli.h"
+ #include "pam_message.h"
+ #include "util/atomic_io.h"
++#define PAM_SSS 1
+ #include "util/authtok-utils.h"
+ #include "util/dlinklist.h"
+ #include "util/memory_erase.h"
+--- sssd-2.13.1/src/util/authtok-utils.h	2026-06-09 12:29:34.734243067 +0000
++++ sssd-2.13.1/src/util/authtok-utils.h	2026-07-02 11:46:39.773567029 +0000
+@@ -20,7 +20,9 @@
+ #ifndef __AUTHTOK_UTILS_H__
+ #define __AUTHTOK_UTILS_H__
+ 
++#ifndef PAM_SSS
+ #include <talloc.h>
++#endif
+ 
+ #include "sss_client/sss_cli.h"
+ #include "sss_client/pam_message.h"
+@@ -84,6 +86,7 @@
+                                uint8_t *buf, size_t buf_len,
+                                size_t *_2fa_blob_len);
+ 
++#ifndef PAM_SSS
+ /**
+  * @brief Extract 2FA data from memory buffer
+  *
+@@ -133,6 +136,7 @@
+                                  char **module_name, size_t *_module_name_len,
+                                  char **key_id, size_t *_key_id_len,
+                                  char **label, size_t *_label_len);
++#endif /* PAM_SSS */
+ 
+ /**
+  * @brief Return a pointer to the PIN string in the memory buffer
