@@ -64,6 +64,7 @@ dev-cpp/gtkmm
 dev-cpp/highway
 dev-cpp/libxmlpp
 dev-cpp/nlohmann_json
+dev-cpp/xsd
 dev-cpp/yaml-cpp
 
 dev-build/bmake
@@ -101,8 +102,10 @@ dev-libs/xqilla
 
 dev-ml/opam
 
+dev-python/cppheaderparser
 dev-python/docutils
 dev-python/pycodestyle
+dev-python/pyelftools
 dev-python/websockify
 
 dev-ruby/gist
@@ -124,6 +127,7 @@ dev-util/vulkan-tools
 dev-vcs/breezy
 dev-vcs/cvs
 dev-vcs/darcs
+dev-vcs/git-lfs
 dev-vcs/mercurial
 dev-vcs/rcs
 dev-vcs/subversion
@@ -159,6 +163,7 @@ media-libs/sdl-image
 media-libs/sdl2-image
 media-libs/sdl2-mixer
 media-libs/sdl2-ttf
+media-libs/tiff-compat
 media-libs/vidstab
 media-libs/vips
 media-libs/vulkan-layers
@@ -170,6 +175,7 @@ net-analyzer/rrdtool
 net-analyzer/traceroute
 net-fs/sshfs
 net-ftp/lftp
+net-libs/libnsl-compat
 net-libs/mbedtls
 net-libs/rpcsvc-proto
 net-libs/zeromq
