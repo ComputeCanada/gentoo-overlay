@@ -1,7 +1,7 @@
-# Copyright 1999-2022 Gentoo Authors
+# Copyright 1999-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI="8"
 
 inherit flag-o-matic autotools prefix
 
@@ -10,14 +10,14 @@ CONFVER="1.10"
 DESCRIPTION="Enhanced version of the Berkeley C shell (csh)"
 HOMEPAGE="https://www.tcsh.org/"
 SRC_URI="
-	ftp://ftp.astron.com/pub/tcsh/${P}.tar.gz
-	ftp://ftp.astron.com/pub/tcsh/old/${P}.tar.gz
+	https://astron.com/pub/tcsh/${P}.tar.gz
+	https://astron.com/pub/tcsh/old/${P}.tar.gz
 	https://dev.gentoo.org/~grobian/distfiles/tcsh-gentoo-patches-r${CONFVER}.tar.xz"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~arm64-macos ~ppc-macos ~x64-macos ~x64-solaris"
-IUSE="nls doc"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
+IUSE="nls man"
 RESTRICT="test"
 
 # we need gettext because we run autoconf (AM_ICONV)
@@ -26,14 +26,11 @@ RDEPEND="
 	virtual/libcrypt:=
 	virtual/libiconv"
 DEPEND="${RDEPEND}
-	sys-devel/gettext
-	doc? ( dev-lang/perl )"
+	sys-devel/gettext"
 
 CONFDIR=${WORKDIR}/tcsh-gentoo-patches-r${CONFVER}
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-6.23.02-dircolors.patch # bug #120792
-	"${FILESDIR}"/${PN}-6.21.04-no-nls.patch
 	"${FILESDIR}"/${PN}-6.21.00-use-ncurses.patch
 )
 
@@ -68,9 +65,6 @@ src_prepare() {
 	#		-e 's/^#PREFIX//' -e '/^#MAIN/d' \
 	#		"${CONFDIR}"/csh.login || die
 	#fi
-	sed -i 's/\(source.*csh.env\)/#\1/' "${CONFDIR}"/csh.login || die
-
-	eapply_user
 }
 
 src_configure() {
@@ -96,12 +90,12 @@ src_configure() {
 src_install() {
 	emake DESTDIR="${D}" install install.man
 
-	DOCS=( FAQ Fixes NewThings Ported README.md WishList Y2K )
-	if use doc ; then
-		perl tcsh.man2html tcsh.man || die
-		HTML_DOCS=( tcsh.html/*.html )
-	fi
+	DOCS=( FAQ Fixes Ported README.md WishList Y2K )
 	einstalldocs
+
+	if ! use man ; then
+		rm -Rf "${ED}"/usr/share/man
+	fi
 
 	insinto /etc
 	doins \
