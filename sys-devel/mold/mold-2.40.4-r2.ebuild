@@ -56,7 +56,7 @@ src_prepare() {
 	# do this before running cmake_src_prepare to avoid warnings
 	# being picked up by tinderbox etc. (#964723)
 	# we keep rust-demangle for now as this isn't packaged in gentoo
-	rm -rf third-party/{blake3,mimalloc,tbb,xxhash,zlib,zstd} || die
+	rm -rf third-party/{blake3,mimalloc,xxhash,zlib,zstd} || die
 
 	cmake_src_prepare
 
