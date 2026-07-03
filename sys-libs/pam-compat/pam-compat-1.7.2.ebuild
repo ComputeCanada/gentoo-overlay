@@ -42,7 +42,6 @@ REQUIRED_USE="?? ( elogind systemd )"
 # meson.build specifically checks for bison and then byacc
 # also requires xsltproc
 BDEPEND+="
-	acct-group/shadow
 	|| ( sys-devel/bison dev-util/byacc )
 	app-text/docbook-xsl-ns-stylesheets
 	dev-libs/libxslt
@@ -64,9 +63,7 @@ DEPEND="
 		>=net-libs/libtirpc-0.2.4-r2:=[${MULTILIB_USEDEP}]
 	)
 "
-RDEPEND="${DEPEND}
-	acct-group/shadow
-"
+RDEPEND="${DEPEND}"
 
 src_prepare() {
 	default
