@@ -1,3 +1,0 @@
-post_src_prepare() {
-	sed -i "s@/usr/lib@${EPREFIX}/usr/lib@" "$S/meson.build"
-}

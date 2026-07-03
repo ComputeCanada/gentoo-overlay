@@ -1,3 +1,0 @@
-pre_src_compile() {
-	export XDG_DATA_DIRS=${EPREFIX}/usr/share
-}
