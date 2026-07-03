@@ -88,7 +88,7 @@ RDEPEND="${DEPEND}
 		acct-group/sssd )
 	selinux? ( >=sec-policy/selinux-sssd-2.20120725-r9 )"
 DEPEND+="
-	sys-apps/shadow"
+	daemon? ( sys-apps/shadow )"
 BDEPEND="
 	daemon? ( acct-user/sssd
 		acct-group/sssd )
