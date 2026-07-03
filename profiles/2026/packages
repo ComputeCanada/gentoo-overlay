@@ -3,6 +3,7 @@ app-arch/p7zip
 app-arch/pbzip2
 app-arch/pigz
 app-arch/pxz
+app-arch/rpm2targz
 app-arch/sharutils
 app-arch/upx
 app-arch/zip
