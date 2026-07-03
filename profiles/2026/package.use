@@ -8,6 +8,8 @@ app-text/texlive cjk context extra games humanities music tex4ht xetex
 app-text/texlive-core cjk xetex
 app-text/xmlto text
 
+dev-build/cmake -gui
+
 dev-lang/ghc -doc
 dev-lang/ruby -rdoc
 
@@ -18,7 +20,6 @@ dev-libs/nss utils
 
 dev-python/pillow -truetype
 
-dev-util/cmake -emacs
 dev-util/desktop-file-utils -emacs
 dev-util/perf -libtracefs slang
 
