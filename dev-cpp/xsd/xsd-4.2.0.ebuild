@@ -28,7 +28,7 @@ RDEPEND="
 	>=dev-libs/xerces-c-3.0.0
 	>=dev-cpp/libcutl-1.11.0_beta9:=
 	>=dev-cpp/libxsd-frontend-2.1.0_beta2:=
-	zlib? ( sys-libs/zlib )
+	zlib? ( virtual/zlib:= )
 "
 DEPEND="
 	${RDEPEND}
