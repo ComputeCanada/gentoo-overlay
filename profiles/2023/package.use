@@ -20,6 +20,8 @@ dev-util/cmake -emacs
 dev-util/desktop-file-utils -emacs
 dev-util/perf slang
 
+dev-vcs/git tk
+
 media-gfx/graphviz gts
 
 media-libs/imlib2 heif
