@@ -97,7 +97,7 @@ src_configure() {
 		--with-lua_include="$(lua_get_include_dir)"
 		--with-lua="${LUA}"
 		--with-luac="${LUAC}"
-		--with-module-root-path="${EPREFIX}/etc/modulefiles"
+		--with-module-root-path="/cvmfs/soft.computecanada.ca/easybuild/modules"
 		--with-spiderCacheDir="${EPREFIX}/etc/lmod_cache/spider_cache"
 		--with-updateSystemFn="${EPREFIX}/etc/lmod_cache/system.txt"
 		--prefix="${EPREFIX}/usr/share/Lmod"
