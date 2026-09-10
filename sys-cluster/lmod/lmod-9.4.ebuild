@@ -98,8 +98,6 @@ src_configure() {
 		--with-lua="${LUA}"
 		--with-luac="${LUAC}"
 		--with-module-root-path="/cvmfs/soft.computecanada.ca/easybuild/modules"
-		--with-spiderCacheDir="${EPREFIX}/etc/lmod_cache/spider_cache"
-		--with-updateSystemFn="${EPREFIX}/etc/lmod_cache/system.txt"
 		--prefix="${EPREFIX}/usr/share/Lmod"
 		--with-caseIndependentSorting
 		--without-hiddenItalic
