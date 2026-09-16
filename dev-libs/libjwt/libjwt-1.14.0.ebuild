@@ -42,10 +42,6 @@ DEPEND="
 	test? ( dev-libs/check )
 "
 
-PATCHES=(
-	"${FILESDIR}/libjwt-1.15.3_multi_ssl_atools.patch"
-)
-
 src_prepare() {
 	default
 	eautoreconf
@@ -53,10 +49,7 @@ src_prepare() {
 
 src_configure() {
 	local myeconfargs=(
-		--enable-multi-ssl
-		$(use_with gnutls)
 		$(use_with openssl)
-		--with-default-ssl=$(usex openssl openssl gnutls)
 	)
 
 	econf "${myeconfargs[@]}"
