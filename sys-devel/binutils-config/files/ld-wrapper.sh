@@ -218,4 +218,7 @@ if [ -n "$RSNT_DEBUG" ]; then
 fi
 
 PATH="$path_backup"
+if [ "$LD" == "lld" ]; then
+  exec -a ld.$LD $LD ${extraBefore[@]} "${params[@]}" ${extra[@]}
+fi
 exec $LD ${extraBefore[@]} "${params[@]}" ${extra[@]}
