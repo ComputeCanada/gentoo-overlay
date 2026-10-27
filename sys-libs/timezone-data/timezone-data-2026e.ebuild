@@ -1,20 +1,22 @@
-# Copyright 1999-2025 Gentoo Authors
+# Copyright 1999-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
 
-inherit toolchain-funcs flag-o-matic unpacker
+VERIFY_SIG_OPENPGP_KEY_PATH=/usr/share/openpgp-keys/pauleggert.asc
+inherit toolchain-funcs flag-o-matic unpacker verify-sig
 
 DESCRIPTION="Timezone data (/usr/share/zoneinfo) and utilities (tzselect/zic/zdump)"
 HOMEPAGE="https://www.iana.org/time-zones"
 SRC_URI="
 	https://data.iana.org/time-zones/releases/tzdb-${PV}.tar.lz
+	verify-sig? ( https://data.iana.org/time-zones/releases/tzdb-${PV}.tar.lz.asc )
 "
 S="${WORKDIR}"/tzdb-${PV}
 
 LICENSE="BSD public-domain"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~loong ~m68k ~mips ~ppc ~ppc64 ~riscv ~s390 ~sparc ~x86 ~arm64-macos ~x64-macos ~x64-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~loong ~m68k ~mips ppc ppc64 ~riscv ~s390 ~sparc x86 ~arm64-macos ~x64-macos ~x64-solaris"
 IUSE="nls leaps-timezone zic-slim"
 
 DEPEND="nls? ( virtual/libintl )"
@@ -22,7 +24,15 @@ RDEPEND="
 	${DEPEND}
 	!sys-libs/glibc[vanilla(+)]
 "
-BDEPEND="$(unpacker_src_uri_depends)"
+BDEPEND="
+	$(unpacker_src_uri_depends)
+	verify-sig? ( sec-keys/openpgp-keys-pauleggert )
+"
+
+src_unpack() {
+	use verify-sig && verify-sig_src_unpack
+	unpacker tzdb-${PV}.tar.lz
+}
 
 src_prepare() {
 	default
